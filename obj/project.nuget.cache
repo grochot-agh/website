@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CIe8IqAoHNTzryJXuiymnaUZOdnry7HxkqW5J/AkUpLZ7i+BsOdNUzf+tJWAWDnveQp6r63mXgMM3TJWk4X4lw==",
+  "dgSpecHash": "YUNKjOZ+e7nvfMSwZKD/FrIkZrtFgovwdpbCBaHmrrLvU7sukc7WC3JiN+536tqDosC246im6A4dZOB7RynOMg==",
   "success": true,
-  "projectFilePath": "d:\\JPAI\\website\\website.csproj",
+  "projectFilePath": "D:\\JPAI\\website\\website.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\janic\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\janic\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

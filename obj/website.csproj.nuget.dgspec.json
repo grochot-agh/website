@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\JPAI\\website\\website.csproj": {}
+    "D:\\JPAI\\website\\website.csproj": {}
   },
   "projects": {
-    "d:\\JPAI\\website\\website.csproj": {
+    "D:\\JPAI\\website\\website.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\JPAI\\website\\website.csproj",
+        "projectUniqueName": "D:\\JPAI\\website\\website.csproj",
         "projectName": "website",
-        "projectPath": "d:\\JPAI\\website\\website.csproj",
+        "projectPath": "D:\\JPAI\\website\\website.csproj",
         "packagesPath": "C:\\Users\\janic\\.nuget\\packages\\",
-        "outputPath": "d:\\JPAI\\website\\obj\\",
+        "outputPath": "D:\\JPAI\\website\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\janic\\AppData\\Roaming\\NuGet\\NuGet.Config"
