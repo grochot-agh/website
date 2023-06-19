@@ -49,6 +49,7 @@ namespace website.Services.SockService
             sock.Name = request.Name;
             sock.Color = request.Color;
             sock.Maretial = request.Maretial;
+            sock.Price =request.Price;
 
             await _context.SaveChangesAsync();
             return await _context.Socks.ToListAsync();

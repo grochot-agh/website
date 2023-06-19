@@ -1,124 +1,76 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using website;
-using website.Models;
+using website.Services.UserService;
 
-// namespace website.Controllers
-// {
-//     [Route("api/[controller]")]
-//     [ApiController]
-//     public class UserController : ControllerBase
-//     {
-//         private readonly DataContext _context;
+namespace website.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
+    {
+        private readonly IUserService _userService;
 
-//         public UserController(DataContext context)
-//         {
-//             _context = context;
-//         }
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
 
-//         // GET: api/User
-//         [HttpGet]
-//         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-//         {
-//           if (_context.Users == null)
-//           {
-//               return NotFound();
-//           }
-//             return await _context.Users.ToListAsync();
-//         }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<User>>> GetUsers()
+        {
+            var result = await _userService.GetUsers();
+           if (result == null)
+           {
+              return NotFound("Users not found :c");
+           }
+            return Ok(result);
+        }
 
-//         // GET: api/User/5
-//         [HttpGet("{id}")]
-//         public async Task<ActionResult<User>> GetUser(int id)
-//         {
-//           if (_context.Users == null)
-//           {
-//               return NotFound();
-//           }
-//             var user = await _context.Users.FindAsync(id);
+    
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
+        {
+            var result = await _userService.GetUser(id);
+            
+            if (result == null)
+            {
+                return NotFound("User not found :c");
+            }
 
-//             if (user == null)
-//             {
-//                 return NotFound();
-//             }
+            return Ok(result);
+        }
 
-//             return user;
-//         }
+        
+        [HttpPut("{id}")]
+        public async Task<ActionResult<List<User>>> PutUser(int id, User user)
+        {
+            var result = await _userService.PutUser(id, user);
+            if (result == null)
+            {
+                return NotFound("User with that id not found");
+            }
+            return Ok(result);
+        }
 
-//         // PUT: api/User/5
-//         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-//         [HttpPut("{id}")]
-//         public async Task<IActionResult> PutUser(int id, User user)
-//         {
-//             if (id != user.Id)
-//             {
-//                 return BadRequest();
-//             }
+        
+        [HttpPost]
+        public async Task<ActionResult<List<User>>> PostUser(User user)
+        {
+            var result = await _userService.PostUser(user);
+            return Ok(result);
+        }
 
-//             _context.Entry(user).State = EntityState.Modified;
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<User>>> DeleteUser(int id)
+        {
+            var result = await _userService.DeleteUser(id);
+            if (result ==null)   
+            {
+                return NotFound("User with that id not found");
+            }
+            return Ok(result);
+        }
 
-//             try
-//             {
-//                 await _context.SaveChangesAsync();
-//             }
-//             catch (DbUpdateConcurrencyException)
-//             {
-//                 if (!UserExists(id))
-//                 {
-//                     return NotFound();
-//                 }
-//                 else
-//                 {
-//                     throw;
-//                 }
-//             }
-
-//             return NoContent();
-//         }
-
-//         // POST: api/User
-//         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-//         [HttpPost]
-//         public async Task<ActionResult<User>> PostUser(User user)
-//         {
-//           if (_context.Users == null)
-//           {
-//               return Problem("Entity set 'UserContext.Users'  is null.");
-//           }
-//             _context.Users.Add(user);
-//             await _context.SaveChangesAsync();
-
-//             return CreatedAtAction("GetUser", new { id = user.Id }, user);
-//         }
-
-//         // DELETE: api/User/5
-//         [HttpDelete("{id}")]
-//         public async Task<IActionResult> DeleteUser(int id)
-//         {
-//             if (_context.Users == null)
-//             {
-//                 return NotFound();
-//             }
-//             var user = await _context.Users.FindAsync(id);
-//             if (user == null)
-//             {
-//                 return NotFound();
-//             }
-
-//             _context.Users.Remove(user);
-//             await _context.SaveChangesAsync();
-
-//             return NoContent();
-//         }
-
-//         private bool UserExists(int id)
-//         {
-//             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
-//         }
-//     }
-// }
+        
+    }
+}
