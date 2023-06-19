@@ -13,104 +13,63 @@ namespace website.Controllers
             _sockService = sockService;
         }
 
-        // GET: api/Sock
-        // [HttpGet]
-        // public async Task<ActionResult<IEnumerable<Sock>>> GetSocks()
-        // {
-        //   if (_context.Socks == null)
-        //   {
-        //       return NotFound();
-        //   }
-        //     return await _context.Socks.ToListAsync();
-        // }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<Sock>>> GetSocks()
+        {
+            var result = await _sockService.GetSocks();
+           if (result == null)
+           {
+              return NotFound("Socks not found :c");
+           }
+            return Ok(result);
+        }
 
-        // // GET: api/Sock/5
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<Sock>> GetSock(int id)
-        // {
-        //   if (_context.Socks == null)
-        //   {
-        //       return NotFound();
-        //   }
-        //     var sock = await _context.Socks.FindAsync(id);
+    
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Sock>> GetSock(int id)
+        {
+            var result = await _sockService.GetSock(id);
+            
+            if (result == null)
+            {
+                return NotFound("Sock not found :c");
+            }
 
-        //     if (sock == null)
-        //     {
-        //         return NotFound();
-        //     }
+            return Ok(result);
+        }
 
-        //     return sock;
-        // }
+        
+        [HttpPut("{id}")]
+        public async Task<ActionResult<List<Sock>>> PutSock(int id, Sock sock)
+        {
+            var result = await _sockService.PutSock(id, sock);
+            if (result == null)
+            {
+                return NotFound("Sock with that id not found");
+            }
+            return Ok(result);
+        }
 
-        // // PUT: api/Sock/5
-        // // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> PutSock(int id, Sock sock)
-        // {
-        //     if (id != sock.Id)
-        //     {
-        //         return BadRequest();
-        //     }
+        
+        [HttpPost]
+        public async Task<ActionResult<List<Sock>>> PostSock(Sock sock)
+        {
+            var result = await _sockService.PostSock(sock);
+            return Ok(result);
+        }
 
-        //     _context.Entry(sock).State = EntityState.Modified;
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<Sock>>> DeleteSock(int id)
+        {
+            var result = await _sockService.DeleteSock(id);
+            if (result ==null)   
+            {
+                return NotFound("Sock with that id not found");
+            }
+            return Ok(result);
+        }
 
-        //     try
-        //     {
-        //         await _context.SaveChangesAsync();
-        //     }
-        //     catch (DbUpdateConcurrencyException)
-        //     {
-        //         if (!SockExists(id))
-        //         {
-        //             return NotFound();
-        //         }
-        //         else
-        //         {
-        //             throw;
-        //         }
-        //     }
-
-        //     return NoContent();
-        // }
-
-        // // POST: api/Sock
-        // // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        // [HttpPost]
-        // public async Task<ActionResult<Sock>> PostSock(Sock sock)
-        // {
-        //   if (_context.Socks == null)
-        //   {
-        //       return Problem("Entity set 'SockContext.Socks'  is null.");
-        //   }
-        //     _context.Socks.Add(sock);
-        //     await _context.SaveChangesAsync();
-
-        //     return CreatedAtAction("GetSock", new { id = sock.Id }, sock);
-        // }
-
-        // // DELETE: api/Sock/5
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> DeleteSock(int id)
-        // {
-        //     if (_context.Socks == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     var sock = await _context.Socks.FindAsync(id);
-        //     if (sock == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     _context.Socks.Remove(sock);
-        //     await _context.SaveChangesAsync();
-
-        //     return NoContent();
-        // }
-
-        // private bool SockExists(int id)
-        // {
-        //     return (_context.Socks?.Any(e => e.Id == id)).GetValueOrDefault();
-        // }
+        
     }
 }
