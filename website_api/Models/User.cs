@@ -1,4 +1,4 @@
-namespace website;
+namespace website.Models;
 //prykładowy model
 public class User
 {

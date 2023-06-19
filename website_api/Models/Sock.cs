@@ -1,4 +1,4 @@
-namespace website;
+namespace website.Models;
 public class Sock
 {
     public int Id { get; set; }

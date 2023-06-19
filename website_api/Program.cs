@@ -1,5 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using website.Models;
+global using Microsoft.EntityFrameworkCore;
+global using website.Models;
+global using website.Data;
+global using website.Services.SockService;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<UserContext>(opt =>
+builder.Services.AddDbContext<DataContext>(opt =>
     opt.UseInMemoryDatabase("UserList"));
-    builder.Services.AddDbContext<SockContext>(opt =>
+    builder.Services.AddDbContext<DataContext>(opt =>
     opt.UseInMemoryDatabase("SockList"));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
