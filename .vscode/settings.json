@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "website.sln"
+    "dotnet.defaultSolution": "website.sln",
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ]
 }
