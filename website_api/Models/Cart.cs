@@ -2,7 +2,7 @@ namespace website.Models;
 public class Cart
 {
     public int Id { get; set; }
-    public List<Sock>? Socks { get; set; } = null;
+    public List<CartSocks> Socks { get; set; } = new List<CartSocks>();//cos nie tak
     public int Sum { get; set; }
     
 }

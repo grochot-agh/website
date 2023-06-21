@@ -10,7 +10,7 @@ public class User
     public string? Password { get; set; }
     
     public string? Email { get; set; }
-    public Cart? UserCart { get; set; } 
+    public int CartId { get; set; }
 
     
 }

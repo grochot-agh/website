@@ -12,5 +12,6 @@ namespace website.Data
         public DbSet<Sock> Socks => Set<Sock>();
         public DbSet<User> Users => Set<User>();
         public DbSet<Cart> Carts => Set<Cart>();
+        public DbSet<CartSocks> CartSocks=> Set<CartSocks>();
     }
 }

@@ -4,6 +4,7 @@ global using website.Data;
 global using website.Services.SockService;
 global using website.Services.UserService;
 global using website.Services.CartService;
+global using website.Services.CartDTOService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISockService, SockService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<ICartDTOService, CartDTOService>();
 
 var app = builder.Build();
 

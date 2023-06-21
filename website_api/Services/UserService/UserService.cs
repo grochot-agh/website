@@ -4,9 +4,13 @@ namespace website.Services.UserService
     public class UserService : IUserService
     {
         private readonly DataContext _context;
-        public UserService(DataContext context)
+        private readonly ICartService _cartService;
+        private readonly ICartDTOService _cartDTOService;
+        public UserService(DataContext context,ICartService cartService, ICartDTOService cartDTOService)
         {
             _context = context;
+            _cartService = cartService;
+            _cartDTOService = cartDTOService;
         }
 
        public async Task<List<User>?> GetUsers()
@@ -42,6 +46,7 @@ namespace website.Services.UserService
             }
 
             user.Name = request.Name;
+            user.Surname=request.Surname;
             user.Email = request.Email;
             user.Password = request.Password;
             user.Email=request.Email;
@@ -55,9 +60,10 @@ namespace website.Services.UserService
         public async Task<List<User>?> PostUser(User user)
         {   
             Cart cart = new();
+            await _cartService.PostCart(cart);
+            user.CartId=cart.Id;
             _context.Users.Add(user);
-            user.UserCart = cart;
-            
+           
             await _context.SaveChangesAsync();
             return await _context.Users.ToListAsync();
         }
@@ -68,10 +74,14 @@ namespace website.Services.UserService
             {
                 return null;
             }
+            var cartid = user.CartId;
 
             _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+            await _cartService.DeleteCart(cartid);
+            await _cartDTOService.DeleteAllFromCart(cartid);
 
+            await _context.SaveChangesAsync();
+            
             return await _context.Users.ToListAsync();
         }
     }

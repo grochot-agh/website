@@ -3,19 +3,22 @@ namespace website.Services.CartService
     public class CartService : ICartService
     {
         private readonly DataContext _context;
-        public CartService(DataContext context)
+        private readonly ICartDTOService _cartDTOService;
+        public CartService(DataContext context, ICartDTOService cartDTOService)
         {
             _context = context;
+            _cartDTOService = cartDTOService;
         }
 
         public async Task<Cart?> GetCart(int id)
         {
             var cart = await _context.Carts.FindAsync(id);
-            
-            if(cart==null)
+            if (cart == null)
             {
                 return null;
             }
+            await _cartDTOService.GetSocksFromUserCart(cart.Id);
+            await _context.SaveChangesAsync();
 
             return cart;
         }
