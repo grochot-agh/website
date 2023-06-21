@@ -1,0 +1,54 @@
+SOCKS NAMES&DETAILS (name, color, material, price)
+
+ANKLE
+
+A1 - PlayWithUs, blue, silk, 12
+A2 - NotSoLong, brown, cotton, 14
+A3 - Ohlives, green, linen, 15
+A4 - TreeAnimal, green, wool, 12
+A5 - ShockoCitron, yellow, cotton, 10
+A6 - FlAmigos, blue, linen, 18
+A7 - SummerInTown, blue, wool, 16
+A8 - YummyGummy, pink, cotton, 14
+A9 - PigeOnTree, black, linen, 20
+A10 - Coffcourse, black, cotton, 18
+
+CREW
+
+C1 - Hedgehog, green, cotton, 17
+C2 - WinThis, orange, wool, 20
+C3 - WaterMelody, red, linen, 15
+C4 - DailyRoutine, pink, cotton, 16
+C5 - OhBaby, blue, cotton, 19
+C6 - GameOver, gray, wool, 18
+C7 - Dogger, gray, linen, 20
+C8 - Voila, gray, wool, 19
+C9 - Nightmare, black, cotton, 20
+C10 - P&a, gray, silk, 20
+
+
+KNEEHIGH
+
+KH1 - MyPlaylist, pink, linen, 23
+KH2 - CinemaSnack, black, cotton, 25
+KH3 - BaskON,green, linen, 25
+KH4 - Beeest, yellow, cotton, 27
+KH5 - AngryTiger, yellow, wool, 29
+KH6 - LookUp, orange, cotton, 26
+KH7 - WhereAmI, brown, linen, 27
+KH8 - ColdON, blue, wool, 24
+KH9 - SwimHere, blue, silk, 22
+KH10 - WinterON, blue, wool, 25
+
+THIGHHIGH
+
+TH1 - Blackers, black, cotton, 33
+TH2 - LamaMama, blue, wool, 36
+TH3 - DinoRAR, black, linen, 34
+TH4 - DinoPlace, violet, silk, 37
+TH5 - SingWithUs, white, wool, 39
+TH6 - OceanTouch, black, linen, 40
+TH7 - ColStripes, blue, cotton, 34
+TH8 - WannaRide, blue, silk, 39
+TH9 - CatEye, black, wool, 38
+TH10 - InForest, orange, linen, 33
