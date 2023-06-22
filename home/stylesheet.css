@@ -85,10 +85,11 @@ h1 {
 }
 .image-menu{
     display: none;
+    cursor: pointer;
+    padding-right: 30px;
+    opacity: 0.68;
 }
-.dropdown{
-    
-}
+
 .menu.footer-link {
     float: right;
     margin-top: -30px;
@@ -137,6 +138,9 @@ h1 {
 
 .container1 { 
     height: 70px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
 }
 
 .image-logo{
@@ -144,6 +148,33 @@ h1 {
     padding-top: 10px;
     padding-right: 250px;
 }
+.menu-container{
+    position: right;
+}
+.menu-list{
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    margin-right: 50px;
+    background-color: #333;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.37);
+    list-style: none;
+    z-index: 5;
+
+}
+.menu-list li {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.menu-list a{
+    text-decoration: none;
+    color: #e0d6d6;
+    padding: 30px;
+}
+
 .image-1 { 
     margin-top: 5%;
     margin-left: 8%;
@@ -216,6 +247,7 @@ h1 {
         font-size: 30px;
         line-height: 38px;
         color: brown;
+        z-index: 0;
     }
     .header-section { 
         padding-top: 110px; 
@@ -268,6 +300,15 @@ h1 {
     .menu.footer-link{
         display: block;
     }   
+    .menu.contact {
+        background-color: rgba(255, 255, 255, 0.188);
+        margin-left: 6px;
+        font-size: 15px;
+        line-height: 15px;
+        padding: 10px;
+        padding-right: 60px;
+        padding-left: 25px;
+    }
     
 } 
 

@@ -5,12 +5,12 @@
 
 <script type="text/javascript">
     $(function() {
-        $('.drop').mouseenter(function() {
-            $('.dropdown').show(300);
+        $('.drop').click(function() {
+            $('.dropdown').show(200);
         });
-        // $('.drop').mouseleave(function() {
-        //     $('.dropdown').hide(300);     
-        // });
+        $('.menu-list').mouseleave(function() {
+            $('.dropdown').hide(200);     
+        });
     });
 </script>
 
@@ -19,15 +19,18 @@
     <div class="header-section">
         <div class="nav"> 
             <div class="container1">
-                <!-- lack of one "div" - still thinking if it needs to be changed -->
                 <nav role="navigation">
                     <img src="images/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" class="image-logo">
-                    <a href="/" aria-current="page" class="menu current dropdown">Home</a> 
-                    <a href="/about" class="menu dropdown">About US</a>
-                    <a href="/products" class="menu dropdown">PRODUCTS</a>
-                    <a href="/cart" class="menu dropdown">CART</a>
-                    <a href="/logIn" class="menu contact dropdown">LOG IN</a>
-                    <img src="images/menu.jpg" alt="Menu" style="width:75px;height:75px;" class="image-menu drop">
+                    <div class="menu-container">
+                        <img src="images/menu.jpg" alt="Menu" style="width:70px;height:70px;" class="image-menu drop">
+                        <ul class="menu-list dropdown">
+                            <li><a href="/" aria-current="page" class="menu current dropdown">Home</a></li> 
+                            <li><a href="/about" class="menu dropdown">About US</a></li>
+                            <li><a href="/products" class="menu dropdown">PRODUCTS</a></li>
+                            <li><a href="/cart" class="menu dropdown">CART</a></li>
+                            <li><a href="/logIn" class="menu contact dropdown">LOG IN</a></li>
+                        </ul>
+                    </div> 
                 </nav>      
         </div>
     </div>
