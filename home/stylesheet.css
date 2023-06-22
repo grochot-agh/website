@@ -167,6 +167,8 @@ h1 {
 .menu-list li {
     margin-bottom: 5px;
     padding: 5px;
+    border: 1px solid #011605;
+    border-radius: 5px;
 }
 
 .menu-list a{
@@ -302,14 +304,15 @@ h1 {
     }   
     .menu.contact {
         background-color: rgba(255, 255, 255, 0.188);
-        margin-left: 6px;
+        margin-left: 4px;
         font-size: 15px;
+        text-align: center;
         line-height: 15px;
-        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 6px;
         padding-right: 60px;
         padding-left: 25px;
-    }
-    
+    }   
 } 
 
 @media screen and (max-width: 767px) {
