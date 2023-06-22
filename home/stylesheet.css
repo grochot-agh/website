@@ -1,5 +1,5 @@
 body {
-    font-family: Lato, sans-serif;
+    font-family: Verdana, sans-serif;
     color: #333;
     font-size: 14px;
     line-height: 20px;
@@ -18,22 +18,16 @@ h1 {
     font-weight: 300;
     line-height: 45px;
     position: relative;
-}
-
-a:hover {
-    color: #000;
+    padding-bottom: 50px;
 }
 
 .header-section {
     background-image: url('images/background.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
-    /* background-position: top center; */
     background-size:contain;
     background-repeat: no-repeat;
-    /* background-position: 50%; */
-    padding-top: 250px; 
-    /* padding-bottom: 0;  */
+    padding-top: 200px; 
     position: relative; 
 }
 
@@ -51,7 +45,6 @@ a:hover {
 .logo-text {
     color: #011605;
     text-align: left;
-    background-color: rgba(0, 0, 0, 0);
     margin-top: 3px;
     position: relative;
     left: auto;
@@ -72,11 +65,14 @@ a:hover {
     text-transform: uppercase;
     font-size: 15px;
     transition: opacity .35s;
+    padding-left: 30px;
+    text-decoration: none;  
 }
 
 .menu:hover, .menu.current {
     opacity: 1;
     color: #fff;
+    text-decoration: underline;
 }
 
 .menu.contact {
@@ -91,21 +87,26 @@ a:hover {
 
 .menu.footer-link {
     float: right;
-    margin-top: 0;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    margin-right: 50px;
     padding: 15px;
     text-decoration: none;
 }
 .section.main-section{
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 80px;
 }
 .section.main-section.home-page { 
     padding-top: 22px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .container2 {
     background-color: rgba(43, 178, 113, 0.822); 
     padding: 25px; 
+    padding-top: 40px;
     position: relative; 
     top: -70px;
 }
@@ -135,11 +136,13 @@ a:hover {
 }
 
 .image-logo{
-    padding-left: 0;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-right: 250px;
 }
 .image-1 { 
     margin-top: 30px;
-    margin-left: 80px;
+    margin-left: 70px;
     margin-bottom: 30px;
 }
 .image-2 {
@@ -151,7 +154,7 @@ a:hover {
 .image-3 {
     margin-top: 30px;
     margin-bottom: 30px; 
-    margin-left: 80px;
+    margin-left: 70px;
 }  
 .image-4 { 
     margin-top: 30px;
