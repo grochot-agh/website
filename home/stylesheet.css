@@ -25,7 +25,7 @@ h1 {
     background-image: url('images/background.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     padding-top: 200px; 
     position: relative; 
@@ -49,10 +49,9 @@ h1 {
     position: relative;
     left: auto;
     right: -45px;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 300;
     line-height: 30px;
-    filter: blur(1px);
     /* ? */
     text-align: left;
     font-weight: 400;
@@ -84,7 +83,12 @@ h1 {
     font-size: 15px;
     line-height: 18px;
 }
-
+.image-menu{
+    display: none;
+}
+.dropdown{
+    
+}
 .menu.footer-link {
     float: right;
     margin-top: -30px;
@@ -141,25 +145,25 @@ h1 {
     padding-right: 250px;
 }
 .image-1 { 
-    margin-top: 30px;
-    margin-left: 70px;
-    margin-bottom: 30px;
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-bottom: 5%;
 }
 .image-2 {
-    margin-top: 30px; 
-    margin-left: 83px;
-    margin-bottom: 30px;
+    margin-top: 5%; 
+    margin-left: 9%;
+    margin-bottom: 5%;
     padding-right: 0;
 }
 .image-3 {
     margin-top: 30px;
-    margin-bottom: 30px; 
-    margin-left: 70px;
+    margin-bottom: 5%; 
+    margin-left: 8%;
 }  
 .image-4 { 
     margin-top: 30px;
-    margin-bottom: 30px; 
-    margin-left: 52px;
+    margin-bottom: 5%; 
+    margin-left: 6%;
     padding-left: 10px;
 }
 
@@ -192,12 +196,27 @@ h1 {
     padding: 20px;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 1750px){
+    h1{
+        color: rgb(188, 18, 165);
+    }
+}
+@media screen and (max-width: 1750px){
+    h1{
+        color: rgb(73, 29, 114);
+    }
+}
+@media screen and (max-width: 1300px){
+    h1{
+        color: rgb(237, 233, 240);
+    }
+}
+@media screen and (max-width: 1180px) {
     h1 {
         font-size: 30px;
         line-height: 38px;
+        color: brown;
     }
-
     .header-section { 
         padding-top: 110px; 
         padding-left: 114px; 
@@ -206,10 +225,7 @@ h1 {
     .nav {
         padding-top: 10px;
     }
-    .menu.contact { 
-        background-color: rgba(255, 255, 255, 0); 
-        margin-bottom: 11px;
-    }
+
     .section.main-section{
         padding-bottom: 0;
     }
@@ -222,12 +238,44 @@ h1 {
         bottom: 22px; 
         left: 22px;
     }
+
+    .container2 {
+        background-color: rgba(43, 178, 113, 0.822); 
+        padding: 25px; 
+        padding-top: 30px;
+        position: relative; 
+        top: -70px;
+        padding-left: 0;
+        padding-right: 10px;
+    }
+
+    .image-1 { 
+        margin-top: 5%;
+        margin-left: 8%;
+        margin-bottom: 5%;
+    }
+    .image-menu{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 35px;
+        margin-right: 20px;
+    }
+    .menu{
+        display: none;
+    }
+    .menu.footer-link{
+        display: block;
+    }   
+    
 } 
 
 @media screen and (max-width: 767px) {
     h1 {
         font-size: 30px;
         line-height: 41px;
+        color: aqua;
     }
 
     .header-section { 
@@ -271,42 +319,5 @@ h1 {
     }
     .form-wrapper { 
         width: 80%;
-    }
-}
-    
-@media screen and (max-width: 479px) { 
-    h1 {
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, .38);
-    font-size: 24px;
-    line-height: 32px;
-    }
-    .header-section { 
-        padding-left: 10px; 
-        padding-right: 10px;
-    }
-    .logo-text { 
-        font-size: 26px;
-    }
-    .menu.footer-link { 
-        font-size: 13px; 
-        display: block;
-    }
-    .menu.footer-link.contact { 
-        padding: 9px;
-        font-size: 13px;
-    }
-    .section { 
-        padding-top: 40px; 
-        padding-bottom: 40px;
-    }
-    .tile-text {
-        font-size: 35px;
-        line-height: 35px;
-        bottom: 30px;
-        left: 30px;
-    }
-    .heading {
-        font-size: 45px;
-        line-height: 50px;
     }
 }
