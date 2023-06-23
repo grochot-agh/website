@@ -7,7 +7,7 @@ body {
 
 h1 {
     z-index: 10;
-    color: #ffffffc0;
+    color: #ffffff;
     text-align: center;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -18,7 +18,22 @@ h1 {
     font-weight: 300;
     line-height: 45px;
     position: relative;
-    padding-bottom: 50px;
+    padding-bottom: 50px;  
+    text-shadow: 0.1em 0.1em 0.2em black;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 2s ease-in-out forwards;  
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .header-section {
@@ -109,7 +124,8 @@ h1 {
 }
 
 .container2 {
-    background-color: rgba(43, 178, 113, 0.822); 
+    background-color: rgba(122, 232, 179, 0.822);
+    border-style:groove;
     padding: 25px; 
     padding-top: 40px;
     position: relative; 
@@ -125,6 +141,7 @@ h1 {
     bottom: 0%;
     left: 0%;
     right: 0%;
+    border-style: solid;
 }
 
 .heading {
@@ -133,7 +150,6 @@ h1 {
     font-size: 55px;
     line-height: 60px;
     margin-bottom: 30px;
-    
 }
 
 .container1 { 
@@ -147,6 +163,7 @@ h1 {
     padding-left: 50px;
     padding-top: 10px;
     padding-right: 250px;
+    opacity: 0.98;
 }
 .menu-container{
     position: right;
@@ -243,6 +260,7 @@ h1 {
     h1{
         color: rgb(237, 233, 240);
     }
+    
 }
 @media screen and (max-width: 1180px) {
     h1 {
