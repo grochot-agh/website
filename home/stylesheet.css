@@ -160,12 +160,15 @@ h1 {
     /* align-items: center; */
     justify-content: space-between;
 }
+.container1 a{
+    margin-right: 10px;
+}
 
 .image-logo{
     padding-left: 50px;
     padding-top: 10px;
     padding-right: 250px;
-    opacity: 0.98;
+    opacity: 0.96;
 }
 .menu-container{
     position: right;
@@ -248,22 +251,56 @@ h1 {
     padding: 20px;
 }
 
-@media screen and (min-width: 1750px){
-    h1{
-        color: rgb(188, 18, 165);
+
+@media screen and (min-width: 1950px){
+    .container1 a, .menu.contact, .footer-link {
+        font-size: 20px;
+    }
+    .logo-text{
+        font-size: 30px;
+    }
+    .image-logo{
+        margin-right: 500px;
     }
 }
-@media screen and (min-width: 1750px){
-    h1{
-        color: rgb(73, 29, 114);
-    }
-}
-@media screen and (max-width: 1300px){
-    h1{
-        color: rgb(237, 233, 240);
-    }
     
+@media screen and (min-width: 1450px){
+    .heading{
+        font-size: 70px;
+    }
+    .container2 img{
+        height: auto;
+        width: 600px;
+        margin-top: auto;
+        margin-top: 40px;
+    }
+    .image-1{
+        margin-bottom: 280px ;
+    }
+    .header-section { 
+        padding-left: 114px; 
+        padding-right: 114px;
+        padding-top: 200px; 
+    } 
+    .nav{
+        padding: 60px;
+        margin-left: 100px;
+    }
+    .italic-text {
+        direction: ltr;
+        text-align: left;
+        font-size: 90px;
+        line-height: 100px;
+        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
+        background-color: rgba(0, 0, 0, 0.58);
+        text-decoration: none;
+        display: flex;
+        padding: 40px;
+        margin-bottom: 350px;
+        margin-left: 200px;
+    }
 }
+
 @media screen and (max-width: 1180px) {
     .header-section { 
         padding-left: 114px; 
