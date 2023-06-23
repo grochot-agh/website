@@ -18,6 +18,22 @@ h1 {
     font-weight: 300;
     line-height: 45px;
     position: relative;
+    padding-bottom: 50px;  
+    text-shadow: 0.1em 0.1em 0.2em black;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 2s ease-in-out forwards;  
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 a {
@@ -37,7 +53,7 @@ a:hover {
     background-position: 0 0;
     background-size:contain;
     background-repeat: no-repeat;
-    padding-top: 250px; 
+    padding-top: 200px; 
     position: relative; 
 }
 
@@ -55,7 +71,6 @@ a:hover {
 .logo-text {
     color: #011605;
     text-align: left;
-    background-color: rgba(0, 0, 0, 0);
     margin-top: 3px;
     position: relative;
     left: auto;
@@ -93,6 +108,12 @@ a:hover {
     font-size: 15px;
     line-height: 18px;
 }
+.image-menu{
+    display: none;
+    cursor: pointer;
+    padding-right: 30px;
+    opacity: 0.68;
+}
 
 .menu.footer-link {
     float: right;
@@ -107,9 +128,11 @@ a:hover {
     padding-bottom: 80px;
 }
 .section.main-section.home-page { 
-    padding-top: 22px;
+    padding-top: 20px;
     padding-left: 50px;
-    padding-right: 50px;}
+    padding-right: 50px;
+    padding-bottom: 150px;
+}
 
 .container2 {
     background-color: rgba(86, 101, 94, 0.822); 
@@ -119,6 +142,7 @@ a:hover {
     position: relative; 
     top: -70px;
     text-align: justify;
+    border-style: groove;
 }
 
 .footer-section { 
@@ -130,6 +154,7 @@ a:hover {
     bottom: 0%;
     left: 0%;
     right: 0%;
+    border-style: solid;
 }
 
 .heading {
@@ -138,30 +163,21 @@ a:hover {
     font-size: 55px;
     line-height: 60px;
     margin-bottom: 15%;
-    
 }
 
 .container1 { 
     height: 70px;
+    display: flex;    
+    justify-content: space-between;
 }
 
 .image-logo {
     padding-left: 50px;
     padding-top: 10px;
     padding-right: 250px;
+    opacity: 0.98;
 }
-.image-1 { 
-    margin-top: 30px;
-    margin-left: 70px;
-    margin-bottom: 30px;
-    padding-right: 0;
-}
-.image-2 {
-    margin-top: 30px; 
-    margin-left: 83px;
-    margin-bottom: 30px;
-    padding-right: 0;
-}
+
 
 .tile-text {
     z-index: 20;
@@ -192,10 +208,40 @@ a:hover {
     padding: 20px;
 }
 
-@media screen and (max-width: 991px) {
+.menu-container{
+    position: right;
+}
+.menu-list{
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    margin-right: 50px;
+    background-color: #333;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.37);
+    list-style: none;
+    z-index: 5;
+
+}
+.menu-list li {
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #011605;
+    border-radius: 5px;
+}
+
+.menu-list a{
+    text-decoration: none;
+    color: #e0d6d6;
+    padding: 30px;
+}
+
+@media screen and (max-width: 1180px) {
     h1 {
         font-size: 30px;
         line-height: 38px;
+        z-index: 0;
     }
 
     .header-section { 
@@ -208,19 +254,39 @@ a:hover {
     }
     .menu.contact { 
         background-color: rgba(255, 255, 255, 0); 
-        margin-bottom: 11px;
+        margin-left: 4px;
+        font-size: 15px;
+        text-align: center;
+        line-height: 15px;
+        padding-top: 5px;
+        padding-bottom: 6px;
+        padding-right: 60px;
+        padding-left: 25px;
     }
     .section.main-section{
         padding-bottom: 0;
     }
     .menu.footer-link { 
-        margin-top: 9px;
+        display: block;
+
     }
     .tile-text { 
         font-size: 36px;
         line-height: 33px; 
         bottom: 22px; 
         left: 22px;
+    }
+    
+    .image-menu{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 35px;
+        margin-right: 20px;
+    }
+    .menu{
+        display: none;
     }
 } 
 
@@ -257,8 +323,7 @@ a:hover {
         padding-right: 5px;
     }
     .container2 {
-        padding: 5px 0;
-        top: auto;
+        padding: 10px;
     }
     .tile-text {
         font-size: 23px;
@@ -274,7 +339,7 @@ a:hover {
     }
 }
     
-@media screen and (max-width: 479px) { 
+/*@media screen and (max-width: 479px) { 
     h1 {
     text-shadow: 1px 1px 6px rgba(0, 0, 0, .38);
     font-size: 24px;
@@ -310,30 +375,10 @@ a:hover {
         line-height: 50px;
     }
 
-}
+}*/
 
 p {
     margin-bottom: 10px;
     font-size: 18px;
     line-height: 25px;
 }
-/*@media screen and (min-width: 985px) {
-    .container2{
-        margin-top: -70px;
-    }
-    .header-section {
-        background-size:cover;
-        margin-right: -10px;
-        margin-left: -10px;
-    }
-    .footer-section { 
-        position: bottom;
-        margin-bottom: -54px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-    .form-wrapper { 
-        width: 80%;
-    }
-}*/
