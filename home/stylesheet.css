@@ -151,6 +151,7 @@ h1 {
     font-size: 55px;
     line-height: 60px;
     margin-bottom: 30px;
+    z-index: 0;
 }
 
 .container1 { 
@@ -287,20 +288,12 @@ h1 {
         font-size: 36px;
         line-height: 50px; 
         margin: 8%;
-        margin-bottom: 120%;
-        
-    }
-    .container2 {
-        background-color: rgba(43, 178, 113, 0.822); 
-        padding: 25px; 
-        padding-top: 30px;
-        position: relative; 
-        top: -70px;
-        padding-left: 0;
-        padding-right: 10px;
-    }
-    .image-1, .image-2, .image-3{ 
-        margin-left: 12%;   
+        margin-bottom: 120%;      
+    } 
+    .image-1, .image-2, .image-3, .image-4{ 
+        margin-left: 12%; 
+        width: 440px;
+        height: auto;  
     }
     .image-4{
         margin-left: 10%;
@@ -339,24 +332,23 @@ h1 {
 @media screen and (max-width: 962px) {
     h1 {
         font-size: 30px;
-        line-height: 41px;
-        color: aqua;
     }
-
     .header-section { 
-        /* background-size: cover; */
-        padding-bottom: 60px; 
+        padding-bottom: 80px; 
         padding-left: 46px; 
         padding-right: 46px;
     }
     .logo-text {
         margin-bottom: 19px;
     }
+    .menu.footer-link{
+        margin-left: 80px;
+    }
     .menu.contact {
         margin-top: 0;
         margin-bottom: 0;
-        margin-left: 0;
-        padding: 20px;
+        margin-left: 400px;
+        padding: 10px;
     }
     .menu.footer-link, .menu.footer-link.contact {
         float: none;
@@ -373,16 +365,13 @@ h1 {
         padding: 5px 0;
         top: auto;
     }
-    .tile-text {
-        font-size: 23px;
-        line-height: 29px;
-        bottom: 14px;
-        left: 17px;
-    }
     .footer-link-col { 
         text-align: center;
     }
     .form-wrapper { 
         width: 80%;
+    }
+    .container2 img {
+        margin-left: 8%;
     }
 }
