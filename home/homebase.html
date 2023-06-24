@@ -13,6 +13,12 @@
             $('.dropdown').hide(300);
         }       
     });
+    function showContact(){
+        document.getElementById('contactWindow').style.display = 'block';
+    }
+    function hideContact(){
+        document.getElementById('contactWindow').style.display = 'none';
+    }
 </script>
 
 <title>SOCKS BOX - Home</title>
@@ -56,8 +62,19 @@
     </div>
     <div class="footer-section">
         <div class="logo-text">&copySOCKS BOX 2023</div>
-        <a href="#" class="menu footer-link contact">Contact</a>
+        <a href="#" class="menu footer-link contact" onclick="showContact()">Contact</a>
         <a href="/policy" class="menu footer-link">Privacy policy</a>
+        </div>
+        <div id="contactWindow">
+            <button class="close-button" onclick="hideContact()">X</button>
+
+            <h2>If you have any questions contact us!</h2>
+            <p>You can write to us on facebook, instagram or even snapchat :D</p>
+            <b>@SocksBoxSocialMedia</b>
+            <p>If you prefer emails: <b>socksbox@email.com</b></p>
+            <br> 
+            <p>You can also call us at <b>100-200-300</b></p>
+            <p>We make sure to check new messages as quick as we can :D</p>
         </div>
     </div>
 </body>

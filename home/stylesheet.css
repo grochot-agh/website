@@ -251,6 +251,23 @@ h1 {
     padding: 20px;
 }
 
+#contactWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #7b8899;
+    border: 1px solid #030000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+.close-button{
+    float: right;
+}
 
 @media screen and (min-width: 1950px){
     .container1 a, .menu.contact, .footer-link {
@@ -302,6 +319,7 @@ h1 {
 }
 
 @media screen and (max-width: 1180px) {
+    
     .header-section { 
         padding-left: 114px; 
         padding-right: 114px;
@@ -364,6 +382,9 @@ h1 {
         padding-right: 60px;
         padding-left: 25px;
     } 
+    .footer-section{
+    
+    }
 } 
 
 @media screen and (max-width: 962px) {
@@ -381,9 +402,8 @@ h1 {
     .menu.footer-link{
         margin-left: 80px;
     }
-    
     .menu.footer-link, .menu.footer-link.contact {
-        float: none;
+        float: right;
     }
     .section {
         padding-left: 20px;
@@ -405,5 +425,8 @@ h1 {
     }
     .container2 img {
         margin-left: 8%;
+    }
+    #contactWindow{
+        padding: 30px;
     }
 }
