@@ -227,9 +227,9 @@ a:hover {
 .menu-list{
     display: none;
     position: absolute;
-    top: calc(105% );
+    top: calc(105%);
     right: 28px;
-    margin-right: 50px;
+    margin-right: 22px;
     background-color: #333;
     padding: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.37);
