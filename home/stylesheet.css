@@ -292,7 +292,7 @@ h1 {
         margin-top: 40px;
     }
     .image-1{
-        margin-bottom: 280px ;
+        margin-bottom: 240px ;
     }
     .header-section { 
         padding-left: 114px; 
@@ -319,7 +319,7 @@ h1 {
 }
 
 @media screen and (max-width: 1180px) {
-    
+
     .header-section { 
         padding-left: 114px; 
         padding-right: 114px;
@@ -344,10 +344,10 @@ h1 {
         line-height: 50px; 
         margin: 8%;
         margin-bottom: 120%;      
-    } 
+       } 
     .image-1, .image-2, .image-3, .image-4{ 
         margin-left: 12%; 
-        width: 440px;
+        width: 85%;
         height: auto;  
     }
     .image-4{
@@ -396,6 +396,20 @@ h1 {
         padding-left: 46px; 
         padding-right: 46px;
     }
+    .italic-text {
+        direction: ltr;
+        text-align: left;
+        font-size: 26px;
+        line-height: 50px;
+        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
+        background-color: rgba(0, 0, 0, 0.58);
+        text-decoration: none;
+        display: flex;
+        padding: 10px;
+        margin-bottom: 30px;
+        margin-left: 0px;
+        margin-right: 20px;
+    }
     .logo-text {
         margin-bottom: 19px;
     }
@@ -428,5 +442,22 @@ h1 {
     }
     #contactWindow{
         padding: 30px;
+    }
+}
+
+@media screen and (max-width: 602px){
+    .italic-text {
+        direction: ltr;
+        text-align: left;
+        font-size: 26px;
+        line-height: 50px;
+        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
+        background-color: rgba(0, 0, 0, 0.58);
+        text-decoration: none;
+        display: flex;
+        padding: 10px;
+        margin-bottom: 30px;
+        margin-left: 0px;
+        margin-right: 40px;
     }
 }
