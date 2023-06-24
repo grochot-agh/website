@@ -4,13 +4,14 @@
 <link rel="stylesheet" href="stylesheet.css">
 
 <script type="text/javascript">
-    $(function() {
-        $('.drop').click(function() {
-            $('.dropdown').show(200);
-        });
-        $('.menu-list').mouseleave(function() {
-            $('.dropdown').hide(200);     
-        });
+    $(window).resize(function() {
+        if ($(window).width() <= 1180){
+            $('.drop').click(function() {
+                $('.dropdown').toggle();
+            });
+        } else{
+            $('.dropdown').hide(300);
+        }       
     });
 </script>
 

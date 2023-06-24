@@ -176,8 +176,8 @@ h1 {
 .menu-list{
     display: none;
     position: absolute;
-    top: calc(100% + 5px);
-    right: 0;
+    top: calc(100% + 32px);
+    right: 28px;
     margin-right: 50px;
     background-color: #333;
     padding: 10px;
@@ -381,12 +381,7 @@ h1 {
     .menu.footer-link{
         margin-left: 80px;
     }
-    .menu.contact {
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: 400px;
-        padding: 10px;
-    }
+    
     .menu.footer-link, .menu.footer-link.contact {
         float: none;
     }
