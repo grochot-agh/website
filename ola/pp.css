@@ -340,7 +340,7 @@ a:hover {
     }
     .menu.footer-link.menu.current{
         display: block;
-        float:inline-end;
+        float:left;
     }
     .menu.footer-link.contact {
         display: block;
@@ -400,4 +400,19 @@ p {
 
 .close-button{
     float: right;
+}
+@media screen and (max-width: 550px) {
+    .menu.footer-link.menu.current{
+        margin-top: 0.1px;
+        display: block;
+        float:left;
+        font-size: 15px;
+    }
+    .menu.footer-link.contact {
+        display: block;
+        margin-top: 0.1px;
+        float:left;
+        font-size: 15px;
+
+    }
 }

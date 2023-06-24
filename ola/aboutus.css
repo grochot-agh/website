@@ -96,24 +96,22 @@ a:hover {
 .menu {
     opacity: .6;
     color: #fff;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 20px;
     transition: opacity .35s;
-    padding-left: 30px;
+    padding-left: 60px;
     text-decoration: none;
 }
 
-.menu.contact { 
-    background-color: rgba(255, 255, 255, 0.188); 
-    margin-left: auto;
-    font-size: 15px;
-    text-align: center;
-    line-height: 15px;
-    padding-top: 5px;
-    padding-bottom: 6px;
-    padding-right: 60px;
-    padding-left: 25px;
+.menu.contact {
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 2px;
+    margin-top: 9px;
+    margin-left: 80px;
+    padding: 15px;
+    font-size: 20px;
+    line-height: 18px;
 }
 .menu:hover, .menu.current {
     opacity: 1;
@@ -250,7 +248,15 @@ a:hover {
     color: #e0d6d6;
     padding: 30px;
 }
-
+@media screen and (max-width: 1480px) {
+    .menu {
+        padding-left: 10px;
+    }
+    
+    .menu.contact {
+        margin-left: 10px;
+    }
+}
 @media screen and (max-width: 1180px) {
     h1 {
         font-size: 30px;
@@ -301,22 +307,17 @@ a:hover {
         display: none;
     }
 
-    .menu.footer-link, .menu.footer-link.contact {
-        display: block;    
+    .menu.footer-link.menu.current{
+        display: block;
+        float:inline-end;
+    }
+    .menu.footer-link.contact {
+        display: block;
+        float:right;
+        
     }
 
-    .menu.contact { 
-        background-color: rgba(255, 255, 255, 0.188); 
-        margin-left: 4px;
-        font-size: 15px;
-        text-align: center;
-        line-height: 15px;
-        padding-top: 5px;
-        padding-bottom: 6px;
-        padding-right: 60px;
-        padding-left: 25px;
-    }
-    
+
     .section {
         padding-left: 20px;
         padding-right: 20px;
@@ -363,26 +364,27 @@ a:hover {
         margin-right: 20px;
     }
 
-    .menu.contact {
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: 0;
-        background-color: rgba(255, 255, 255, 0.188); 
-        font-size: 15px;
-        text-align: center;
-        line-height: 15px;
-        padding-top: 5px;
-        padding-bottom: 6px;
-        padding-right: 60px;
-        padding-left: 25px;    
+    .menu.footer-link.menu.current{
+        display: block;
+        float:inline-end;
     }
-
+    .menu.footer-link.contact {
+        display: block;
+        
+        float:right;
+        
+    }
     .menu {
         display: none;
     }
 
     .menu.footer-link, .menu.footer-link.contact {
         display: block;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        padding: 5px;
+        text-decoration: none;
     }
 
     .section {
@@ -448,4 +450,19 @@ p {
 
 .close-button{
     float: right;
+}
+@media screen and (max-width: 550px) {
+    .menu.footer-link.menu.current{
+        margin-top: 0.1px;
+        display: block;
+        float:left;
+        font-size: 15px;
+    }
+    .menu.footer-link.contact {
+        display: block;
+        margin-top: 0.1px;
+        float:left;
+        font-size: 15px;
+
+    }
 }
