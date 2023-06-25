@@ -116,14 +116,12 @@ h1 {
     text-decoration: none;
 }
 .section.main-section{
-    padding-top: 0;
-    padding-bottom: 80px;
-}
-.section.main-section.home-page { 
     padding-top: 22px;
     padding-left: 50px;
     padding-right: 50px;
+    padding-bottom: 80px;
 }
+
 
 .container2 {
     background-color: rgba(122, 232, 179, 0.822);
@@ -205,6 +203,8 @@ h1 {
     margin-left: 8%;
     margin-bottom: 5%;
     width: 45%;
+    height: auto;
+
 }
 .image-2 {
     margin-top: 5%; 
@@ -212,6 +212,8 @@ h1 {
     margin-bottom: 5%;
     padding-right: 0;
     width: 30%;
+    height: auto;
+
 
 }
 .image-3 {
@@ -219,6 +221,8 @@ h1 {
     margin-bottom: 5%; 
     margin-left: 8%;
     width: 32%;
+    height: auto;
+
 }  
 .image-4 { 
     margin-top: 30px;
@@ -226,6 +230,7 @@ h1 {
     margin-left: 6%;
     padding-left: 10px;
     width: 45%;
+    height: auto;
 
 }
 
@@ -239,9 +244,9 @@ h1 {
     margin-left: 202px;
     padding-bottom: 0;
     padding-left: 66px; 
-    font-size: 70px;
+    font-size: 5vw;
     font-weight: 900; 
-    line-height: 70px;
+    line-height: 5vw;
     position: absolute;
     bottom: 24px;
     left: 25px;
@@ -255,7 +260,12 @@ h1 {
     background-color: rgba(0, 0, 0, 0.58);
     text-decoration: none;
     display: flex;
-    padding: 20px;
+    padding: 10%;
+    margin-bottom: 10vw;
+    margin-left: 40%;
+    float: left;
+
+
 }
 
 #contactWindow {
@@ -276,30 +286,27 @@ h1 {
     float: right;
 }
 
-@media screen and (min-width: 1950px){
-    .container1 a, .menu.contact, .footer-link {
-        font-size: 20px;
-    }
-    .logo-text{
-        font-size: 30px;
-    }
-    .image-logo{
-        margin-right: 500px;
-    }
-}
+
     
-@media screen and (min-width: 1450px){
+@media screen and (min-width: 1700px){
     .heading{
         font-size: 70px;
     }
     .container2 img{
         height: auto;
         width: 40%;
-        margin-top: auto;
         margin-top: 40px;
     }
     .image-1{
-        margin-bottom: 240px ;
+        margin-bottom: 18% ;
+        margin-left: 6%;
+        margin-right: -33px;
+    }
+    .image-2{
+        padding-right: 20px;
+    }
+    .image-3{
+        margin-left: 6%;
     }
     .header-section { 
         padding-left: 114px; 
@@ -311,18 +318,10 @@ h1 {
         margin-left: 100px;
     }
     .italic-text {
-        direction: ltr;
-        text-align: left;
         float: left;
-        font-size: 90px;
-        line-height: 100px;
-        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
-        background-color: rgba(0, 0, 0, 0.58);
-        text-decoration: none;
-        display: flex;
         padding: 40px;
         margin-bottom: 350px;
-        margin-left: 10%;
+        margin-left: 20%;
     }
 }
 
@@ -355,26 +354,19 @@ h1 {
         margin-bottom: 120%;      
        } 
     .image-1, .image-2, .image-3, .image-4{ 
-        margin-left: 12%; 
+        margin-left: 8%; 
         width: 85%;
         height: auto;  
     }
     .italic-text {
-        direction: ltr;
-        text-align: left;
-        float: left;
-        font-size: 60px;
-        line-height: 100px;
-        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
-        background-color: rgba(0, 0, 0, 0.58);
-        text-decoration: none;
-        display: flex;
-        margin-bottom: 350px;
-        margin-left: 10%;
+        font-size: 4vw;
+        line-height: 4vw;
+        margin-bottom: 255%;
+        margin-left: 20%;
     }
 
     .image-4{
-        margin-left: 10%;
+        margin-left: 6%;
     }
     .image-logo{
         padding-top: 40px;
@@ -405,9 +397,7 @@ h1 {
         padding-right: 60px;
         padding-left: 25px;
     } 
-    .footer-section{
-    
-    }
+
 } 
 
 @media screen and (max-width: 962px) {
@@ -420,26 +410,21 @@ h1 {
         padding-right: 46px;
     }
     .italic-text {
-        direction: ltr;
-        text-align: left;
         float: left;
-        font-size: 60px;
-        line-height: 100px;
-        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
-        background-color: rgba(0, 0, 0, 0.58);
-        text-decoration: none;
-        display: flex;
-        margin-bottom: 350px;
-        margin-left: 10%;
+        font-size: 6vw;
+        line-height: 7vw;
+        margin-bottom: 200%;
+        margin-left: -20%;
     }
 
     .logo-text {
         margin-bottom: 19px;
     }
     .menu.footer-link{
-        margin-left: 80px;
+        float:inline-end;
+        margin-top:3%;
     }
-    .menu.footer-link, .menu.footer-link.contact {
+   .menu.footer-link.contact {
         float: right;
     }
     .section {
@@ -453,6 +438,7 @@ h1 {
     .container2 {
         padding: 5px 0;
         top: auto;
+        margin-top: -10%;
     }
     .footer-link-col { 
         text-align: center;
@@ -466,20 +452,40 @@ h1 {
     #contactWindow{
         padding: 30px;
     }
+
 }
 
-@media screen and (max-width: 602px){
+@media screen and (max-width: 702px){
     .italic-text {
-        direction: ltr;
-        text-align: left;
         float: left;
-        font-size: 40px;
-        line-height: 100px;
-        text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
-        background-color: rgba(0, 0, 0, 0.58);
-        text-decoration: none;
-        display: flex;
-        margin-bottom: 350px;
-        margin-left: 10%;
+        font-size: 6vw;
+        line-height: 8vw;
+        letter-spacing: normal;
+        margin-bottom: 280%;
+        margin-left: -10%;
     }
+    .container2{
+        margin-top: -15%;
+        margin-left: -20%;
+        margin-right: -20%;
+
+    }
+
+}
+@media screen and (max-width: 550px){
+    .italic-text {
+        float: left;
+        font-size: 6vw;
+        line-height: 8vw;
+        letter-spacing: normal;
+        margin-bottom: 250%;
+        margin-left: -15%;
+    }
+    .container2{
+        margin-top: -30%;
+        margin-left: -20%;
+        margin-right: -20%;
+
+    }
+
 }
