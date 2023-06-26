@@ -6,20 +6,66 @@ namespace website.Services.CartDTOService
     public class CartDTOService : ICartDTOService
     {
         private readonly DataContext _context;
+        private readonly ISockService _sockService;
         
-         public CartDTOService(DataContext context)
+         public CartDTOService(DataContext context, ISockService sockService)
         {
             _context = context;
+            _sockService = sockService;
         
         }
 
 
+        public async Task<List<Sock>?> GetSocks(int id)
+        {
 
+            var cartSockAssignments= await GetSocksFromUserCart(id); //update model :))
+            
+            var cart = await _context.Carts.FindAsync(id);
+            var allsocks = await _sockService.GetSocks();
+           
+
+
+            if (cartSockAssignments == null || cart ==null || allsocks == null)
+            {
+                return null;
+            }
+             var cartsocks = cartSockAssignments.ToList();
+             var allsockscopy = allsocks.ToList();
+
+            var socks = cart.Socks;
+            socks.Clear();
+            foreach(CartSocks cs in cartsocks)
+            {
+                Sock? sock = null;
+                for(int i=0; i<allsockscopy.Count; i++)
+                {
+                    
+                    if (allsockscopy[i].Id == cs.SockId)
+                    {
+                        sock = allsockscopy[i];
+                        break;
+                    }
+                }
+                
+                if (sock == null)
+                {
+                    return null;
+                }
+                socks.Add(sock);   
+            }
+            await _context.SaveChangesAsync();
+
+            return socks;
+        }
 
         public async Task<List<CartSocks>?> GetSocksFromUserCart(int id)
         {
             
             var cartSocks = _context.CartSocks.Where(cs => cs.CartId == id).ToList();
+
+       
+            
             await _context.SaveChangesAsync();
 
             return cartSocks;
@@ -46,6 +92,13 @@ namespace website.Services.CartDTOService
                 CartId = cartid,
                 SockId = socki
             };
+        var cart = await _context.Carts.FindAsync(cartid);
+        if (cart==null)
+        {
+            return null;
+        }
+        cart.Sum += sock.Price;
+
         _context.CartSocks.Add(cartSocks);
         await _context.SaveChangesAsync();
         return cartSocks;
@@ -57,12 +110,14 @@ namespace website.Services.CartDTOService
             {
                 return null;
             }
+
             var cartSocks = await GetSocksFromUserCart(cartid);
             if(cartSocks==null)
             {
                 return null;
             }
             _context.CartSocks.RemoveRange(cartSocks);
+            cart.Sum = 0;
             
            
 
@@ -82,7 +137,12 @@ namespace website.Services.CartDTOService
             {
                 return null;
             }
-
+            var sock = await _context.Socks.FindAsync(sockid);
+            if (sock==null)
+            {
+                return null;
+            }
+            cart.Sum =- sock.Price;
             _context.CartSocks.RemoveRange(cartSock);
             await _context.SaveChangesAsync();
 

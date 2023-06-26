@@ -17,8 +17,8 @@ namespace website.Services.CartService
             {
                 return null;
             }
-            await _cartDTOService.GetSocksFromUserCart(cart.Id);
-            await _context.SaveChangesAsync();
+            await _cartDTOService.GetSocks(cart.Id);
+            
 
             return cart;
         }

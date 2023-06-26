@@ -24,20 +24,17 @@ namespace website.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Socks",
+                name: "CartSocks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Length = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Maretial = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<int>(type: "int", nullable: false)
+                    CartId = table.Column<int>(type: "int", nullable: false),
+                    SockId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Socks", x => x.Id);
+                    table.PrimaryKey("PK_CartSocks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,28 +56,31 @@ namespace website.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CartSocks",
+                name: "Socks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CartId = table.Column<int>(type: "int", nullable: false),
-                    SockId = table.Column<int>(type: "int", nullable: false)
+                    Length = table.Column<int>(type: "int", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Material = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    CartId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CartSocks", x => x.Id);
+                    table.PrimaryKey("PK_Socks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CartSocks_Carts_CartId",
+                        name: "FK_Socks_Carts_CartId",
                         column: x => x.CartId,
                         principalTable: "Carts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartSocks_CartId",
-                table: "CartSocks",
+                name: "IX_Socks_CartId",
+                table: "Socks",
                 column: "CartId");
         }
 

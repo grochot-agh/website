@@ -48,7 +48,7 @@ namespace website.Services.SockService
             sock.Length = request.Length;
             sock.Name = request.Name;
             sock.Color = request.Color;
-            sock.Maretial = request.Maretial;
+            sock.Material = request.Material;
             sock.Price =request.Price;
 
             await _context.SaveChangesAsync();
@@ -69,7 +69,7 @@ namespace website.Services.SockService
             {
                 return null;
             }
-
+            
             _context.Socks.Remove(sock);
             await _context.SaveChangesAsync();
 
