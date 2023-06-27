@@ -50,6 +50,7 @@ namespace website.Services.SockService
             sock.Color = request.Color;
             sock.Material = request.Material;
             sock.Price =request.Price;
+            sock.Image = request.Image;
 
             await _context.SaveChangesAsync();
             return await _context.Socks.ToListAsync();
