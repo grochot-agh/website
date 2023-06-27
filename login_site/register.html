@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="register_style.css">
+
+  <title>SCOKS BOX - SIGN IN</title>
+  <script type="text/javascript">
+    $(window).resize(function() {
+        if ($(window).width() <= 1180){
+            $('.drop').click(function() {
+                $('.dropdown').toggle();
+            });
+        } else{
+            $('.dropdown').hide(300);
+        }       
+    });
+    function showLogin(){
+        document.getElementById('login').style.display = 'block';
+    }
+    function hideLogin(){
+        document.getElementById('login').style.display = 'none';
+    }
+    function showContact(){
+        document.getElementById('contactWindow').style.display = 'block';
+    }
+    function hideContact(){
+        document.getElementById('contactWindow').style.display = 'none';
+    }
+</script>
+
+</head>
+
+
+<body>
+  <h2>JOIN OUR FAMILY!</h2>
+ <!-- LOGIN  -->
+ <div id="login">
+  <button class="close-login" onclick="hideLogin()">X</button>
+  <h2>
+      LOG IN TO SOCKS BOX
+  </h2>
+  <form action="/login_site/redirect.php" method="POST" enctype="multipart/form-data">
+    <label for="mail"><div class="ml">Email:</div></label>
+    <input type="text" id="mail" name="mail" required><br><br>
+    
+    <label for="password"><div class="psw">Password:</div></label>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" id="submit" value="Log In">
+  </form>
+  <a href="/login_site/register.html"><br>New here? Create an account!</a>
+  </div>
+  <div class="header-section">
+      <div class="nav"> 
+          <div class="container1">
+              <nav role="navigation">
+                  <img src="/home/images/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" class="image-logo">
+                      <a href="/home/homebase.html" aria-current="page" class="menu current ">Home</a> 
+                      <a href="/sub-sites/aboutus.html" class="menu ">About US</a>
+                      <a href="/products" class="menu ">PRODUCTS</a>
+                      <a href="/cart" class="menu ">CART</a>
+                      <a href="#" onclick="showLogin()" class="menu contact ">LOG IN</a>
+                  <div class="menu-container">
+                      <img src="/home/images/menu.jpg" alt="Menu" style="width:70px;height:70px;" class="image-menu drop">
+                      <ul class="menu-list dropdown">
+                          <li><a href="/" aria-current="page" class="menu current dropdown">Home</a></li> 
+                          <li><a href="/sub-sites/aboutus.html" class="menu dropdown">About US</a></li>
+                          <li><a href="/products" class="menu dropdown">PRODUCTS</a></li>
+                          <li><a href="/cart" class="menu dropdown">CART</a></li>
+                          <li><a href="#" onclick="showLogin()" class="menu contact dropdown">LOG IN</a></li>
+                      </ul>
+                  </div> 
+              </nav>      
+      </div>
+  </div>
+  <div class="registration">
+    <form action="redirect.php" method="POST">
+      <label for="name">Imię:</label>
+      <input type="text" name="name" id="name" required><br><br>
+  
+      <label for="surname">Nazwisko:</label>
+      <input type="text" name="surname" id="surname" required><br><br>
+  
+      <label for="age">Wiek:</label>
+      <input type="number" name="age" id="age" required><br><br>
+  
+      <label for="email">Adres e-mail:</label>
+      <input type="email" name="email" id="email" required><br><br>
+  
+      <label for="password">Hasło:</label>
+      <input type="password" name="password" id="password" required><br><br>
+  
+      <input type="submit" value="Zarejestruj">
+    </form>
+  </div>
+
+<div class="footer-section">
+    <div class="logo-text">&copySOCKS BOX 2023</div>
+    <a href="#" class="menu footer-link contact" onclick="showContact()">Contact</a>
+    <a href="/sub-sites/pp.html" class="menu footer-link">Privacy policy</a>
+    </div>
+    <div id="contactWindow">
+        <button class="close-button" onclick="hideContact()">X</button>
+
+        <h2>If you have any questions contact us!</h2>
+        <p>You can write to us on facebook, instagram or even snapchat :D</p>
+        <b>@SocksBoxSocialMedia</b>
+        <p>If you prefer emails: <b>socksbox@email.com</b></p>
+        <br> 
+        <p>You can also call us at <b>100-200-300</b></p>
+        <p>We make sure to check new messages as quick as we can :D</p>
+    </div>
+</div>
+</body>
+</html>

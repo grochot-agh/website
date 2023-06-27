@@ -2,6 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 <link rel="stylesheet" href="aboutus.css">
+
 <script type="text/javascript">
     $(window).resize(function() {
         if ($(window).width() <= 1180){
@@ -10,37 +11,60 @@
             });
         } else{
             $('.dropdown').hide(300);
-        }  
+        }       
     });
+    function showLogin(){
+        document.getElementById('login').style.display = 'block';
+    }
+    function hideLogin(){
+        document.getElementById('login').style.display = 'none';
+    }
     function showContact(){
         document.getElementById('contactWindow').style.display = 'block';
     }
     function hideContact(){
         document.getElementById('contactWindow').style.display = 'none';
     }
-</script><head>
+</script>
+<head>
     <title>About Us</title>
 </head>
 <body>
+        <!-- LOGIN  -->
+<div id="login">
+    <button class="close-login" onclick="hideLogin()">X</button>
+    <h2>
+        LOG IN TO SOCKS BOX
+    </h2>
+    <form action="/login_site/redirect.php" method="POST" enctype="multipart/form-data">
+      <label for="mail"><div class="ml">Email:</div></label>
+      <input type="text" id="mail" name="mail" required><br><br>
+      
+      <label for="password"><div class="psw">Password:</div></label>
+      <input type="password" id="password" name="password" required><br><br>
+      <input type="submit" id="submit" value="Log In">
+    </form>
+    <a href="/login_site/register.html"><br>New here? Create an account!</a>
+    </div>
     <div class="header-section">
         <div class="nav"> 
             <div class="container1">
                 <nav role="navigation">
                     <img src="photos/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" class="image-logo">
-                        <a href="/" class="menu">Home</a> 
-                        <a href="/about" aria-current="page" class="menu current">About US</a>
+                        <a href="/home/homebase.html" class="menu">Home</a> 
+                        <a href="/sub-sites/aboutus.html" aria-current="page" class="menu current">About US</a>
                         <a href="/products" class="menu">PRODUCTS</a>
                         <a href="/cart" class="menu">CART</a>
-                        <a href="/logIn" class="menu contact">LOG IN</a>
+                        <a href="#"onclick="showLogin()" class="menu contact">LOG IN</a>
 
                     <div class="menu-container">
                         <img src="photos/menu.jpg" alt="Menu" style="width:70px;height:70px;" class="image-menu drop">
                         <ul class="menu-list dropdown">
-                            <li><a href="/" aria-current="page" class="menu dropdown">Home</a></li> 
-                            <li><a href="/about" class="menu current dropdown">About US</a></li>
+                            <li><a href="/home/homebase.html" aria-current="page" class="menu dropdown">Home</a></li> 
+                            <li><a href="/sub-sites/aboutus.html" class="menu current dropdown">About US</a></li>
                             <li><a href="/products" class="menu dropdown">PRODUCTS</a></li>
                             <li><a href="/cart" class="menu dropdown">CART</a></li>
-                            <li><a href="/logIn" class="menu contact dropdown">LOG IN</a></li>
+                            <li><a href="#" onclick="showLogin()"class="menu contact dropdown">LOG IN</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -85,7 +109,7 @@
     <div class="footer-section">
         <div class="logo-text">&copySOCKS BOX 2023</div>
         <a href="#" class="menu footer-link contact"onclick="showContact()">Contact</a>
-        <a href="/policy" class="menu footer-link">Policy privacy</a>
+        <a href="/sub-sites/pp.html" class="menu footer-link">Policy privacy</a>
         </div>
         <div id="contactWindow">
             <button class="close-button" onclick="hideContact()">X</button>
