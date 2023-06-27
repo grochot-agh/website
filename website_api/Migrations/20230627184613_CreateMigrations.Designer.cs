@@ -12,7 +12,7 @@ using website.Data;
 namespace website.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230626195730_CreateMigrations")]
+    [Migration("20230627184613_CreateMigrations")]
     partial class CreateMigrations
     {
         /// <inheritdoc />
@@ -72,6 +72,9 @@ namespace website.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Length")

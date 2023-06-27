@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Drawing.Imaging;
+using SkiaSharp;
 
 namespace website.Services.SockService
 {
@@ -59,6 +57,7 @@ namespace website.Services.SockService
 
         public async Task<List<Sock>?> PostSock(Sock sock)
         {
+            
             _context.Socks.Add(sock);
             await _context.SaveChangesAsync();
             return await _context.Socks.ToListAsync();
@@ -76,5 +75,19 @@ namespace website.Services.SockService
 
             return await _context.Socks.ToListAsync();
         }
+        // public byte[] ImageToBytes(SKBitmap image)
+        // {
+        //     using var stream = new MemoryStream();
+        //     using var data = SKImage.FromBitmap(image).Encode();
+        //     data.SaveTo(stream);
+        //     return stream.ToArray();
+        // }
+
+        // public SKBitmap BytesToImage(byte[] bytes)
+        // {
+        //     using var stream = new MemoryStream(bytes);
+        //     using var data = SKData.Create(stream);
+        //     return SKBitmap.Decode(data);
+        // }
     }
 }

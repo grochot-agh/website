@@ -71,6 +71,9 @@ namespace website.Migrations
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Length")
                         .HasColumnType("int");
 

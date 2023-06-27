@@ -5,6 +5,12 @@ global using website.Services.SockService;
 global using website.Services.UserService;
 global using website.Services.CartService;
 global using website.Services.CartDTOService;
+global using System;
+global using System.Drawing;
+global using System.IO;
+global using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 

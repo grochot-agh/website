@@ -7,6 +7,6 @@ public class Sock
     public string? Color {get; set;}
     public string? Material {get; set;}
     public int Price { get; set;}
-    public byte[]? Image { get; set; }
+    public string? Image { get; set; }
     
 }
