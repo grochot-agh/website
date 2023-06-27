@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<link rel="stylesheet" href="aboutus.css">
+<script type="text/javascript">
+    $(window).resize(function() {
+        if ($(window).width() <= 1180){
+            $('.drop').click(function() {
+                $('.dropdown').toggle();
+            });
+        } else{
+            $('.dropdown').hide(300);
+        }  
+    });
+    function showContact(){
+        document.getElementById('contactWindow').style.display = 'block';
+    }
+    function hideContact(){
+        document.getElementById('contactWindow').style.display = 'none';
+    }
+</script><head>
+    <title>About Us</title>
+</head>
+<body>
+    <div class="header-section">
+        <div class="nav"> 
+            <div class="container1">
+                <nav role="navigation">
+                    <img src="photos/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" class="image-logo">
+                        <a href="/" class="menu">Home</a> 
+                        <a href="/about" aria-current="page" class="menu current">About US</a>
+                        <a href="/products" class="menu">PRODUCTS</a>
+                        <a href="/cart" class="menu">CART</a>
+                        <a href="/logIn" class="menu contact">LOG IN</a>
+
+                    <div class="menu-container">
+                        <img src="photos/menu.jpg" alt="Menu" style="width:70px;height:70px;" class="image-menu drop">
+                        <ul class="menu-list dropdown">
+                            <li><a href="/" aria-current="page" class="menu dropdown">Home</a></li> 
+                            <li><a href="/about" class="menu current dropdown">About US</a></li>
+                            <li><a href="/products" class="menu dropdown">PRODUCTS</a></li>
+                            <li><a href="/cart" class="menu dropdown">CART</a></li>
+                            <li><a href="/logIn" class="menu contact dropdown">LOG IN</a></li>
+                        </ul>
+                    </div>
+                </nav>
+        </div>
+    </div>
+    <h1 class="heading">About Us</h1>
+    <div class="section main-section home-page">
+            <div>
+                <p class="container2"> 
+                    <i><b> THE BEGINNING </b></i> <br>
+                    <br> Our story began 10 years ago when we met at the AGH University in Cracow. Each of us had different interests so we didn't become friends at the beginning. We met during sports events organized by our university. Specifically it was basketball which connected us and the fact that we loved to play in our free time. It was a form of escape from everyday activities for us. We had started meeting regularly and we played so many matches. Our team was getting bigger all the time, but some people also left us. Despite this, only 4 people remained constantly in the team.
+                    <br>
+                    </p>
+                <p class="p1">
+                    <br><b>And that's us.
+                    <br>
+                    <br>Kate   Alex   Sebastian and Wiki</b>
+                    <br><br>
+                    <img src ="photos/tomy.jpg" class="photo1"  width="70%" height="35%" ></a>
+                </p>
+
+                <p class="container2">
+                    Maybe you wonder what prompted us to create an online store with socks. Several factors contributed us to this. Every teammember in the squad really appreciated the comfort. Whether during everyday or sports activities. The basic garement were shoes. However, we couldn't afford to create a brand offering comfortable footwear at that time. This idea was way over our student budget. But yet we wanted to create something of our own and we were talking about it more and more during games. A lot of concepts came up at that time but we couldn't decide on anything. Most of the topics were connected with comfort and an interesing look. We noticed that one of the most important thing is the appearance, because it's what attracts you - our customers, in the first moment. We wanted to create something unique, something we could surprise the surroundings.<br>
+                </p>
+
+                <p class="p1">
+                    <img src ="photos/kosz3.jpg" class="photo1"  width="70%" height="35%" ></a>
+                </p>
+
+                <p class="container2"> 
+
+                    So that's how we decided on socks. But not just whatever socks. Our products have durability certificates, so you can forget about unwanted holes in your socks after a month. Thanks to special materials you will not feel discomfort at high temperatures, but also during winter. We want to present you the product which we are fully satisfied with as a active people. We know how important it's to feel good during the day, which is why we have created a place where everyone can find something for themselves (and for every occasion).
+                    <br>
+                    <br>We value every opinion and try to get the most out of each one. We are constantly developing and our heads are full of new ideas.
+                    <br>
+                    <br>Stay with us and wait for more!
+                    <br>
+                    <br>New designs appear everyday!<br>
+                </p>
+            </div>
+    </div>
+    <div class="footer-section">
+        <div class="logo-text">&copySOCKS BOX 2023</div>
+        <a href="#" class="menu footer-link contact"onclick="showContact()">Contact</a>
+        <a href="/policy" class="menu footer-link">Policy privacy</a>
+        </div>
+        <div id="contactWindow">
+            <button class="close-button" onclick="hideContact()">X</button>
+
+            <h2>If you have any questions contact us!</h2>
+            <p>You can write to us on facebook, instagram or even snapchat :D</p>
+            <b>@SocksBoxSocialMedia</b>
+            <p>If you prefer emails: <b>socksbox@email.com</b></p>
+            <br> 
+            <p>You can also call us at <b>100-200-300</b></p>
+            <p>We make sure to check new messages as quick as we can :D</p>
+        </div>
+    </div>
+</body>
