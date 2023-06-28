@@ -1,4 +1,5 @@
-namespace website;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace website.Models;
 //prykładowy model
 public class User
 {
@@ -7,6 +8,9 @@ public class User
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public string? Password { get; set; }
-    public string? Nickname { get; set; }
+    
+    public string? Email { get; set; }
+    public int CartId { get; set; }
+
     
 }
