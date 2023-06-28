@@ -2,8 +2,9 @@
 <html>
 <head>
   <link rel="stylesheet" href="register_style.css">
+  <link rel="icon" type="image/x-icon" href="/home/images/socks.ico">
 
-  <title>SCOKS BOX - SIGN IN</title>
+  <title>SOCKS BOX - SIGN IN</title>
   <script type="text/javascript">
     $(window).resize(function() {
         if ($(window).width() <= 1180){
@@ -73,23 +74,28 @@
       </div>
   </div>
   <div class="registration">
-    <form action="redirect.php" method="POST">
-      <label for="name">Imię:</label>
+    <div id="text_register">Create new account to join us!</div>
+
+    <form action="/login_site/redirect.php" method="POST">
+      <label for="name">First Name:<br></label>
       <input type="text" name="name" id="name" required><br><br>
   
-      <label for="surname">Nazwisko:</label>
+      <label for="surname">Surname:<br></label>
       <input type="text" name="surname" id="surname" required><br><br>
   
-      <label for="age">Wiek:</label>
+      <label for="age">Age:<br></label>
       <input type="number" name="age" id="age" required><br><br>
   
-      <label for="email">Adres e-mail:</label>
-      <input type="email" name="email" id="email" required><br><br>
+      <label for="email1">Email:<br></label>
+      <input type="email" name="email1" id="email1" required><br><br>
   
-      <label for="password">Hasło:</label>
-      <input type="password" name="password" id="password" required><br><br>
+      <label for="password1">Password:<br></label>
+      <input type="password" name="password1" id="password1" required><br><br>
   
-      <input type="submit" value="Zarejestruj">
+      <input type="submit" id="submit1" value="Register">
+      <div id="accept_text"><br><br>By clicking the "Register" button, you accept the terms and conditions of the SocksBox service.
+
+        In order to ensure that you have access to all the opportunities provided by your participation in the loyalty program, we will process your personal data in accordance with the SocksBox privacy policy.</div>
     </form>
   </div>
 
@@ -101,10 +107,10 @@
     <div id="contactWindow">
         <button class="close-button" onclick="hideContact()">X</button>
 
-        <h2>If you have any questions contact us!</h2>
+        <h3>If you have any questions contact us!</h3>
         <p>You can write to us on facebook, instagram or even snapchat :D</p>
         <b>@SocksBoxSocialMedia</b>
-        <p>If you prefer emails: <b>socksbox@email.com</b></p>
+        <p>If you prefer emails: <b><a href="mailto:socksbox.contact@gmail.com">socksbox.contact@gmail.com</a></b></p>
         <br> 
         <p>You can also call us at <b>100-200-300</b></p>
         <p>We make sure to check new messages as quick as we can :D</p>
