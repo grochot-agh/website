@@ -19,7 +19,7 @@ namespace website.Services.CartDTOService
         public async Task<List<Sock>?> GetSocks(int id)
         {
 
-            var cartSockAssignments= await GetSocksFromUserCart(id); //update model :))
+            var cartSockAssignments= await GetCartSocksByCartId(id); //update model :))
             
             var cart = await _context.Carts.FindAsync(id);
             var allsocks = await _sockService.GetSocks();
@@ -59,7 +59,7 @@ namespace website.Services.CartDTOService
             return socks;
         }
 
-        public async Task<List<CartSocks>?> GetSocksFromUserCart(int id)
+        public async Task<List<CartSocks>?> GetCartSocksByCartId(int id)
         {
             
             var cartSocks = _context.CartSocks.Where(cs => cs.CartId == id).ToList();
@@ -70,6 +70,7 @@ namespace website.Services.CartDTOService
 
             return cartSocks;
         }
+     
         public async Task<CartSocks?> AddSocksToUserCart(int id,int sockid)
     {
         var user = await _context.Users.FindAsync(id);
@@ -103,7 +104,7 @@ namespace website.Services.CartDTOService
         await _context.SaveChangesAsync();
         return cartSocks;
         }
-        public async Task<List<CartSocks>?> DeleteAllFromCart(int cartid)
+        public async Task<List<CartSocks>?> DeleteAllCartSocksByCartId(int cartid)
         {
             var cart = await _context.Carts.FindAsync(cartid);
             if (cart==null)
@@ -111,7 +112,7 @@ namespace website.Services.CartDTOService
                 return null;
             }
 
-            var cartSocks = await GetSocksFromUserCart(cartid);
+            var cartSocks = await GetCartSocksByCartId(cartid);
             if(cartSocks==null)
             {
                 return null;
@@ -125,6 +126,7 @@ namespace website.Services.CartDTOService
             return cartSocks;
 
         }
+       
         public async Task<CartSocks?> DeleteOneFromCart(int cartid, int sockid)
         {
             var cart = await _context.Carts.FindAsync(cartid);

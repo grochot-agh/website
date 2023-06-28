@@ -12,8 +12,8 @@ using website.Data;
 namespace website.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230627184613_CreateMigrations")]
-    partial class CreateMigrations
+    [Migration("20230628013933_CreateMigration")]
+    partial class CreateMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

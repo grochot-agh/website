@@ -5,6 +5,7 @@ global using website.Services.SockService;
 global using website.Services.UserService;
 global using website.Services.CartService;
 global using website.Services.CartDTOService;
+global using website.Services.CartSocksService;
 global using System;
 global using System.Drawing;
 global using System.IO;
@@ -22,6 +23,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<ICartSocksService, CartSocksService>();
 builder.Services.AddScoped<ISockService, SockService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICartService, CartService>();
@@ -36,9 +38,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthorization();
+
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
 app.MapControllers();
 

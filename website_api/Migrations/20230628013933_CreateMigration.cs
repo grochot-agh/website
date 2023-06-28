@@ -5,7 +5,7 @@
 namespace website.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateMigrations : Migration
+    public partial class CreateMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
