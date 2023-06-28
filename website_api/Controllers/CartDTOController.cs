@@ -17,7 +17,7 @@ namespace website.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<List<CartSocks>>> GetSocksFromUserCart(int id)
         {
-            var result = await _cartDTOService.GetSocksFromUserCart(id);
+            var result = await _cartDTOService.GetCartSocksByCartId(id);
             
             if (result == null)
             {
@@ -37,7 +37,7 @@ namespace website.Controllers
         [HttpDelete("{cartid}")]
         public async Task<ActionResult<List<CartSocks>>> DeleteAllFromCart(int cartid)
         {
-            var result = await _cartDTOService.DeleteAllFromCart(cartid);
+            var result = await _cartDTOService.DeleteAllCartSocksByCartId(cartid);
             if (result ==null)   
             {
                 return NotFound("CartSocks with that id not found");

@@ -1,3 +1,5 @@
+using website.Services.CartSocksService;
+
 namespace website.Services.UserService
 
 {
@@ -6,11 +8,13 @@ namespace website.Services.UserService
         private readonly DataContext _context;
         private readonly ICartService _cartService;
         private readonly ICartDTOService _cartDTOService;
+        
         public UserService(DataContext context,ICartService cartService, ICartDTOService cartDTOService)
         {
             _context = context;
             _cartService = cartService;
             _cartDTOService = cartDTOService;
+            
         }
 
        public async Task<List<User>?> GetUsers()
@@ -78,7 +82,7 @@ namespace website.Services.UserService
 
             _context.Users.Remove(user);
             await _cartService.DeleteCart(cartid);
-            await _cartDTOService.DeleteAllFromCart(cartid);
+            await _cartDTOService.DeleteAllCartSocksByCartId(cartid);
 
             await _context.SaveChangesAsync();
             

@@ -1,14 +1,17 @@
-using System.Drawing.Imaging;
-using SkiaSharp;
+
+
+using website.Services.CartSocksService;
 
 namespace website.Services.SockService
 {
     public class SockService : ISockService
     {
         private readonly DataContext _context;
-        public SockService(DataContext context)
+        private readonly ICartSocksService _cartSocksService;
+        public SockService(DataContext context, ICartSocksService cartDTOService)
         {
             _context = context;
+            _cartSocksService = cartDTOService;
         }
 
        public async Task<List<Sock>?> GetSocks()
@@ -57,7 +60,7 @@ namespace website.Services.SockService
 
         public async Task<List<Sock>?> PostSock(Sock sock)
         {
-            
+            sock.Image = "Image\\"+sock.Image;
             _context.Socks.Add(sock);
             await _context.SaveChangesAsync();
             return await _context.Socks.ToListAsync();
@@ -69,25 +72,12 @@ namespace website.Services.SockService
             {
                 return null;
             }
-            
+            await _cartSocksService.DeleteAllCartSocksBySockId(id);
             _context.Socks.Remove(sock);
             await _context.SaveChangesAsync();
 
             return await _context.Socks.ToListAsync();
         }
-        // public byte[] ImageToBytes(SKBitmap image)
-        // {
-        //     using var stream = new MemoryStream();
-        //     using var data = SKImage.FromBitmap(image).Encode();
-        //     data.SaveTo(stream);
-        //     return stream.ToArray();
-        // }
-
-        // public SKBitmap BytesToImage(byte[] bytes)
-        // {
-        //     using var stream = new MemoryStream(bytes);
-        //     using var data = SKData.Create(stream);
-        //     return SKBitmap.Decode(data);
-        // }
+    
     }
 }
