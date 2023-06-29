@@ -5,6 +5,7 @@
 <head>
   <link rel="stylesheet" href="register_style.css">
   <link rel="icon" type="image/x-icon" href="/home/images/socks.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
   <title>SOCKS BOX - SIGN IN</title>
   <script type="text/javascript">
@@ -59,16 +60,16 @@
                   <img src="/home/images/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" class="image-logo">
                       <a href="/home/homebase.html" aria-current="page" class="menu current ">Home</a> 
                       <a href="/sub-sites/aboutus.html" class="menu ">About US</a>
-                      <a href="/products" class="menu ">PRODUCTS</a>
-                      <a href="/cart" class="menu ">CART</a>
+                      <a href="/sub-sites/products.html" class="menu ">PRODUCTS</a>
+                      <a href="/sub-sites/cart.html" class="menu ">CART</a>
                       <a href="#" onclick="showLogin()" class="menu contact ">LOG IN</a>
                   <div class="menu-container">
                       <img src="/home/images/menu.jpg" alt="Menu" style="width:70px;height:70px;" class="image-menu drop">
                       <ul class="menu-list dropdown">
                           <li><a href="/" aria-current="page" class="menu current dropdown">Home</a></li> 
                           <li><a href="/sub-sites/aboutus.html" class="menu dropdown">About US</a></li>
-                          <li><a href="/products" class="menu dropdown">PRODUCTS</a></li>
-                          <li><a href="/cart" class="menu dropdown">CART</a></li>
+                          <li><a href="/sub-sites/products.html" class="menu dropdown">PRODUCTS</a></li>
+                          <li><a href="/sub-sites/cart.html" class="menu dropdown">CART</a></li>
                           <li><a href="#" onclick="showLogin()" class="menu contact dropdown">LOG IN</a></li>
                       </ul>
                   </div> 
@@ -86,8 +87,7 @@
       <input type="text" name="surname" id="surname" required><br><br>
   
       <label for="age">Age:<br></label>
-      <input type="number" name="age" id="age" required><br><br>
-  
+      <input type="number" name="age" id="age" min="0" max="99" required><br><br>  
       <label for="email1">Email:<br></label>
       <input type="email" name="email1" id="email1" required><br><br>
   
