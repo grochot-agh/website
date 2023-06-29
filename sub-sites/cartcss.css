@@ -5,6 +5,25 @@ body {
     line-height: 20px;
 
 }
+#cart_logo{
+    width: 6vw;
+    height: auto;
+    float: left;
+    margin-left: 2vw;
+}
+h4{
+    font-size: 2vw;
+    position: absolute;
+    margin-left: 8vw;
+}
+h5{
+    font-size: 1.2vw;
+    position: absolute;
+    margin-left: 8vw;
+    margin-top: 8vw;
+    font-weight: lighter;
+
+}
 /* LOGIN */
 #login{
     display: none;
@@ -148,11 +167,10 @@ label{
 
 
 .header-section {
-    background-image: url('/home/images/reg_back.jpg');  
+    background-image: url('/home/images/cart-background.jpg');  
     background-color: #6d6767b3;
     background-position: 0 0;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size:auto;
     padding-top: 200px; 
     position: relative; 
 }

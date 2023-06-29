@@ -28,15 +28,14 @@
     }
 </script>
 <head>
-    <title>About Us</title>
+    <title>Your Cart</title>
 </head>
 <body>
         <!-- LOGIN  -->
 <div id="login">
     <button class="close-login" onclick="hideLogin()">X</button>
     <h2>
-        <img src="/home/images/shopping-cart.gif" alt="Animacja GIF">
-        REVIEW YOUR CART
+        LOG IN TO SOCKS BOX
     </h2>
     <form action="/login_site/redirect.php" method="POST" enctype="multipart/form-data">
       <label for="mail"><div class="ml">Email:</div></label>
@@ -72,6 +71,16 @@
                 </nav>
         </div>
     </div>
+    </div>
+    <div class="top_container">
+        <img src="/home/images/shopping-cart.gif" alt="Animacja GIF" id="cart_logo">
+        <h4>Browse through your purchases:</h4>
+<!-- HERE CODE FOR CART PRODUCTS SHOW -->
+        <h5>Your shopping cart is currently empty.
+            Add something to it using the "PRODUCTS" tab.</h5>
+
+
+
     </div>
     <div class="footer-section">
         <div class="logo-text">&copySOCKS BOX 2023</div>
