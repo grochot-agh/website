@@ -231,7 +231,7 @@ label{
     margin-top: -28px;
     padding-top: 30px;
     padding-bottom: 3px;
-    position:fixed;
+    position:absolute;
     bottom: 0%;
     left: 0%;
     right: 0%;
