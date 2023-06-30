@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $emailCheckResult = $conn->query($emailCheckQuery);
   if ($emailCheckResult->num_rows > 0) {
     echo "Użytkownik o podanym adresie e-mail już istnieje.";
-    header("Location: register.php");
+    header("Location:  /login_site/register.html");
     exit;
   }
 
@@ -56,6 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   $conn->close();
-  header("Location: main.php");
+  header("Location:  /home/homebase.html");
 }
 ?>
