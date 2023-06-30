@@ -1,11 +1,4 @@
-body {
-    font-family: Verdana, sans-serif;
-    color: #333;
-    font-size: 14px;
-    line-height: 20px;
-
-}
-#cart_logo{
+#cart_logo4{
     width: 6vw;
     height: auto;
     float: left;
@@ -54,7 +47,7 @@ h5{
     font-weight: lighter;
 
 }
-.menu.user_image
+.menu4.user_image4
 {
     z-index: 9999;
     width: 3vw;
@@ -64,7 +57,7 @@ h5{
     
 }
 /* LOGIN */
-#login{
+#login4{
     display: none;
     position: fixed;
     top: 50%;
@@ -79,7 +72,7 @@ h5{
     z-index: 9999;
     text-align: center;    
 }
-#submit{
+#submit4{
     padding-top: 0.6vw;
     padding-left: 5vw;
     padding-right: 5vw;
@@ -99,17 +92,17 @@ h2{
     text-align: center;
 
 }
-.ml
+.ml4
 {
     margin-top: 5vw;
     font-size: 1vw;
 }
-.psw
+.psw4
 {
     font-size: 1vw;
 
 }
-.close-login{
+.close-login4{
     float: right;
     transform: translate(4.5vw,-2.5vw);
     font-size: 1.2vw;
@@ -121,7 +114,7 @@ h2{
 }
 
 
-#mail{
+#mail4{
     margin-top: 2%;
     font-size: 110%;
     padding-top: 0.2vw;
@@ -132,7 +125,7 @@ h2{
     border-radius: 5px;
 }
 
-#password
+#password4
 {
     margin-top: 2%;
     font-size: 110%;
@@ -146,51 +139,7 @@ h2{
 
 
 
-
-
-.registration{
-    height: auto;
-    width: 60vw;
-    padding: 4vw;
-    padding-bottom: 12vw;
-    position: relative;
-    transform: translate(5vw,0%);
-    background-color: #dce2d2ef;
-    border: 3px solid #73814eb9;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);    
-}
-label{
-    font-size: 1.2vw;
-    margin-left: 25vw;
-    text-align: center;
-}
-#name, #surname, #email1, #age, #password1{
-    margin-top: 1%;
-    font-size: 1.1vw;
-    padding-top: 0.2vw;
-    padding-bottom: 0.2vw;
-    padding-left: 4.8vw;
-    padding-right: 4.8vw;
-    border: 1px solid #ccc;
-    margin-left: 18.2vw;
-    border-radius: 5px;
-}
-#submit1{
-    padding-top: 0.6vw;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    padding-bottom: 0.6vw;
-    font-size: 0.9vw;
-    margin-top: .1vw;
-    border: none;
-    background-color: #878d35;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transform: translate(160%,0%);
-}
-
-#text_register
+#text_register4
 {
     font-size: 3vw;
     line-height: 3vw;
@@ -199,14 +148,14 @@ label{
     text-align: center;
     transform: translate(0%,-60%);
 }
-#accept_text{
+#accept_text4{
     font-size: 0.7vw;
     line-height: 1vw;
 }
 
 
-.header-section {
-    background-image: url('/sub-sites/photos/products-background.jpg');  
+.header-section4 {
+    background-image: url('http://localhost:5500/my-react-app/public/photos/products-background.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
     background-size:auto;
@@ -214,7 +163,7 @@ label{
     position: relative; 
 }
 
-.nav {
+.nav4 {
     background-color: rgba(0, 0, 0, 0);
     padding-top: 40px;
     padding-bottom: 10px;
@@ -225,7 +174,7 @@ label{
     right: 0;
 }
 
-.logo-text {
+.logo-text4 {
     color: #011605;
     text-align: left;
     margin-top: 3px;
@@ -240,7 +189,7 @@ label{
     font-weight: 400;
 }
 
-.menu {
+.menu4 {
     opacity: .6;
     color: #fff;
     letter-spacing: 2px;
@@ -251,13 +200,13 @@ label{
     text-decoration: none;  
 }
 
-.menu:hover, .menu.current {
+.menu4:hover, .menu4.current4 {
     opacity: 1;
     color: #fff;
     text-decoration: underline;
 }
 
-.menu.contact {
+.menu4.contact4 {
     background-color: rgba(255, 255, 255, .3);
     border-radius: 2px;
     margin-top: 9px;
@@ -266,14 +215,14 @@ label{
     font-size: 15px;
     line-height: 18px;
 }
-.image-menu{
+.image-menu4{
     display: none;
     cursor: pointer;
     padding-right: 30px;
     opacity: 0.68;
 }
 
-.menu.footer-link {
+.menu4.footer-link4 {
     float: right;
     margin-top: -30px;
     margin-bottom: 10px;
@@ -283,7 +232,7 @@ label{
 }
 
 
-.footer-section { 
+.footer-section4 { 
     background-color: #24344e;
     margin-top: -28px;
     padding-top: 30px;
@@ -294,28 +243,30 @@ label{
     right: 0%;
     border-style: solid;
 }
-
-.container1 { 
+.container24{
+    /* space for products or we can delete it */
+}
+.container14 { 
     height: 70px;
     display: flex;
     /* align-items: center; */
     justify-content: space-between;
 }
-.container1 a{
+.container14 a{
     margin-right: 10px;
 }
 
-.image-logo{
+.image-logo4{
     padding-left: 50px;
     padding-top: 10px;
     padding-right: 250px;
     opacity: 0.96;
 }
 
-.menu-container{
+.menu-container4{
     position: right;
 }
-.menu-list{
+.menu-list4{
     display: none;
     position: absolute;
     top: calc(100% + 32px);
@@ -328,20 +279,20 @@ label{
     z-index: 5;
 
 }
-.menu-list li {
+.menu-list4 li {
     margin-bottom: 5px;
     padding: 5px;
     border: 1px solid #011605;
     border-radius: 5px;
 }
 
-.menu-list a{
+.menu-list4 a{
     text-decoration: none;
     color: #e0d6d6;
     padding: 30px;
 }
 
-#contactWindow {
+#contactWindow4 {
     display: none;
     position: fixed;
     top: 50%;
@@ -355,19 +306,19 @@ label{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
 }
-.close-button{
+.close-button4{
     float: right;
 }
 
 
     
 @media screen and (min-width: 1700px){
-    .header-section { 
+    .header-section4 { 
         padding-left: 114px; 
         padding-right: 114px;
         padding-top: 200px; 
     } 
-    .nav{
+    .nav4{
         padding: 60px;
         margin-left: 100px;
     }
@@ -376,35 +327,35 @@ label{
 
 
 @media screen and (max-width: 1180px) {
-    #accept_text{
+    #accept_text4{
         font-size: 0.9vw;
         line-height: 1vw;
     }
 
-    .header-section { 
+    .header-section4 { 
         padding-left: 114px; 
         padding-right: 114px;
         padding-top: 200px; 
     }
-    .nav {
+    .nav4 {
         padding-top: 10px;
     }
-    .section.main-section {
+    .section4.main-section4{
         padding-bottom: 100px;
     }
-    .menu.footer-link { 
+    .menu4.footer-link4 { 
         margin-right: 50px;
         padding: 5px;
         padding-bottom: 17px;
     }
-    .menu.footer-link.contact{
+    .menu4.footer-link4.contact4{
         padding: 8px;
     }
-    .image-logo{
+    .image-logo4{
         padding-top: 40px;
         opacity: 0.98;
     }
-    .image-menu {
+    .image-menu4 {
         display: block;
         position: absolute;
         top: 0;
@@ -412,13 +363,13 @@ label{
         margin-top: 65px;
         margin-right: 50px;
     }
-    .menu {
+    .menu4 {
         display: none;
     }
-    .menu.footer-link{
+    .menu4.footer-link4{
         display: block;
     }   
-    .menu.contact {
+    .menu4.contact4 {
         background-color: rgba(255, 255, 255, 0.188);
         margin-left: 4px;
         font-size: 15px;
@@ -429,7 +380,7 @@ label{
         padding-right: 60px;
         padding-left: 25px;
     } 
-    #accept_text{
+    #accept_text4{
         font-size: 1.4vw;
         line-height: 1.7vw;
         padding-bottom: 2vw;
@@ -438,11 +389,7 @@ label{
         font-size: 1.6vw;
         margin-left: 23.5vw;
     }
-    #name, #surname, #email1, #age, #password1{
-        font-size: 2.2vw;
-        margin-left: 14vw;
-    }
-    #submit1{
+    #submit4{
         font-size: 1.9vw;
         transform: translate(115%,0%);
     }
@@ -452,39 +399,39 @@ label{
     h1 {
         font-size: 30px;
     }
-    .header-section { 
+    .header-section4 { 
         padding-bottom: 80px; 
         padding-left: 46px; 
         padding-right: 46px;
     }
-    .logo-text {
+    .logo-text4 {
         margin-bottom: 19px;
     }
-    .menu.footer-link{
+    .menu4.footer-link4{
         float:inline-end;
         margin-top:3%;
     }
-   .menu.footer-link.contact {
+   .menu4.footer-link4.contact4 {
         float: right;
     }
-    .section {
+    .section4 {
         padding-left: 20px;
         padding-right: 20px;
     }
-    .section.main-section.home-page { 
+    .section4.main-section4.home-page4 { 
         padding-left: 5px;
         padding-right: 5px;
     }
-    .footer-link-col { 
+    .footer-link-col4 { 
         text-align: center;
     }
-    .form-wrapper { 
+    .form-wrapper4 { 
         width: 80%;
     }
-    #contactWindow{
+    #contactWindow4{
         padding: 30px;
     }
-    #accept_text{
+    #accept_text4{
         font-size: 1.8vw;
         line-height: 1.7vw;
         padding-bottom: 2vw;
@@ -493,18 +440,15 @@ label{
         font-size: 2vw;
         margin-left: 22.5vw;
     }
-    #name, #surname, #email1, #age, #password1{
-        font-size: 2.4vw;
-        margin-left: 12vw;
-    }
-    #submit1{
+    
+    #submit4{
         font-size: 1.9vw;
         transform: translate(120%,0%);
     }
 }
 
 @media screen and (max-width: 702px){
-    #accept_text{
+    #accept_text4{
         font-size: 1.8vw;
         line-height: 1.7vw;
         padding-bottom: 2vw;
@@ -513,18 +457,14 @@ label{
         font-size: 2.8vw;
         margin-left: 21.5vw;
     }
-    #name, #surname, #email1, #age, #password1{
-        font-size: 2.4vw;
-        margin-left: 10vw;
-    }
-    #submit1{
+    #submit4{
         font-size: 1.9vw;
         transform: translate(100%,0%);
     }
     
 }
 @media screen and (max-width: 550px){
-    #accept_text{
+    #accept_text4{
         font-size: 1.8vw;
         line-height: 1.7vw;
     }
@@ -532,11 +472,7 @@ label{
         font-size: 2.8vw;
         margin-left: 21.5vw;
     }
-    #name, #surname, #email1, #age, #password1{
-        font-size: 2.4vw;
-        margin-left: 10vw;
-    }
-    #submit1{
+    #submit4{
         font-size: 1.9vw;
         transform: translate(100%,0%);
     }

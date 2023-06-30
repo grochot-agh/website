@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
 <html>
 <head>
   <link rel="stylesheet" href="register_style.css">
@@ -77,27 +76,26 @@
   </div>
   <div class="registration">
     <div id="text_register">Create new account to join us!</div>
-
-    <form action="/login_site/redirect_reg.php" method="POST">
-      <label for="name">First Name:<br></label>
-      <input type="text" name="name" id="name" required><br><br>
-  
-      <label for="surname">Surname:<br></label>
-      <input type="text" name="surname" id="surname" required><br><br>
-  
-      <label for="age">Age:<br></label>
-      <input type="number" name="age" id="age" min="0" max="99" required><br><br>  
-      <label for="email1">Email:<br></label>
-      <input type="email" name="email1" id="email1" required><br><br>
-  
-      <label for="password1">Password:<br></label>
-      <input type="password" name="password1" id="password1" required><br><br>
-  
-      <input type="submit" id="submit1" value="Register">
-      <div id="accept_text"><br><br>By clicking the "Register" button, you accept the terms and conditions of the SocksBox service.
-
-        In order to ensure that you have access to all the opportunities provided by your participation in the loyalty program, we will process your personal data in accordance with the SocksBox privacy policy.</div>
-    </form>
+    <form method="POST" action="redirect_reg.php">
+        <label for="name">First Name:<br></label>
+        <input type="text" name="name" id="name" required><br><br>
+    
+        <label for="surname">Surname:<br></label>
+        <input type="text" name="surname" id="surname" required><br><br>
+    
+        <label for="age">Age:<br></label>
+        <input type="number" name="age" id="age" min="0" max="99" required><br><br>  
+        <label for="email1">Email:<br></label>
+        <input type="email" name="email1" id="email1" required><br><br>
+    
+        <label for="password1">Password:<br></label>
+        <input type="password" name="password1" id="password1" required><br><br>
+    
+        <input type="submit" id="submit1" value="Register">
+        <div id="accept_text"><br><br>By clicking the "Register" button, you accept the terms and conditions of the SocksBox service.
+          In order to ensure that you have access to all the opportunities provided by your participation in the loyalty program, we will process your personal data in accordance with the SocksBox privacy policy.
+        </div>
+      </form>
   </div>
 
 <div class="footer-section">

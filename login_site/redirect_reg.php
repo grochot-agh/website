@@ -1,61 +1,21 @@
-<?php
-function validate($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+// Tworzenie obiektu zawierającego dane użytkownika
+const userData = {
+  name: 'John',
+  surname: 'Doe',
+  age: 30,
+  email: 'john.doe@example.com',
+  password: 'password123'
+};
 
-    if (empty($data)) {
-      return false;
-    }
-
-    $max_length = 255; 
-    if (strlen($data) > $max_length) {
-      return false;
-    }
-
-    return $data;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $id = validate($_POST["id"]);
-  $age = validate($_POST["age"]);
-  $name = validate($_POST["name"]);
-  $surname = validate($_POST["surname"]);
-  $password = validate($_POST["password"]);
-  $email = validate($_POST["email"]);
-
-  if ($id === false || $age === false || $name === false || $surname === false || $password === false || $email === false) {
-    echo "Błędne dane.";
-    exit;
-  }
-
-  $host = "localhost";
-  $dbUsername = "nazwa_uzytkownika";
-  $dbPassword = "haslo";
-  $dbName = "nazwa_bazy_danych";
-
-  $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
-  if ($conn->connect_error) {
-    die("Błąd połączenia z bazą danych: " . $conn->connect_error);
-  }
-
-  $emailCheckQuery = "SELECT * FROM users WHERE email = '$email'";
-  $emailCheckResult = $conn->query($emailCheckQuery);
-  if ($emailCheckResult->num_rows > 0) {
-    echo "Użytkownik o podanym adresie e-mail już istnieje.";
-    header("Location:  /login_site/register.html");
-    exit;
-  }
-
-  $sql = "INSERT INTO users (age, name, surname, password, email) VALUES ('$age', '$name', '$surname', '$password', '$email')";
-
-  if ($conn->query($sql) === TRUE) {
-    echo "Użytkownik został zarejestrowany.";
-  } else {
-    echo "Błąd podczas rejestracji użytkownika: " . $conn->error;
-  }
-
-  $conn->close();
-  header("Location:  /home/homebase.html");
-}
-?>
+// Wysyłanie żądania POST do API SSMS za pomocą Axios
+axios.post('http://localhost:5052/User', userData)
+  .then(response => {
+    // Obsługa udanego żądania
+    console.log('Użytkownik został dodany do bazy danych.', response.data);
+    // Tutaj możesz dodać kod obsługujący powodzenie dodawania użytkownika
+  })
+  .catch(error => {
+    // Obsługa błędu
+    console.error('Wystąpił błąd podczas dodawania użytkownika do bazy danych.', error);
+    // Tutaj możesz dodać kod obsługujący błąd dodawania użytkownika
+  });
