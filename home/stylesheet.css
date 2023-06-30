@@ -198,6 +198,19 @@ h1 {
     padding: 15px;
     text-decoration: none;
 }
+.menu.user_image{
+    transform: translate(2vw, 1vw); 
+    position: relative;
+    padding: 0;
+    
+    
+}
+.menu.user_image.user{
+    float: right;
+    transform: translate(10vw, 2vw); 
+
+}
+
 .section.main-section{
     padding-top: 22px;
     padding-left: 50px;
