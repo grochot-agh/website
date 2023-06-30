@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
-    header("Location: main.php");
+    header("Location: /home/homebase.html");
     exit();
   } else {
     echo "Nieprawidłowy email lub hasło.";
