@@ -25,7 +25,7 @@ h1 {
     animation: fadeIn 2s ease-in-out forwards;  
 }
 /* LOGIN */
-#login{
+#login3{
     display: none;
     position: fixed;
     top: 50%;
@@ -40,7 +40,7 @@ h1 {
     z-index: 9999;
     text-align: center;    
 }
-#submit{
+#submit3{
     padding-top: 0.6vw;
     padding-left: 5vw;
     padding-right: 5vw;
@@ -60,17 +60,17 @@ h2{
     text-align: center;
 
 }
-.ml
+.ml3
 {
     margin-top: 5vw;
     font-size: 1vw;
 }
-.psw
+.psw3
 {
     font-size: 1vw;
 
 }
-.close-login{
+.close-login3{
     float: right;
     transform: translate(4.5vw,-2.5vw);
     font-size: 1.2vw;
@@ -82,7 +82,7 @@ h2{
 }
 
 
-#mail{
+#mail3{
     margin-top: 2%;
     font-size: 110%;
     padding-top: 0.2vw;
@@ -93,7 +93,7 @@ h2{
     border-radius: 5px;
 }
 
-#password
+#password3
 {
     margin-top: 2%;
     font-size: 110%;
@@ -128,8 +128,8 @@ a:hover {
     color: #000;
 }
 
-.header-section {
-    background-image: url('photos/lawyer.jpg');
+.header-section3 {
+    background-image: url('http://localhost:5500/my-react-app/public/photos/lawyer.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
     background-size:cover;
@@ -138,7 +138,7 @@ a:hover {
     position: relative; 
 }
 
-.nav {
+.nav3 {
     background-color: rgba(0, 0, 0, 0);
     padding-top: 40px;
     padding-bottom: 10px;
@@ -148,7 +148,7 @@ a:hover {
     right: 0;
 }
 
-.logo-text {
+.logo-text3 {
     color: #011605;
     text-align: left;
     margin-top: 3px;
@@ -162,7 +162,7 @@ a:hover {
     font-weight: 400;
 }
 
-.menu {
+.menu3 {
     opacity: .6;
     color: #fff;
     letter-spacing: 5px;
@@ -173,7 +173,7 @@ a:hover {
     text-decoration: none;
 }
 
-.menu.contact {
+.menu3.contact3 {
     background-color: rgba(255, 255, 255, .3);
     border-radius: 2px;
     margin-top: 9px;
@@ -183,20 +183,20 @@ a:hover {
     line-height: 18px;
 }
 
-.menu:hover, .menu.current {
+.menu3:hover, .menu3.current3 {
     opacity: 1;
     color: #fff;
     text-decoration: underline;
 }
 
-.image-menu{
+.image-menu3{
     display: none;
     cursor: pointer;
     padding-right: 30px;
     opacity: 0.68;
 }
 
-.menu.footer-link {
+.menu3.footer-link3 {
     float: right;
     margin-top: -30px;
     margin-bottom: 10px;
@@ -205,19 +205,19 @@ a:hover {
     text-decoration: none;
 }
 
-.section.main-section{
+.section3.main-section3{
     padding-top: 0;
     padding-bottom: 80px;
 }
 
-.section.main-section.home-page { 
+.section3.main-section3.home-page3 { 
     padding-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 150px;
 }
 
-.container2 {
+.container23 {
     background-color: rgba(86, 101, 94, 0.822); 
     color: #000;
     padding: 25px; 
@@ -228,7 +228,7 @@ a:hover {
     border-style: groove;
 }
 
-.footer-section { 
+.footer-section3 { 
     background-color: #24344e;
     margin-top: -28px;
     padding-top: 30px;
@@ -240,7 +240,7 @@ a:hover {
     border-style: solid;
 }
 
-.heading {
+.heading3 {
     letter-spacing: 0;
     text-transform: none;
     font-size: 55px;
@@ -248,13 +248,13 @@ a:hover {
     margin-bottom: 15%;
 }
 
-.container1 { 
+.container13 { 
     height: 70px;
     display: flex;    
     justify-content: space-between;
 }
 
-.image-logo {
+.image-logo3 {
     padding-left: 50px;
     padding-top: 10px;
     padding-right: 250px;
@@ -262,40 +262,11 @@ a:hover {
 }
 
 
-.tile-text {
-    z-index: 20;
-    color: #fae4e4;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    object-fit: fill;
-    margin-bottom: 230px;
-    margin-left: 202px;
-    padding-bottom: 0;
-    padding-left: 66px; 
-    font-size: 70px;
-    font-weight: 900; 
-    line-height: 70px;
-    position: absolute;
-    bottom: 24px;
-    left: 25px;
-    overflow: visible;
-}
-
-.italic-text {
-    direction: ltr;
-    text-align: left;
-    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.37);
-    background-color: rgba(0, 0, 0, 0.58);
-    text-decoration: none;
-    display: flex;
-    padding: 20px;
-}
-
-.menu-container{
+.menu-container3{
     position: right;
 }
 
-.menu-list{
+.menu-list3{
     display: none;
     position: absolute;
     top: calc(105%);
@@ -309,24 +280,24 @@ a:hover {
 
 }
 
-.menu-list li {
+.menu-list3 li {
     margin-bottom: 5px;
     padding: 5px;
     border: 1px solid #011605;
     border-radius: 5px;
 }
 
-.menu-list a{
+.menu-list3 a{
     text-decoration: none;
     color: #e0d6d6;
     padding: 30px;
 }
 @media screen and (max-width: 1480px) {
-    .menu {
+    .menu3 {
         padding-left: 10px;
     }
     
-    .menu.contact {
+    .menu3.contact3 {
         margin-left: 10px;
     }
 }
@@ -337,7 +308,7 @@ a:hover {
         z-index: 0;
     }
 
-    .header-section { 
+    .header-section3 { 
         padding-top: 110px; 
         padding-left: 114px; 
         padding-right: 114px;
@@ -345,50 +316,45 @@ a:hover {
     h2{
         font-size: 2vw;  
     }
-    .ml
+    .ml3
     {
         margin-top: 5vw;
         font-size: 1.8vw;
     }
-    .psw
+    .psw3
     {
         font-size: 1.8vw;
     
     }
-    .close-login{
+    .close-login3{
         font-size: 1.4vw;
     }
-    #submit{
+    #submit3{
         font-size: 1.6vw;
     }
-    .nav {
+    .nav3 {
         padding-top: 10px;
     }
 
-    .section.main-section{
+    .section3.main-section3{
         padding-bottom: 0;
     }
 
-    .menu.footer-link { 
+    .menu3.footer-link3 { 
         display: block;
     }
 
-    .tile-text { 
-        font-size: 36px;
-        line-height: 33px; 
-        bottom: 22px; 
-        left: 22px;
-    }
-    .menu.footer-link.menu.current{
+
+    .menu3.footer-link3.menu3.current3{
         display: block;
         float:inline-end;
     }
-    .menu.footer-link.contact {
+    .menu3.footer-link3.contact3 {
         display: block;
         float:right;
         
     }
-    .image-menu{
+    .image-menu3{
         display: block;
         position: absolute;
         top: 0;
@@ -397,7 +363,7 @@ a:hover {
         margin-right: 20px;
     }
 
-    .menu{
+    .menu3{
         display: none;
     }
 } 
@@ -411,38 +377,38 @@ a:hover {
     h2{
         font-size: 3vw;  
     }
-    .ml
+    .ml3
     {
         margin-top: 7vw;
         font-size: 2.4vw;
     }
-    .psw
+    .psw3
     {
         font-size: 2.4vw;
     
     }
-    .close-login{
+    .close-login3{
         font-size: 1.9vw;
     }
-    #submit{
+    #submit3{
         font-size: 2.4vw;
     }
-    .header-section { 
+    .header-section3 { 
         /* background-size: cover; */
         padding-bottom: 60px; 
         padding-left: 46px; 
         padding-right: 46px;
     }
 
-    .nav {
+    .nav3 {
         padding-top: 10px;
     }
 
-    .logo-text {
+    .logo-text3 {
         margin-bottom: 19px;
     }
 
-    .image-menu{
+    .image-menu3{
         display: block;
         position: absolute;
         top: 0;
@@ -452,44 +418,38 @@ a:hover {
     }
 
 
-    .menu {
+    .menu3 {
         display: none;
     }
-    .menu.footer-link.menu.current{
+    .menu3.footer-link3.menu3.current3{
         display: block;
         float:left;
     }
-    .menu.footer-link.contact {
+    .menu3.footer-link3.contact3 {
         display: block;
         float:right;
         
     }
-    .section {
+    .section3 {
         padding-left: 20px;
         padding-right: 0px;
     }
 
-    .section.main-section.home-page { 
+    .section3.main-section3.home-page3 { 
         padding-left: 5px;
         padding-right: 5px;
     }
 
-    .container2 {
+    .container23 {
         padding: 10px;
     }
 
-    .tile-text {
-        font-size: 23px;
-        line-height: 29px;
-        bottom: 14px;
-        left: 17px;
-    }
 
-    .footer-link-col { 
+    .footer-link-col3 { 
         text-align: center;
     }
 
-    .form-wrapper { 
+    .form-wrapper3 { 
         width: 80%;
     }
 }
@@ -500,7 +460,7 @@ p {
     line-height: 25px;
 }
 
-#contactWindow {
+#contactWindow3 {
     display: none;
     position: fixed;
     top: 50%;
@@ -515,17 +475,17 @@ p {
     z-index: 9999;
 }
 
-.close-button{
+.close-button3{
     float: right;
 }
 @media screen and (max-width: 550px) {
-    .menu.footer-link.menu.current{
+    .menu3.footer-link3.menu3.current3{
         margin-top: 0.1px;
         display: block;
         float:left;
         font-size: 15px;
     }
-    .menu.footer-link.contact {
+    .menu3.footer-link3.contact3 {
         display: block;
         margin-top: 0.1px;
         float:left;
@@ -535,20 +495,20 @@ p {
     h2{
         font-size: 3vw;  
     }
-    .ml
+    .ml3
     {
         margin-top: 9vw;
         font-size: 2.8vw;
     }
-    .psw
+    .psw3
     {
         font-size: 2.8vw;
     
     }
-    .close-login{
+    .close-login3{
         font-size: 2.4vw;
     }
-    #submit{
+    #submit3{
         font-size: 2.4vw;
     }
 }
