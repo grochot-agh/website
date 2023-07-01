@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import $ from 'jquery';
-
+import axios from 'axios';
 
 
 
@@ -37,6 +37,32 @@ const BotpressChat = () => {
 
 
 function Home() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState(null);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`http://localhost:5052/api/User/${email}/${password}`);
+      const data = await response.json();
+      console.log(response);
+      if (response.ok) {
+        console.log(data.id);
+        setUserId(data.id);
+        setError('');
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      setError('Wystąpił błąd podczas komunikacji z serwerem.');
+    }
+  };
+
+
+
   useEffect(() => {
     document.title = 'SOCKS BOX - Home'; // Set the document title
   }, []);
@@ -95,7 +121,7 @@ function Home() {
       <div id="login">
         <button className="close-login" onClick={hideLogin}>X</button>
         <h2>LOG IN TO SOCKS BOX</h2>
-        <form action="/login_site/redirect.php" method="POST" encType="multipart/form-data">
+        <form onSubmit={handleSubmit}>
           <label htmlFor="mail"><div className="ml">Email:</div></label>
           <input type="text" id="mail" name="mail" required /><br /><br />
 

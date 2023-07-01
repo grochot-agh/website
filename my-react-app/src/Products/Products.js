@@ -1,19 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import './Products.css';
+import axios from 'axios';
 
 function Products() {
+  const [socks, setSocks] = useState([]);
+  const [cartSocks, setCartSocks] = useState([]);
   useEffect(() => {
     document.title = 'SOCKS BOX - Products'; // Set the document title
+
+    // Fetch socks from API using Axios
+    axios
+      .get('http://localhost:5052/api/Sock')
+      .then(response => {
+        setSocks(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching socks:', error);
+      });
   }, []);
 
   const handleHamburgerClick = () => {
-    $('.drop4').click(function () {
+    $('.drop4').click(function() {
       $('.dropdown4').toggle();
     });
   };
 
-  window.addEventListener('resize', function () {
+  window.addEventListener('resize', function() {
     if (window.innerWidth > 1180) {
       const dropdownElement = document.querySelector('.menu-container4');
       if (dropdownElement) {
@@ -22,7 +35,7 @@ function Products() {
     }
   });
 
-  window.addEventListener('resize', function () {
+  window.addEventListener('resize', function() {
     if (window.innerWidth < 1180) {
       const dropdownElement = document.querySelector('.menu-container4');
       if (dropdownElement) {
@@ -47,6 +60,14 @@ function Products() {
     document.getElementById('contactWindow4').style.display = 'none';
   }
 
+  function showProductInfo() {
+    document.getElementById('productInfo').style.display = 'block';
+  }
+
+  function hideProductInfo() {
+    document.getElementById('productInfo').style.display = 'none';
+  }
+
   useEffect(() => {
     handleHamburgerClick();
     return () => {
@@ -54,6 +75,17 @@ function Products() {
       $('.drop4').off('click');
     };
   });
+  // const addToCart = (sockId) => {
+  //   axios
+  //     .post(`http://localhost:5052/api/Cart/AddSocksToUserCart/${userId}/${sockId}`)
+  //     .then(response => {
+  //       const addedSock = response.data;
+  //       setCartSocks([...cartSocks, addedSock]);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error adding sock to cart:', error);
+  //     });
+  // };
 
   return (
     <div>
@@ -139,10 +171,24 @@ function Products() {
       <div className="top_container4">
         <h4>PRODUCTS:</h4>
         <div className="container24">
-          <div>
-            {/* HERE CODE FOR PRODUCTS SHOW */}
-            {/* ... */}
-            <div></div>
+          <div className="product-grid">
+            {/* Render the socks */}
+            {socks.map(sock => (
+              <div key={sock.id} className="product-card">
+                <h5 className="product-name">{sock.name}</h5>
+                <img src= {sock.image} alt={sock.name} className="product-image" onClick={showProductInfo} />
+                <p className="product-price">Price: {sock.price} PLN</p>
+                {/* ..
+                ..
+                .. */}
+                <div id="productInfo">
+                  
+                  <button className="close-button4" onClick={hideProductInfo}>X</button>
+                </div>
+
+                <button className="add-product">Add product</button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -162,7 +208,9 @@ function Products() {
         <h3>If you have any questions contact us!</h3>
         <p>You can write to us on Facebook, Instagram, or even Snapchat :D</p>
         <b>@SocksBoxSocialMedia</b>
-        <p>If you prefer emails: <b><a href="mailto:socksbox.contact@gmail.com">socksbox.contact@gmail.com</a></b></p>
+        <p>
+          If you prefer emails: <b><a href="mailto:socksbox.contact@gmail.com">socksbox.contact@gmail.com</a></b>
+        </p>
         <br />
         <p>You can also call us at <b>100-200-300</b></p>
         <p>We make sure to check new messages as quick as we can :D</p>

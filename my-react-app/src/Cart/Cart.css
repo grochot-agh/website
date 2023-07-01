@@ -4,10 +4,11 @@
     float: left;
     margin-left: 2vw;
 }
-h4{ 
+h42{ 
     font-size: 2vw;
     position: absolute;
-    margin-left: 8vw;
+    margin-left: 1vw;
+    margin-top: 3vw;
 }
 h5{
     font-size: 1.2vw;

@@ -102,7 +102,7 @@ function Cart() {
         </div>
         <div class="top_container2">
           <img src="./images/shopping-cart.gif" alt="Animacja GIF" id="cart_logo2" />
-          <h4>Browse through your purchases:</h4>
+          <h42>Browse through your purchases:</h42>
           {/* HERE CODE FOR CART PRODUCTS SHOW */}
           <h5>Your shopping cart is currently empty. Add something to it using the "PRODUCTS" tab.</h5>
         </div>

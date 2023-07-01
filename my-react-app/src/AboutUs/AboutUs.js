@@ -87,10 +87,10 @@ function AboutUs() {
               <div className="container11">
                 <nav role="navigation">
                   <img src="/images/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" className="image-logo1" />
-                  <a href="/" aria-current="page" className="menu1 current1">
+                  <a href="/" aria-current="page" className="menu1">
                     Home
                   </a>
-                  <a href="/about" className="menu1">
+                  <a href="/about" className="menu1  current1">
                     About US
                   </a>
                   <a href="/products" className="menu1">
@@ -106,12 +106,12 @@ function AboutUs() {
                     <img src="/images/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu1 drop1" />
                     <ul className="menu-list1 dropdown1">
                       <li>
-                        <a href="/"  className="menu1 current1 dropdown1">
+                        <a href="/"  className="menu1 dropdown1">
                           Home
                         </a>
                       </li>
                       <li>
-                        <a href="/aboutus"aria-current="page" className="menu1 dropdown1">
+                        <a href="/about"aria-current="page" className="menu1  current1 dropdown1">
                           About US
                         </a>
                       </li>

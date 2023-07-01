@@ -1,8 +1,54 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Registration.css';
 import $ from 'jquery';
+import { useHistory } from 'react-router-dom';
 
 function Registration() {
+  const [formData, setFormData] = useState({
+    name: '',
+    surname: '',
+    age: '',
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Send the form data to the backend
+    axios.post('http://localhost:5052/api/User', formData)
+      .then(response => {
+        console.log('User added:', response.data);
+        // Do something after successful user addition, such as updating the UI or displaying a success message
+
+        // Clear the form data after successful submission
+        setFormData({
+          name: '',
+          surname: '',
+          age: '',
+          email: '',
+          password: ''
+        });
+
+        // Redirect to the Home page
+        window.location.href = '/';
+      })
+      .catch(error => {
+        console.error('Error adding user:', error);
+        // Handle the error, display an error message, etc.
+      });
+  };
+
+
+
+
+
+
   useEffect(() => {
     document.title = 'SOCKS BOX - Registration'; // Ustawienie tytułu strony
   }, []);
@@ -61,7 +107,7 @@ function Registration() {
       <div id="login5">
         <button className="close-login5" onClick={hideLogin}>X</button>
         <h2>LOG IN TO SOCKS BOX</h2>
-        <form action="/login_site/redirect.php" method="POST" encType="multipart/form-data">
+        <form action="#" method="POST" encType="multipart/form-data">
           <label htmlFor="mail5">
             <div className="ml5">Email:</div>
           </label>
@@ -133,20 +179,20 @@ function Registration() {
       
       <div className="registration5">
         <div id="text_register5">Create new account to join us!</div>
-        <form method="POST" action="redirect_reg.php">
+        <form onSubmit={handleSubmit} method="POST">
           <label htmlFor="name5">First Name:<br /></label>
-          <input type="text" name="name" id="name5" required /><br /><br />
+          <input type="text" name="name" id="name5" value={formData.name} onChange={handleChange} required/><br /><br />
 
           <label htmlFor="surname5">Surname:<br /></label>
-          <input type="text" name="surname" id="surname5" required /><br /><br />
+          <input type="text" name="surname" id="surname5" value={formData.surname} onChange={handleChange} required /><br /><br />
 
           <label htmlFor="age5">Age:<br /></label>
-          <input type="number" name="age" id="age5" min="0" max="99" required /><br /><br />
+          <input type="number" name="age" id="age5" min="0" max="99" value={formData.age} onChange={handleChange} required /><br /><br />
           <label htmlFor="email15">Email:<br /></label>
-          <input type="email" name="email" id="email15" required /><br /><br />
+          <input type="email" name="email" id="email15" value={formData.email} onChange={handleChange} required /><br /><br />
 
           <label htmlFor="password15">Password:<br /></label>
-          <input type="password" name="password" id="password15" required /><br /><br />
+          <input type="password" name="password" id="password15" value={formData.password} onChange={handleChange} required /><br /><br />
 
           <input type="submit" id="submit15" value="Register" />
           <div id="accept_text5">
