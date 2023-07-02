@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Registration.css';
 import $ from 'jquery';
 
+
 function Registration() {
   const [formData, setFormData] = useState({
     name: '',

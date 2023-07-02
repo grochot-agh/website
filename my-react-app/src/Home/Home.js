@@ -58,13 +58,21 @@ function Home() {
     setLoggedInUser('');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('user');
+  };
+  const handleUser = (user) => {
+   
+    localStorage.setItem('user', JSON.stringify(user));
+    
   };
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-    if (isLoggedIn && loggedInUser) {
+   
+    if (isLoggedIn && loggedInUser ) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
+      
     }
   }, []);
   useEffect(() => {
@@ -116,14 +124,6 @@ function Home() {
 
   
 
-  // function showLogin() {
-  //   document.getElementById('login').style.display = 'block';
-  // }
-
-  // function hideLogin() {
-  //   document.getElementById('login').style.display = 'none';
-  // }
-
   function showContact() {
     document.getElementById('contactWindow').style.display = 'block';
   }
@@ -131,6 +131,13 @@ function Home() {
   function hideContact() {
     document.getElementById('contactWindow').style.display = 'none';
   }
+  function showUser() {
+    document.getElementById('userWindow').style.display = 'block';
+  }
+  function hideUser() {
+    document.getElementById('userWindow').style.display = 'none';
+  }
+
   useEffect(() => {
     handleHamburgerClick();
     return () => {
@@ -143,7 +150,7 @@ function Home() {
   return (
     <div>
       <title>SOCKS BOX - Home</title>
-      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} handleUser={handleUser}/>}
       {/* <div id="login">
         <button className="close-login" onClick={hideLogin}>X</button>
         <h2>LOG IN TO SOCKS BOX</h2>
@@ -176,10 +183,11 @@ function Home() {
                 </button>
                 )}
               {isLogged && (
-                <span className="menu1 user_image1 user1">
+                <span className="menu user_image user">
                   {loggedInUser}
-                  <img src="/images/user.png" width="55vw" alt="User" className="menu1 user_image1" />
+                  <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu user_image" />
                 </span>
+                
               )}
               <div className="menu-container">
                 <img src="/images/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu drop" />
@@ -223,6 +231,13 @@ function Home() {
           <a href="/policy" className="menu footer-link">Policy privacy</a>
         </div>
       </div>
+      <div id="userWindow">
+      <button className="user-button" onClick={hideUser}>X</button>
+        <p>Imie nazwisko</p>
+        <p>Age: Wiek</p>
+
+      </div>
+
       <div id="contactWindow">
         <button className="close-button" onClick={hideContact}>X</button>
 
