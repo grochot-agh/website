@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import $ from 'jquery';
 import Login from '../Login/Login';
+import UserComponent from '../UserComponent/UserComponent';
 
 
 
@@ -39,8 +40,12 @@ const BotpressChat = () => {
 
 function Home() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const [isUserVisible, setIsUserVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
+  const [loggedInUserObject, setLoggedInUserObject] = useState([]);
+  
+  
   
 
   const handleLogin = (email) => {
@@ -68,13 +73,31 @@ function Home() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-   
+    let userText = localStorage.getItem('user');
+    let userObj = JSON.parse(userText);
+    setLoggedInUserObject(userObj);
+    
     if (isLoggedIn && loggedInUser ) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
       
+      
     }
   }, []);
+  useEffect(()=>{
+    // const userElement = document.getElementById('userWindow');
+    const userVision = document.getElementById('uservision');
+    if(isUserVisible&& userVision)
+    {
+      // userElement.style.display='block';
+      userVision.style.display = 'block';
+    }
+    else if(!isUserVisible && userVision)
+    {
+      // userElement.style.display = 'none';
+      userVision.style.display = 'none';
+    }
+  })
   useEffect(() => {
     const loginElement = document.getElementById('login');
     if (isLoginVisible && loginElement) {
@@ -132,10 +155,12 @@ function Home() {
     document.getElementById('contactWindow').style.display = 'none';
   }
   function showUser() {
-    document.getElementById('userWindow').style.display = 'block';
+    setIsUserVisible(true);
+    console.log("showeduser")
+    console.log(isUserVisible)
   }
   function hideUser() {
-    document.getElementById('userWindow').style.display = 'none';
+    setIsUserVisible(false);
   }
 
   useEffect(() => {
@@ -232,10 +257,8 @@ function Home() {
         </div>
       </div>
       <div id="userWindow">
-      <button className="user-button" onClick={hideUser}>X</button>
-        <p>Imie nazwisko</p>
-        <p>Age: Wiek</p>
-
+     
+      {isUserVisible &&< UserComponent  user={loggedInUserObject} hideUser={() => hideUser} />}
       </div>
 
       <div id="contactWindow">
