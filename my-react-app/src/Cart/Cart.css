@@ -128,7 +128,7 @@ h2{
 
 
 .header-section2 {
-    background-image: url('http://localhost:5500/my-react-app/public/images/cart-background.jpg');
+    background-image: url('..\\..\\public\\images\\cart-background.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
     background-size:auto;
@@ -210,7 +210,7 @@ h2{
     margin-top: -28px;
     padding-top: 30px;
     padding-bottom: 3px;
-    position:absolute;
+    position:fixed;
     bottom: 0%;
     left: 0%;
     right: 0%;
@@ -251,7 +251,7 @@ h2{
 
 }
 .menu-list2 li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #011605;
     border-radius: 5px;
@@ -260,9 +260,10 @@ h2{
 .menu-list2 a{
     text-decoration: none;
     color: #e0d6d6;
-    padding: 30px;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-
 #contactWindow2 {
     display: none;
     position: fixed;
@@ -351,23 +352,6 @@ h2{
         padding-right: 60px;
         padding-left: 25px;
     } 
-    #accept_text2{
-        font-size: 1.4vw;
-        line-height: 1.7vw;
-        padding-bottom: 2vw;
-    }
-    label{
-        font-size: 1.6vw;
-        margin-left: 23.5vw;
-    }
-    #name2, #surname2, #email2, #age2, #password2{
-        font-size: 2.2vw;
-        margin-left: 14vw;
-    }
-    #submit2{
-        font-size: 1.9vw;
-        transform: translate(115%,0%);
-    }
 } 
 
 @media screen and (max-width: 962px) {
@@ -406,62 +390,14 @@ h2{
     #contactWindow2{
         padding: 30px;
     }
-    #accept_text2{
-        font-size: 1.8vw;
-        line-height: 1.7vw;
-        padding-bottom: 2vw;
-    }
-    label{
-        font-size: 2vw;
-        margin-left: 22.5vw;
-    }
-    #name2, #surname2, #email2, #age2, #password2{
-        font-size: 2.4vw;
-        margin-left: 12vw;
-    }
-    #submit2{
-        font-size: 1.9vw;
-        transform: translate(120%,0%);
-    }
+
 }
 
 @media screen and (max-width: 702px){
-    #accept_text2{
-        font-size: 1.8vw;
-        line-height: 1.7vw;
-        padding-bottom: 2vw;
-    }
-    label{
-        font-size: 2.8vw;
-        margin-left: 21.5vw;
-    }
-    #name2, #surname2, #email2, #age2, #password2{
-        font-size: 2.4vw;
-        margin-left: 10vw;
-    }
-    #submit2{
-        font-size: 1.9vw;
-        transform: translate(100%,0%);
-    }
+
     
 }
 @media screen and (max-width: 550px){
-    #accept_text2{
-        font-size: 1.8vw;
-        line-height: 1.7vw;
-    }
-    label{
-        font-size: 2.8vw;
-        margin-left: 21.5vw;
-    }
-    #name2, #surname2, #email2, #age2, #password2{
-        font-size: 2.4vw;
-        margin-left: 10vw;
-    }
-    #submit2{
-        font-size: 1.9vw;
-        transform: translate(100%,0%);
-    }
-    
+
 
 }

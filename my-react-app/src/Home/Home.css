@@ -122,7 +122,7 @@ h1 {
 }
 
 .header-section {
-  background-image: url('http://localhost:5500/my-react-app/public/images/background.jpg');
+  background-image: url('..\\..\\public\\images\\background.jpg');
   background-color: #6d6767b3;
   background-position: 0 0;
   background-size: contain;
@@ -282,7 +282,7 @@ h1 {
 
 }
 .menu-list li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   padding: 5px;
   border: 1px solid #011605;
   border-radius: 5px;
@@ -291,7 +291,9 @@ h1 {
 .menu-list a{
   text-decoration: none;
   color: #e0d6d6;
-  padding: 30px;
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .image-1 { 

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import $ from 'jquery';
-import axios from 'axios';
+import Login from '../Login/Login';
+
 
 
 
@@ -37,30 +38,52 @@ const BotpressChat = () => {
 
 
 function Home() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [userId, setUserId] = useState(null);
-  const [error, setError] = useState('');
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState('');
+  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(`http://localhost:5052/api/User/${email}/${password}`);
-      const data = await response.json();
-      console.log(response);
-      if (response.ok) {
-        console.log(data.id);
-        setUserId(data.id);
-        setError('');
-      } else {
-        setError(data.message);
-      }
-    } catch (error) {
-      setError('Wystąpił błąd podczas komunikacji z serwerem.');
-    }
+  const handleLogin = (email) => {
+    setIsLoginVisible(false);
+    setIsLogged(true);
+    console.log(isLogged);
+    setLoggedInUser(email);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('loggedInUser', email);
   };
 
+
+  const handleLogout = () => {
+    setIsLogged(false);
+    setLoggedInUser('');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loggedInUser');
+  };
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (isLoggedIn && loggedInUser) {
+      setIsLogged(true);
+      setLoggedInUser(loggedInUser);
+    }
+  }, []);
+  useEffect(() => {
+    const loginElement = document.getElementById('login');
+    if (isLoginVisible && loginElement) {
+      loginElement.style.display = 'block';
+    } else if (!isLoginVisible && loginElement) {
+      loginElement.style.display = 'none';
+    }
+  }, [isLoginVisible]);
+
+  const showLogin = () => {
+    setIsLoginVisible(true);
+  };
+
+  const hideLogin = () => {
+    setIsLoginVisible(false);
+  };
+  
 
 
   useEffect(() => {
@@ -91,13 +114,15 @@ function Home() {
     }
   });
 
-  function showLogin() {
-    document.getElementById('login').style.display = 'block';
-  }
+  
 
-  function hideLogin() {
-    document.getElementById('login').style.display = 'none';
-  }
+  // function showLogin() {
+  //   document.getElementById('login').style.display = 'block';
+  // }
+
+  // function hideLogin() {
+  //   document.getElementById('login').style.display = 'none';
+  // }
 
   function showContact() {
     document.getElementById('contactWindow').style.display = 'block';
@@ -118,7 +143,8 @@ function Home() {
   return (
     <div>
       <title>SOCKS BOX - Home</title>
-      <div id="login">
+      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+      {/* <div id="login">
         <button className="close-login" onClick={hideLogin}>X</button>
         <h2>LOG IN TO SOCKS BOX</h2>
         <form onSubmit={handleSubmit}>
@@ -130,7 +156,7 @@ function Home() {
           <input type="submit" id="submit" value="Log In" />
         </form>
         <a href="/registration"><br />New here? Create an account!</a>
-      </div>
+      </div> */}
       <div className="header-section">
         <div className="nav">
           <div className="container1">
@@ -140,9 +166,21 @@ function Home() {
               <a href="/about" className="menu ">About US</a>
               <a href="/products" className="menu ">PRODUCTS</a>
               <a href="/cart" className="menu ">CART</a>
-              <button onClick={showLogin} className="menu contact">LOG IN</button>
-              <span className="menu user_image user">KasiaKasia StachStach
-                <img src="/images/user.png" width="55vw" alt="User" className="menu user_image" /> </span>
+              {isLogged ? (
+                <button onClick={handleLogout} className="menu contact">
+                LOG OUT
+                </button>
+                ):(
+                <button onClick={showLogin} className="menu contact"> 
+                LOG IN
+                </button>
+                )}
+              {isLogged && (
+                <span className="menu1 user_image1 user1">
+                  {loggedInUser}
+                  <img src="/images/user.png" width="55vw" alt="User" className="menu1 user_image1" />
+                </span>
+              )}
               <div className="menu-container">
                 <img src="/images/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu drop" />
                 <ul className="menu-list dropdown">
@@ -150,7 +188,16 @@ function Home() {
                   <li><a href="/about" className="menu dropdown">About US</a></li>
                   <li><a href="/products" className="menu dropdown">PRODUCTS</a></li>
                   <li><a href="/cart" className="menu dropdown">CART</a></li>
-                  <li><button onClick={showLogin} className="menu contact dropdown">LOG IN</button></li>
+                  <li>
+                  {isLogged ? (
+                    <button onClick={handleLogout} className="menu contact dropdown">
+                    LOG OUT
+                    </button>
+                  ):(<button onClick={showLogin} className= "menu contact dropdown">
+                    LOG IN
+                  </button>
+                  )}
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -173,7 +220,7 @@ function Home() {
         <div className="footer-section">
           <div className="logo-text">&copy;SOCKS BOX 2023</div>
           <button className="menu footer-link contact" onClick={showContact}>Contact</button>
-          <a href="/policy" className="menu footer-link">Privacy policy</a>
+          <a href="/policy" className="menu footer-link">Policy privacy</a>
         </div>
       </div>
       <div id="contactWindow">

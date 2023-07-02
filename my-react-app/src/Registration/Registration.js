@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Registration.css';
 import $ from 'jquery';
-import { useHistory } from 'react-router-dom';
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -77,14 +76,6 @@ function Registration() {
     }
   });
 
-  function showLogin() {
-    document.getElementById('login5').style.display = 'block';
-  }
-
-  function hideLogin() {
-    document.getElementById('login5').style.display = 'none';
-  }
-
   function showContact() {
     document.getElementById('contactWindow5').style.display = 'block';
   }
@@ -103,26 +94,7 @@ function Registration() {
 
   return (
     <div>
-      {/* LOGIN */}
-      <div id="login5">
-        <button className="close-login5" onClick={hideLogin}>X</button>
-        <h2>LOG IN TO SOCKS BOX</h2>
-        <form action="#" method="POST" encType="multipart/form-data">
-          <label htmlFor="mail5">
-            <div className="ml5">Email:</div>
-          </label>
-          <input type="text" id="mail5" name="mail" required /><br /><br />
-
-          <label htmlFor="password5">
-            <div className="psw5">Password:</div>
-          </label>
-          <input type="password" id="password5" name="password" required /><br /><br />
-          <input type="submit" id="submit5" value="Log In" />
-        </form>
-        <a href="/registration">
-          <br />New here? Create an account!
-        </a>
-      </div>
+    
       <div className="header-section5">
         <div className="nav5">
           <div className="container15">
@@ -140,9 +112,7 @@ function Registration() {
               <a href="/cart" className="menu5">
                 CART
               </a>
-              <a href="#" onClick={showLogin} className="menu5 contact5">
-                LOG IN
-              </a>
+              
               <div className="menu-container5">
                 <img src="/images/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu5 drop5" />
                 <ul className="menu-list5 dropdown5">
@@ -166,11 +136,7 @@ function Registration() {
                       CART
                     </a>
                   </li>
-                  <li>
-                    <a href="#" onClick={showLogin} className="menu5 contact5 dropdown5">
-                      LOG IN
-                    </a>
-                  </li>
+                  
                 </ul>
               </div>
             </nav>
@@ -202,12 +168,12 @@ function Registration() {
           </div>
         </form>
       </div>
-
+    
       <div className="footer-section5">
         <div className="logo-text5">&copy; SOCKS BOX 2023</div>
-        <a href="#" className="menu5 footer-link5 contact5" onClick={showContact}>
+        <button href="#" className="menu5 footer-link5 contact5" onClick={showContact}>
           Contact
-        </a>
+        </button>
         <a href="/policy" className="menu5 footer-link5">
           Privacy policy
         </a>

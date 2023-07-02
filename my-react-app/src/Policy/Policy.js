@@ -1,8 +1,55 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Policy.css';
 import $ from 'jquery';
+import Login from '../Login/Login';
 
 function Policy() {
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState('');
+  
+
+  const handleLogin = (email) => {
+    setIsLoginVisible(false);
+    setIsLogged(true);
+    console.log(isLogged);
+    setLoggedInUser(email);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('loggedInUser', email);
+  };
+
+
+  const handleLogout = () => {
+    setIsLogged(false);
+    setLoggedInUser('');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loggedInUser');
+  };
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (isLoggedIn && loggedInUser) {
+      setIsLogged(true);
+      setLoggedInUser(loggedInUser);
+    }
+  }, []);
+  useEffect(() => {
+    const loginElement = document.getElementById('login');
+    if (isLoginVisible && loginElement) {
+      loginElement.style.display = 'block';
+    } else if (!isLoginVisible && loginElement) {
+      loginElement.style.display = 'none';
+    }
+  }, [isLoginVisible]);
+
+  const showLogin = () => {
+    setIsLoginVisible(true);
+  };
+
+  const hideLogin = () => {
+    setIsLoginVisible(false);
+  };
+  
   useEffect(() => {
     document.title = 'SOCKS BOX - Policy Privacy'; // Ustawienie tytułu strony
   }, []);
@@ -31,13 +78,6 @@ function Policy() {
     }
   });
 
-  function showLogin() {
-    document.getElementById('login3').style.display = 'block';
-  }
-
-  function hideLogin() {
-    document.getElementById('login3').style.display = 'none';
-  }
 
   function showContact() {
     document.getElementById('contactWindow3').style.display = 'block';
@@ -57,34 +97,8 @@ function Policy() {
 
   return (
     <div>
-      
         <title>Policy Privacy</title>
-     
-     
-        <div id="login3">
-          <button className="close-login3" onClick={hideLogin}>
-            X
-          </button>
-          <h2>LOG IN TO SOCKS BOX</h2>
-          <form action="/login_site/redirect.php" method="POST" encType="multipart/form-data">
-            <label htmlFor="mail3">
-              <div className="ml3">Email:</div>
-            </label>
-            <input type="text" id="mail3" name="mail" required />
-            <br />
-            <br />
-
-            <label htmlFor="password3">
-              <div className="psw3">Password:</div>
-            </label>
-            <input type="password" id="password3" name="password" required />
-            <br />
-            <br />
-            <input type="submit" id="submit3" value="Log In" />
-          </form>
-          <a href="/registration"><br />New here? Create an account!</a>
-
-        </div>
+        {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
         <div className="header-section3">
           <div className="nav3">
             <div className="container13">
@@ -102,9 +116,21 @@ function Policy() {
                 <a href="/cart" className="menu3">
                   CART
                 </a>
-                <a href="#" onClick={showLogin} className="menu3 contact3">
-                  LOG IN
-                </a>
+                {isLogged ? (
+                <button onClick={handleLogout} className="menu contact">
+                LOG OUT
+                </button>
+                ):(
+                <button onClick={showLogin} className="menu contact"> 
+                LOG IN
+                </button>
+                )}
+              {isLogged && (
+                <span className="menu user_image user">
+                  {loggedInUser}
+                  <img src="/images/user.png" width="55vw" alt="User" className="menu user_image" />
+                </span>
+              )}
 
                 <div className="menu-container3">
                   <img src="/photos/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu3 drop3" />
@@ -130,9 +156,14 @@ function Policy() {
                       </a>
                     </li>
                     <li>
-                      <a href="#" onClick={showLogin} className="menu3 contact3 dropdown3">
-                        LOG IN
-                      </a>
+                    {isLogged ? (
+                    <button onClick={handleLogout} className="menu3 contact3 dropdown3">
+                    LOG OUT
+                    </button>
+                  ):(<button onClick={showLogin} className= "menu3 contact3 dropdown3">
+                    LOG IN
+                  </button>
+                  )}
                     </li>
                   </ul>
                 </div>
@@ -157,9 +188,9 @@ function Policy() {
       </div>
         <div className="footer-section3">
           <div className="logo-text3">&copy;SOCKS BOX 2023</div>
-          <a href="#" className="menu3 footer-link3 contact3" onClick={showContact}>
+          <button href="#" className="menu3 footer-link3 contact3" onClick={showContact}>
             Contact
-          </a>
+          </button>
           <a href="/policy" aria-current="page" className="menu3 footer-link3 current3">
             Policy privacy
           </a>

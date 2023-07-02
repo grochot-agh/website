@@ -60,7 +60,7 @@ namespace website.Services.SockService
 
         public async Task<List<Sock>?> PostSock(Sock sock)
         {
-            sock.Image = "Image\\"+sock.Image;
+            sock.Image = "Images/"+sock.Image;
             _context.Socks.Add(sock);
             await _context.SaveChangesAsync();
             return await _context.Socks.ToListAsync();

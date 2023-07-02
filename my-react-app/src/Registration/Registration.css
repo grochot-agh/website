@@ -86,7 +86,7 @@ h2{
     padding: 4vw;
     padding-bottom: 12vw;
     position: relative;
-    transform: translate(5vw,0%);
+    transform: translate(25%,0%);
     background-color: #dce2d2ef;
     border: 3px solid #73814eb9;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);    
@@ -106,6 +106,9 @@ label{
     border: 1px solid #ccc;
     margin-left: 18.2vw;
     border-radius: 5px;
+}
+#age5{
+    padding-right: 14.2vw;
 }
 #submit15{
     padding-top: 0.6vw;
@@ -138,7 +141,7 @@ label{
 
 
 .header-section5 {
-    background-image: url('http://localhost:5500/my-react-app/public/images/reg_back.jpg');
+    background-image: url('..\\..\\public\\images\\reg_back.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
     background-size: cover;
@@ -231,7 +234,6 @@ label{
 .container15 { 
     height: 70px;
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
 }
 .container15 a{
@@ -262,7 +264,7 @@ label{
 
 }
 .menu-list5 li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #011605;
     border-radius: 5px;
@@ -271,7 +273,9 @@ label{
 .menu-list5 a{
     text-decoration: none;
     color: #e0d6d6;
-    padding: 30px;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #contactWindow5 {
@@ -376,6 +380,9 @@ label{
     #submit15{
         font-size: 1.9vw;
         transform: translate(115%,0%);
+    }
+    #age5{
+        padding-right: 24.5vw;
     }
 } 
 

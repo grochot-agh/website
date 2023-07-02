@@ -15,8 +15,12 @@ h5{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
 }
-  
+.column{
+   display: flex;
+   flex-direction: column; 
+}
 .product-card {
     width: 20%;
     margin-bottom: 2vw;
@@ -30,7 +34,9 @@ h5{
     width: 100%;
     height: 20vw;
     margin-bottom: 10px;
-    padding-top: 2.5vw;
+    padding-top: 3.5vw;
+    cursor: pointer;
+
 }
   
 .product-name {
@@ -39,25 +45,24 @@ h5{
     font-style: oblique;
     text-align: center;
     padding-top: 2vw;
-    padding-bottom: 2vw;
     white-space: nowrap; /* Zapobiega łamaniu wierszy */
     overflow: hidden; /* Ukrywa nadmiarowy tekst */
     text-overflow: ellipsis; /* Dodaje "..." w przypadku przekroczenia długości */
-    transform: translate(-4vw, -8vw);
+    transform: translate(-6vw, -9.5vw);
+    padding-bottom: 2vw;
 }
   
 .product-price {
-    font-size: 14px;
+    font-size: 1.5vw;
     color: #888;
 }
+
 .add-product{
     padding-top: 0.6vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
     padding-bottom: 0.6vw;
     font-size: 1.3vw;
     border: none;
-    background-color: lightgreen;
+    background-color: rgb(71, 139, 71);
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -68,11 +73,40 @@ h5{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20vw;
-    background-color: lightskyblue;
-    border: 1px #030000;
+    width: 40vw;
+    max-height: 42vw;
+    padding: 2vw;
+    background-color: rgb(195, 222, 239);
+    border: 1px solid #0c182a;
     box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
     z-index: 9999;
+}
+.product-image.info{
+    width: 20vw;
+    max-height: 30vw;
+}
+
+.add-product.info{
+    color: white;
+    padding: 1.4vw;
+    margin-top: 2vw;
+    width: 20vw;
+    font-size: 1.5vw;
+}
+.product-info{
+    font-size: 1.6vw;
+    line-height: 1.9vw;
+    
+}
+.product-name.info{
+    font-size: 2.5vw;
+    margin-left: 18vw;
+    padding-bottom: 3vw;
+}
+.close-button4.info{
+    margin-top: -2vw;
+    margin-right: -2vw;
+    padding: 0.7vw;
 }
 
 #cart_logo4{
@@ -87,21 +121,20 @@ h4 {
     color: #5e3c3c;
     text-align: center;
     text-transform: uppercase;
-    margin-top: -2.7vw;
     font-family: Lato, sans-serif;
     font-weight: 300;
     position: relative;
-    padding-bottom: 50px;  
+    padding-bottom: 2vw;  
     text-shadow: 0.1em 0.1em 0.2em black;
 
     opacity: 0;
-    transform: translateY(-20px);
     animation: fadeIn 2s ease-in-out forwards;  
     
     letter-spacing: 0;
-    font-size: 55px;
-    line-height: 60px;
-    margin-bottom: 30px;
+    font-size: 5vw;
+    line-height: 6vw;
+    margin-top: 3vw;
+    margin-bottom: -3vw;
     z-index: 0;
 }
 
@@ -232,7 +265,7 @@ h2{
 
 
 .header-section4 {
-    background-image: url('http://localhost:5500/my-react-app/public/photos/products-background.jpg');
+    background-image: url('..\\..\\public\\photos\\products-background.jpg');
     background-color: #6d6767b3;
     background-position: 0 0;
     background-size:auto;
@@ -355,7 +388,7 @@ h2{
 
 }
 .menu-list4 li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #011605;
     border-radius: 5px;
@@ -364,7 +397,9 @@ h2{
 .menu-list4 a{
     text-decoration: none;
     color: #e0d6d6;
-    padding: 30px;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #contactWindow4 {
@@ -397,15 +432,47 @@ h2{
         padding: 60px;
         margin-left: 100px;
     }
+    .product-name{
+        padding-bottom: 5vw;
+    }
+    h4{
+        font-size: 4vw;
+        margin-top: 1vw;
+        margin-bottom: -5vw;
+    }
+    #productInfo{
+        padding: 1.5vw;
+    }
+    .product-image{
+        max-height: 25vw;
+    }
+    .product-info{
+        font-size: 1.2vw;
+        line-height: 1.3vw;
+    }
+    .add-product.info{
+        font-size: 1.4vw;
+        padding: 0.6vw;
+        margin-top: 1vw;
+        width: 20vw;
+    }
+    .product-image.info{
+        width: 15vw;
+    }
+    .product-name.info{
+        font-size: 2vw;
+        margin-left: 20vw;
+    }
+    .close-button4.info{
+        margin-top: -1.2vw;
+        margin-right: 0%;
+        padding: 0.5vw;
+    }
 
 }
 
 
 @media screen and (max-width: 1180px) {
-    #accept_text4{
-        font-size: 0.9vw;
-        line-height: 1vw;
-    }
 
     .header-section4 { 
         padding-left: 114px; 
@@ -455,19 +522,11 @@ h2{
         padding-right: 60px;
         padding-left: 25px;
     } 
-    #accept_text4{
-        font-size: 1.4vw;
-        line-height: 1.7vw;
-        padding-bottom: 2vw;
+    #productInfo{
+        max-height: none;
     }
-    label{
-        font-size: 1.6vw;
-        margin-left: 23.5vw;
-    }
-    #submit4{
-        font-size: 1.9vw;
-        transform: translate(115%,0%);
-    }
+
+    
 } 
 
 @media screen and (max-width: 962px) {
@@ -506,51 +565,49 @@ h2{
     #contactWindow4{
         padding: 30px;
     }
-    #accept_text4{
-        font-size: 1.8vw;
-        line-height: 1.7vw;
+   
+    .container24{
+        margin-bottom: 10vw;
+    }
+    .product-card {
+        width: 40%;
+        height: auto;
+        padding: 3vw;
+    }
+    .product-image {
+        width: 100%;
+        max-height: 28vw;
+        height: auto;
+    }
+    .product-card.column{
+        width: 40%;
+        height: auto;
+    }
+      
+    .product-name {
+        font-size: 3vw;
+        padding-top: 2vw;
+        transform: translate(-6.6vw, -10.5vw);
         padding-bottom: 2vw;
     }
-    label{
-        font-size: 2vw;
-        margin-left: 22.5vw;
+    .product-price, .add-product{
+        font-size: medium;
+    }
+    .product-image.info{
+        width: 25vw;
+        height: auto;
+        margin-left: 0;
+    }
+    .product-name.info{
+        margin-left: 32%;
     }
     
-    #submit4{
-        font-size: 1.9vw;
-        transform: translate(120%,0%);
-    }
 }
 
 @media screen and (max-width: 702px){
-    #accept_text4{
-        font-size: 1.8vw;
-        line-height: 1.7vw;
-        padding-bottom: 2vw;
-    }
-    label{
-        font-size: 2.8vw;
-        margin-left: 21.5vw;
-    }
-    #submit4{
-        font-size: 1.9vw;
-        transform: translate(100%,0%);
+   
+    .container24{
+        margin-bottom: 20vw;
     }
     
-}
-@media screen and (max-width: 550px){
-    #accept_text4{
-        font-size: 1.8vw;
-        line-height: 1.7vw;
-    }
-    label{
-        font-size: 2.8vw;
-        margin-left: 21.5vw;
-    }
-    #submit4{
-        font-size: 1.9vw;
-        transform: translate(100%,0%);
-    }
-    
-
 }

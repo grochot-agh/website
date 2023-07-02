@@ -1,9 +1,59 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AboutUs.css';
+import '../Login/Login.css';
 import $ from 'jquery';
+import Login from '../Login/Login';
 
 
 function AboutUs() {
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState('');
+  
+
+  const handleLogin = (email) => {
+    setIsLoginVisible(false);
+    setIsLogged(true);
+    console.log(isLogged);
+    setLoggedInUser(email);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('loggedInUser', email);
+  };
+
+
+  const handleLogout = () => {
+    setIsLogged(false);
+    setLoggedInUser('');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loggedInUser');
+  };
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (isLoggedIn && loggedInUser) {
+      setIsLogged(true);
+      setLoggedInUser(loggedInUser);
+    }
+  }, []);
+  useEffect(() => {
+    const loginElement = document.getElementById('login');
+    if (isLoginVisible && loginElement) {
+      loginElement.style.display = 'block';
+    } else if (!isLoginVisible && loginElement) {
+      loginElement.style.display = 'none';
+    }
+  }, [isLoginVisible]);
+
+  const showLogin = () => {
+    setIsLoginVisible(true);
+  };
+
+  const hideLogin = () => {
+    setIsLoginVisible(false);
+  };
+  
+
+
     useEffect(() => {
       document.title = 'SOCKS BOX - AboutUs'; // Set the document title
     }, []);
@@ -32,13 +82,6 @@ function AboutUs() {
       }
     });
   
-    function showLogin() {
-      document.getElementById('login1').style.display = 'block';
-    }
-  
-    function hideLogin() {
-      document.getElementById('login1').style.display = 'none';
-    }
   
     function showContact() {
       document.getElementById('contactWindow1').style.display = 'block';
@@ -57,31 +100,7 @@ function AboutUs() {
     return (
         <div>
           <title>About Us</title>
-          <div id="login1">
-            <button className="close-login1" onClick={hideLogin}>
-              X
-            </button>
-            <h2>LOG IN TO SOCKS BOX</h2>
-            <form action="/login_site/redirect.php" method="POST" encType="multipart/form-data">
-              <label htmlFor="mail1">
-                <div className="ml1">Email:</div>
-              </label>
-              <input type="text" id="mail1" name="mail" required />
-              <br />
-              <br />
-    
-              <label htmlFor="password">
-                <div className="psw1">Password:</div>
-              </label>
-              <input type="password" id="password1" name="password" required />
-              <br />
-              <br />
-              <input type="submit" id="submit1" value="Log In" />
-            </form>
-            <a href="/registration">
-              <br />New here? Create an account!
-            </a>
-          </div>
+          {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
           <div className="header-section1">
             <div className="nav1">
               <div className="container11">
@@ -99,9 +118,21 @@ function AboutUs() {
                   <a href="/cart" className="menu1">
                     CART
                   </a>
-                  <button onClick={showLogin} className="menu1 contact1">
-                    LOG IN
-                  </button>
+                  {isLogged ? (
+                <button onClick={handleLogout} className="menu1 contact1">
+                LOG OUT
+                </button>
+                ):(
+                <button onClick={showLogin} className="menu1 contact1"> 
+                LOG IN
+                </button>
+                )}
+              {isLogged && (
+                <span className="menu1 user_image1 user1">
+                  {loggedInUser}
+                  <img src="/images/user.png" width="55vw" alt="User" className="menu1 user_image1" />
+                </span>
+              )}
                   <div className="menu-container1">
                     <img src="/images/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu1 drop1" />
                     <ul className="menu-list1 dropdown1">
@@ -126,9 +157,14 @@ function AboutUs() {
                         </a>
                       </li>
                       <li>
-                        <button onClick={showLogin} className="menu1 contact1 dropdown1">
-                          LOG IN
-                        </button>
+                      {isLogged ? (
+                    <button onClick={handleLogout} className="menu1 contact1 dropdown1">
+                    LOG OUT
+                    </button>
+                  ):(<button onClick={showLogin} className= "menu1 contact1 dropdown1">
+                    LOG IN
+                  </button>
+                  )}
                       </li>
                     </ul>
                   </div>
@@ -184,9 +220,9 @@ function AboutUs() {
             </div>
             <div className="footer-section1">
               <div className="logo-text1">&copy;SOCKS BOX 2023</div>
-              <a href="#" className="menu1 footer-link1 contact1" onClick={showContact}>
+              <button href="#" className="menu1 footer-link1 contact1" onClick={showContact}>
                 Contact
-              </a>
+              </button>
               <a href="/policy" className="menu1 footer-link1">
                 Policy privacy
               </a>

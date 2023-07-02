@@ -2,10 +2,59 @@ import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import './Products.css';
 import axios from 'axios';
+import Login from '../Login/Login';
+
 
 function Products() {
   const [socks, setSocks] = useState([]);
   const [cartSocks, setCartSocks] = useState([]);
+  const [selectedSock, setSelectedSock] = useState(null); 
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState('');
+  
+
+  const handleLogin = (email) => {
+    setIsLoginVisible(false);
+    setIsLogged(true);
+    console.log(isLogged);
+    setLoggedInUser(email);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('loggedInUser', email);
+  };
+
+
+  const handleLogout = () => {
+    setIsLogged(false);
+    setLoggedInUser('');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loggedInUser');
+  };
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (isLoggedIn && loggedInUser) {
+      setIsLogged(true);
+      setLoggedInUser(loggedInUser);
+    }
+  }, []);
+  useEffect(() => {
+    const loginElement = document.getElementById('login');
+    if (isLoginVisible && loginElement) {
+      loginElement.style.display = 'block';
+    } else if (!isLoginVisible && loginElement) {
+      loginElement.style.display = 'none';
+    }
+  }, [isLoginVisible]);
+
+  const showLogin = () => {
+    setIsLoginVisible(true);
+  };
+
+  const hideLogin = () => {
+    setIsLoginVisible(false);
+  };
+  
   useEffect(() => {
     document.title = 'SOCKS BOX - Products'; // Set the document title
 
@@ -44,14 +93,6 @@ function Products() {
     }
   });
 
-  function showLogin() {
-    document.getElementById('login4').style.display = 'block';
-  }
-
-  function hideLogin() {
-    document.getElementById('login4').style.display = 'none';
-  }
-
   function showContact() {
     document.getElementById('contactWindow4').style.display = 'block';
   }
@@ -59,10 +100,21 @@ function Products() {
   function hideContact() {
     document.getElementById('contactWindow4').style.display = 'none';
   }
-
-  function showProductInfo() {
-    document.getElementById('productInfo').style.display = 'block';
+  function showProductInfo(sock) {
+    // Pobranie informacji o skarpecie na podstawie jej ID
+    axios
+      .get(`http://localhost:5052/api/Sock/${sock.id}`)
+      .then(response => {
+        const sockData = response.data;
+        setSelectedSock(sockData); // Ustawienie pobranych danych w stanie komponentu
+        document.getElementById('productInfo').style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error fetching sock data:', error);
+      });
   }
+
+  
 
   function hideProductInfo() {
     document.getElementById('productInfo').style.display = 'none';
@@ -75,6 +127,12 @@ function Products() {
       $('.drop4').off('click');
     };
   });
+  const sockLengthMap = {
+    0: "Ankle",
+    1: "Crew",
+    2: "Knee High",
+    3: "Tight High"
+  };
   // const addToCart = (sockId) => {
   //   axios
   //     .post(`http://localhost:5052/api/Cart/AddSocksToUserCart/${userId}/${sockId}`)
@@ -86,34 +144,11 @@ function Products() {
   //       console.error('Error adding sock to cart:', error);
   //     });
   // };
-
+  
   return (
     <div>
-      <div id="login4">
-        <button className="close-login4" onClick={hideLogin}>
-          X
-        </button>
-        <h2>LOG IN TO SOCKS BOX</h2>
-        <form action="/login_site/redirect.php" method="POST" encType="multipart/form-data">
-          <label htmlFor="mail4">
-            <div className="ml4">Email:</div>
-          </label>
-          <input type="text" id="mail4" name="mail" required />
-          <br />
-          <br />
-
-          <label htmlFor="password4">
-            <div className="psw4">Password:</div>
-          </label>
-          <input type="password" id="password4" name="password" required />
-          <br />
-          <br />
-          <input type="submit" id="submit4" value="Log In" />
-        </form>
-        <a href="/registration">
-          <br />New here? Create an account!
-        </a>
-      </div>
+      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+      
       <div className="header-section4">
         <div className="nav4">
           <div className="container14">
@@ -131,9 +166,21 @@ function Products() {
               <a href="/cart" className="menu4">
                 CART
               </a>
-              <a href="#" onClick={showLogin} className="menu4 contact4">
+              {isLogged ? (
+                <button onClick={handleLogout} className="menu contact">
+                LOG OUT
+                </button>
+                ):(
+                <button onClick={showLogin} className="menu contact"> 
                 LOG IN
-              </a>
+                </button>
+                )}
+              {isLogged && (
+                <span className="menu user_image user">
+                  {loggedInUser}
+                  <img src="/images/user.png" width="55vw" alt="User" className="menu user_image" />
+                </span>
+              )}
               <div className="menu-container4">
                 <img src="photos/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu4 drop4" />
                 <ul className="menu-list4 dropdown4">
@@ -158,9 +205,14 @@ function Products() {
                     </a>
                   </li>
                   <li>
-                    <a href="#" onClick={showLogin} className="menu4 contact4 dropdown4">
-                      LOG IN
-                    </a>
+                  {isLogged ? (
+                    <button onClick={handleLogout} className="menu4 contact4 dropdown4">
+                    LOG OUT
+                    </button>
+                  ):(<button onClick={showLogin} className= "menu4 contact4 dropdown4">
+                    LOG IN
+                  </button>
+                  )}
                   </li>
                 </ul>
               </div>
@@ -172,20 +224,28 @@ function Products() {
         <h4>PRODUCTS:</h4>
         <div className="container24">
           <div className="product-grid">
-            {/* Render the socks */}
             {socks.map(sock => (
-              <div key={sock.id} className="product-card">
-                <h5 className="product-name">{sock.name}</h5>
-                <img src= {sock.image} alt={sock.name} className="product-image" onClick={showProductInfo} />
-                <p className="product-price">Price: {sock.price} PLN</p>
-                {/* ..
-                ..
-                .. */}
+              <div key={sock.id} className="product-card column">
+                <h5 className="product-name">{sock?.name}</h5>
+                <img src={sock?.image} alt={sock?.name} className="product-image column" onClick={() => showProductInfo(sock)} />
+                <p className="product-price">Price: {sock?.price} PLN</p>
                 <div id="productInfo">
-                  
-                  <button className="close-button4" onClick={hideProductInfo}>X</button>
+                  <button className="close-button4 info" onClick={hideProductInfo}>X</button>
+                  <br />
+                  <h5 className="product-name info">{selectedSock?.name}</h5>
+                  <img src={selectedSock?.image} alt={selectedSock?.name} className="product-image info" />
+                  <div className="product-info">
+                  Length: {sockLengthMap[selectedSock?.length]}
+                    <br />
+                    Color: {selectedSock?.color}
+                    <br />
+                    Material: {selectedSock?.material}
+                    <br />
+                    Price: {selectedSock?.price} PLN
+                  </div>
+                  <button className="add-product info">Add product</button>
+                  <br />
                 </div>
-
                 <button className="add-product">Add product</button>
               </div>
             ))}
@@ -194,9 +254,9 @@ function Products() {
       </div>
       <div className="footer-section4">
         <div className="logo-text4">&copy; SOCKS BOX 2023</div>
-        <a href="#" className="menu4 footer-link4 contact4" onClick={showContact}>
+        <button href="#" className="menu4 footer-link4 contact4" onClick={showContact}>
           Contact
-        </a>
+        </button>
         <a href="/policy" className="menu4 footer-link4">
           Policy privacy
         </a>
