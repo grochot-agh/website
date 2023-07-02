@@ -7,7 +7,7 @@
 Programs needed to open our project:
 - SSMS (https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 - SQL Server (https://www.microsoft.com/en-us/sql-server/sql-server-downloads?fbclid=IwAR06jTnzg-WW-BZYGiap7pOsVbZrbsHVTE-6QoOB8l7D4vDiyyqAkviI9Ag)
-- Platforma .NET (https://dotnet.microsoft.com/en-us/download/dotnet/7.0?fbclid=IwAR244dZ92XZm5dlwd4SqQY1IADi3LIS5Jr8YuVMzsZZ57H7XsSzoVBYj_tE)
+- .NET Plaform (https://dotnet.microsoft.com/en-us/download/dotnet/7.0?fbclid=IwAR244dZ92XZm5dlwd4SqQY1IADi3LIS5Jr8YuVMzsZZ57H7XsSzoVBYj_tE)
 - NPM Platform with jquery, axios, react, react-router-dom
 
 
