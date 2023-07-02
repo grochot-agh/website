@@ -12,7 +12,8 @@ function Products() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
-  
+  const [loggedInUserObject, setLoggedInUserObject] = useState([]);
+
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -29,13 +30,22 @@ function Products() {
     setLoggedInUser('');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('user');
   };
+  const handleUser = (user) => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-    if (isLoggedIn && loggedInUser) {
+    let userText = localStorage.getItem('user');
+    let userObj = JSON.parse(userText);
+    setLoggedInUserObject(userObj);
+    
+    if (isLoggedIn && loggedInUser ) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
+      
     }
   }, []);
   useEffect(() => {
@@ -54,7 +64,22 @@ function Products() {
   const hideLogin = () => {
     setIsLoginVisible(false);
   };
-  
+  const addToCart = (sockId) => {
+    const userId = loggedInUserObject.id;
+    
+
+   
+    // Wywołanie API do dodania skarpetki do koszyka
+    axios
+      .post( `http://localhost:5052/api/CartDTO/?id=${userId}&sockid=${sockId}`)
+      .then(response => {
+        const addedSock = response.data;
+        setCartSocks([...cartSocks, addedSock]);
+      })
+      .catch(error => {
+        console.error('Error adding sock to cart:', error);
+      });
+  };
   useEffect(() => {
     document.title = 'SOCKS BOX - Products'; // Set the document title
 
@@ -133,21 +158,11 @@ function Products() {
     2: "Knee High",
     3: "Tight High"
   };
-  // const addToCart = (sockId) => {
-  //   axios
-  //     .post(`http://localhost:5052/api/Cart/AddSocksToUserCart/${userId}/${sockId}`)
-  //     .then(response => {
-  //       const addedSock = response.data;
-  //       setCartSocks([...cartSocks, addedSock]);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error adding sock to cart:', error);
-  //     });
-  // };
   
+   
   return (
     <div>
-      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} handleUser={handleUser}/>}
       
       <div className="header-section4">
         <div className="nav4">
@@ -243,10 +258,10 @@ function Products() {
                     <br />
                     Price: {selectedSock?.price} PLN
                   </div>
-                  <button className="add-product info">Add product</button>
+                  <button className="add-product info" >Add product</button>
                   <br />
                 </div>
-                <button className="add-product">Add product</button>
+                <button className="add-product" onClick={() => addToCart(sock?.id)}>Add product</button>
               </div>
             ))}
           </div>

@@ -2,13 +2,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Login({ hideLogin, handleLogin }) {
+function Login({ hideLogin, handleLogin, handleUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const localHandleLogin = (email) => {
     console.log('Logged in as:', email);
     handleLogin(email);
   };
+  const localHandleUser = (user) =>
+  {
+    console.log(user);
+    handleUser(user);
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,6 +35,7 @@ function Login({ hideLogin, handleLogin }) {
             console.log('Znaleziono użytkownika. ID:', userId);
 
             localHandleLogin(email);
+            localHandleUser(user);
             hideLogin();
             const userResponse = await axios.get(`http://localhost:5052/api/User/${userId}`);
             console.log('Dane użytkownika:', userResponse.data);

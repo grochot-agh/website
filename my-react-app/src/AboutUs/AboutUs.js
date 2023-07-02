@@ -9,7 +9,7 @@ function AboutUs() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
-  
+
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -26,13 +26,23 @@ function AboutUs() {
     setLoggedInUser('');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('user');
   };
+  const handleUser = (user) => {
+    localStorage.setItem('user', JSON.stringify(user));
+    
+  }
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-    if (isLoggedIn && loggedInUser) {
+    // let userText = localStorage.getItem('user');
+    // let userObj = JSON.parse(userText);
+    
+  
+    if (isLoggedIn && loggedInUser ) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
+      
     }
   }, []);
   useEffect(() => {
@@ -100,7 +110,7 @@ function AboutUs() {
     return (
         <div>
           <title>About Us</title>
-          {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+          {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}handleUser={handleUser}/>}
           <div className="header-section1">
             <div className="nav1">
               <div className="container11">

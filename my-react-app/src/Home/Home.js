@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import $ from 'jquery';
 import Login from '../Login/Login';
+import UserComponent from '../UserComponent/UserComponent';
 
 
 
@@ -39,9 +40,17 @@ const BotpressChat = () => {
 
 function Home() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const [isUserVisible, setIsUserVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
+<<<<<<< HEAD
 
+=======
+  const [loggedInUserObject, setLoggedInUserObject] = useState([]);
+  
+  
+  
+>>>>>>> wika
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -58,15 +67,41 @@ function Home() {
     setLoggedInUser('');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('user');
+  };
+  const handleUser = (user) => {
+   
+    localStorage.setItem('user', JSON.stringify(user));
+    
   };
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-    if (isLoggedIn && loggedInUser) {
+    let userText = localStorage.getItem('user');
+    let userObj = JSON.parse(userText);
+    setLoggedInUserObject(userObj);
+    
+    if (isLoggedIn && loggedInUser ) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
+      
+      
     }
   }, []);
+  useEffect(()=>{
+    // const userElement = document.getElementById('userWindow');
+    const userVision = document.getElementById('uservision');
+    if(isUserVisible&& userVision)
+    {
+      // userElement.style.display='block';
+      userVision.style.display = 'block';
+    }
+    else if(!isUserVisible && userVision)
+    {
+      // userElement.style.display = 'none';
+      userVision.style.display = 'none';
+    }
+  })
   useEffect(() => {
     const loginElement = document.getElementById('login');
     if (isLoginVisible && loginElement) {
@@ -124,14 +159,6 @@ function Home() {
   }
   
 
-  // function showLogin() {
-  //   document.getElementById('login').style.display = 'block';
-  // }
-
-  // function hideLogin() {
-  //   document.getElementById('login').style.display = 'none';
-  // }
-
   function showContact() {
     document.getElementById('contactWindow').style.display = 'block';
   }
@@ -139,6 +166,15 @@ function Home() {
   function hideContact() {
     document.getElementById('contactWindow').style.display = 'none';
   }
+  function showUser() {
+    setIsUserVisible(true);
+    console.log("showeduser")
+    console.log(isUserVisible)
+  }
+  function hideUser() {
+    setIsUserVisible(false);
+  }
+
   useEffect(() => {
     handleHamburgerClick();
     return () => {
@@ -151,7 +187,7 @@ function Home() {
   return (
     <div>
       <title>SOCKS BOX - Home</title>
-      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} handleUser={handleUser}/>}
       {/* <div id="login">
         <button className="close-login" onClick={hideLogin}>X</button>
         <h2>LOG IN TO SOCKS BOX</h2>
@@ -188,6 +224,7 @@ function Home() {
                   {loggedInUser}
                   <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu user_image" />
                 </span>
+                
               )}
               <div className="menu-container">
                 <img src="/images/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu drop" />
@@ -232,10 +269,15 @@ function Home() {
         </div>
       </div>
       <div id="userWindow">
+<<<<<<< HEAD
         <button className="user-button" onClick={hideUser}>X</button>
         <p>Imie Nazwisko</p>
         <p>Age wiek</p>
    
+=======
+     
+      {isUserVisible &&< UserComponent  user={loggedInUserObject} hideUser={() => hideUser} />}
+>>>>>>> wika
       </div>
 
       <div id="contactWindow">

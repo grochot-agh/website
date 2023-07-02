@@ -7,7 +7,7 @@ function Policy() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
-  
+ 
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -23,14 +23,21 @@ function Policy() {
     setIsLogged(false);
     setLoggedInUser('');
     localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('loggedInUser')
+    localStorage.removeItem('user');
   };
+  const handleUser = (user) => {
+   
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
+
     if (isLoggedIn && loggedInUser) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
+      
     }
   }, []);
   useEffect(() => {
@@ -98,7 +105,7 @@ function Policy() {
   return (
     <div>
         <title>Policy Privacy</title>
-        {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin}/>}
+        {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} handleUser={handleUser}/>}
         <div className="header-section3">
           <div className="nav3">
             <div className="container13">
