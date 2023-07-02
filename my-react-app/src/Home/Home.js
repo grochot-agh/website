@@ -41,7 +41,7 @@ function Home() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
-  
+
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -74,6 +74,7 @@ function Home() {
     } else if (!isLoginVisible && loginElement) {
       loginElement.style.display = 'none';
     }
+    
   }, [isLoginVisible]);
 
   const showLogin = () => {
@@ -114,6 +115,13 @@ function Home() {
     }
   });
 
+  function showUser() {
+    document.getElementById('userWindow').style.display = 'block';
+  }
+
+  function hideUser() {
+    document.getElementById('userWindow').style.display = 'none';
+  }
   
 
   // function showLogin() {
@@ -176,9 +184,9 @@ function Home() {
                 </button>
                 )}
               {isLogged && (
-                <span className="menu1 user_image1 user1">
+                <span className="menu user_image user">
                   {loggedInUser}
-                  <img src="/images/user.png" width="55vw" alt="User" className="menu1 user_image1" />
+                  <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu user_image" />
                 </span>
               )}
               <div className="menu-container">
@@ -223,6 +231,13 @@ function Home() {
           <a href="/policy" className="menu footer-link">Policy privacy</a>
         </div>
       </div>
+      <div id="userWindow">
+        <button className="user-button" onClick={hideUser}>X</button>
+        <p>Imie Nazwisko</p>
+        <p>Age wiek</p>
+   
+      </div>
+
       <div id="contactWindow">
         <button className="close-button" onClick={hideContact}>X</button>
 
