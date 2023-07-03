@@ -31,7 +31,7 @@ Our credit project is a prototype of a website that acts as an online store.
 For the FrontEnd, we used <b>React</b> technology and <b>HTML</b> and <b>CSS</b> elements.
 We created an API in <b>C# (.NET)</b> technology that handles database queries and implements the BackEnd for our project.
 Supported and tested browsers: <b>Chrome, Mozilla, Microsoft Edge. </b>
-Everything adjusted for 1920x1080 screen size and smaller.
+Everything adjusted for 1920x1080 screen (recommended) size and smaller.
 By using free version of Mailgun postal service mails recieved could land into spam-folder.
 
 Project created by: Wiktoria Janicka, Katarzyna Stach, Aleksandra Kwiecień, Sebastian Kowalik
