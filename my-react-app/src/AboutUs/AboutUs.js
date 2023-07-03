@@ -3,12 +3,18 @@ import './AboutUs.css';
 import '../Login/Login.css';
 import $ from 'jquery';
 import Login from '../Login/Login';
+import UserComponent from '../UserComponent/UserComponent';
+
 
 
 function AboutUs() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
+  const [isUserVisible, setIsUserVisible] = useState(false);
+  const [loggedInUserObject, setLoggedInUserObject] = useState([]);
+
+
 
 
   const handleLogin = (email) => {
@@ -35,8 +41,10 @@ function AboutUs() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-    // let userText = localStorage.getItem('user');
-    // let userObj = JSON.parse(userText);
+    let userText = localStorage.getItem('user');
+    let userObj = JSON.parse(userText);
+    setLoggedInUserObject(userObj);
+    
     
   
     if (isLoggedIn && loggedInUser ) {
@@ -45,6 +53,14 @@ function AboutUs() {
       
     }
   }, []);
+  function showUser() {
+    setIsUserVisible(true);
+    console.log("showeduser")
+    console.log(isUserVisible)
+  }
+  function hideUser() {
+    setIsUserVisible(false);
+  }
   useEffect(() => {
     const loginElement = document.getElementById('login');
     if (isLoginVisible && loginElement) {
@@ -61,9 +77,19 @@ function AboutUs() {
   const hideLogin = () => {
     setIsLoginVisible(false);
   };
-  
 
 
+  useEffect(()=>{
+    const userElement = document.getElementById('userWindow');
+    if(isUserVisible)
+    {
+      userElement.style.display='block';
+    }
+    else if(!isUserVisible)
+    {
+      userElement.style.display = 'none';
+    }
+  });
     useEffect(() => {
       document.title = 'SOCKS BOX - AboutUs'; // Set the document title
     }, []);
@@ -140,7 +166,7 @@ function AboutUs() {
               {isLogged && (
                 <span className="menu1 user_image1 user1">
                   {loggedInUser}
-                  <img src="/images/user.png" width="55vw" alt="User" className="menu1 user_image1" />
+                  <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu1 user_image1" />
                 </span>
               )}
                   <div className="menu-container1">
@@ -237,6 +263,9 @@ function AboutUs() {
                 Policy privacy
               </a>
             </div>
+            <div id="userWindow">
+     {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
+     </div>
             <div id="contactWindow1">
               <button className="close-button1" onClick={hideContact}>
                 X

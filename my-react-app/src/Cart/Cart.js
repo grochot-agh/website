@@ -3,21 +3,19 @@ import './Cart.css';
 import $ from 'jquery';
 import Login from '../Login/Login';
 import axios from 'axios';
+import UserComponent from '../UserComponent/UserComponent';
+
 
 
 function Cart() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
-<<<<<<< HEAD
-  const [cartItems, setCartItems] = useState([]);
-  const [cartId, setCartId] = useState(null);
-  const [userData, setUserData] = useState(null);
-=======
   const [cartData, setCartData] = useState([]);
   const [socksset, setSocks] = useState([]);
   const [loggedInUserObject, setLoggedInUserObject] = useState([]);
->>>>>>> wika
+  const [isUserVisible, setIsUserVisible] = useState(false);
+
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -26,22 +24,23 @@ function Cart() {
     setLoggedInUser(email);
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('loggedInUser', email);
-<<<<<<< HEAD
-  };
-=======
     
     
     
   };
   const handleUser = (user) => {
     localStorage.setItem('user', JSON.stringify(user));
-    // if (user && user.cartId) {
-    //   getCartData(user.cartId);
-      
-    // }
+  
   };
- 
->>>>>>> wika
+  
+  function showUser() {
+    setIsUserVisible(true);
+    console.log("showeduser")
+    console.log(isUserVisible)
+  }
+  function hideUser() {
+    setIsUserVisible(false);
+  }
 
   const handleLogout = () => {
     setIsLogged(false);
@@ -52,8 +51,6 @@ function Cart() {
     localStorage.removeItem('user');
   };
 
-<<<<<<< HEAD
-=======
   const getCartData = async (cartId) => {
     try {
       const response = await axios.get(`http://localhost:5052/api/Cart/${cartId}`);
@@ -68,9 +65,18 @@ function Cart() {
   };
   
   
+  useEffect(()=>{
+    const userElement = document.getElementById('userWindow');
+    if(isUserVisible)
+    {
+      userElement.style.display='block';
+    }
+    else if(!isUserVisible)
+    {
+      userElement.style.display = 'none';
+    }
+  });
   
-  
->>>>>>> wika
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
@@ -80,12 +86,8 @@ function Cart() {
     if (isLoggedIn && loggedInUser) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
-<<<<<<< HEAD
-    }
-  }, []);
-=======
       let userObj = JSON.parse(userText);
-      getCartData(userObj.id);
+      getCartData(userObj.cartId);
       setLoggedInUserObject(userObj);
       
     }
@@ -97,6 +99,7 @@ function Cart() {
       console.log(response.data);
       // Możesz tutaj obsłużyć odpowiedź serwera po usunięciu produktu z koszyka
       window.location.reload();
+
     } catch (error) {
       console.error('Błąd usuwania produktu z koszyka:', error);
     }
@@ -113,7 +116,6 @@ function Cart() {
       console.error('Błąd usuwania produktu z koszyka:', error);
     }
   };
->>>>>>> wika
 
   useEffect(() => {
     const loginElement = document.getElementById('login');
@@ -133,13 +135,9 @@ function Cart() {
   const hideLogin = () => {
     setIsLoginVisible(false);
   };
-<<<<<<< HEAD
-
-=======
  
   
   
->>>>>>> wika
   useEffect(() => {
     document.title = 'SOCKS BOX - Cart';
   }, []);
@@ -190,22 +188,6 @@ function Cart() {
   };
   return (
     <div>
-<<<<<<< HEAD
-      <title>Your Cart</title>
-
-      {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} />}
-
-      <div className="header-section2">
-        <div className="nav2">
-          <div className="container12">
-            <nav role="navigation">
-              <img src="photos/logo.png" loading="lazy" width="150" alt="SocksBoxLogo" className="image-logo2" />
-              <a href="/" className="menu2">Home</a>
-              <a href="/about" className="menu2 ">About US</a>
-              <a href="/products" className="menu2">PRODUCTS</a>
-              <a href="/cart" aria-current="page" className="menu2 current2">CART</a>
-              {isLogged ? (
-=======
       
         <title>Your Cart</title>
       
@@ -223,7 +205,6 @@ function Cart() {
                 <a href="/products" className="menu2">PRODUCTS</a>
                 <a href="/cart" aria-current="page" className="menu2 current2" >CART</a>
                 {isLogged ? (
->>>>>>> wika
                 <button onClick={handleLogout} className="menu contact">
                   LOG OUT
                 </button>
@@ -235,51 +216,9 @@ function Cart() {
               {isLogged && (
                 <span className="menu user_image user">
                   {loggedInUser}
-                  <img src="/images/user.png" width="55vw" alt="User" className="menu user_image" />
+                  <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu user_image" />
                 </span>
               )}
-<<<<<<< HEAD
-              <div className="menu-container2">
-                <img src="photos/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu2 drop2" />
-                <ul className="menu-list dropdown2">
-                  <li><a href="/" className="menu2 dropdown2">Home</a></li>
-                  <li><a href="/about" className="menu2 dropdown2">About US</a></li>
-                  <li><a href="/products" className="menu2 dropdown2">PRODUCTS</a></li>
-                  <li><a href="/cart" aria-current="page" className="menu2 current2 dropdown2">CART</a></li>
-                  <li>
-                    {isLogged ? (
-                      <button onClick={handleLogout} className="menu2 contact2 dropdown2">
-                        LOG OUT
-                      </button>
-                    ) : (
-                      <button onClick={showLogin} className="menu2 contact2 dropdown2">
-                        LOG IN
-                      </button>
-                    )}
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-      <div className="top_container2">
-        <img src="./images/shopping-cart.gif" alt="Animacja GIF" id="cart_logo2" />
-        <h4>Browse through your purchases:</h4>
-        {cartItems.length > 0 ? (
-          // Renderowanie elementów koszyka
-          // Tutaj dodaj kod, który renderuje poszczególne elementy koszyka
-          <div>
-            {/* Render cart items */}
-            {cartItems.map((item) => (
-              <div key={item.id} className="cart-item">
-                {/* Display item details */}
-                <span>{item.name}</span>
-                <span>{item.price}</span>
-              </div>
-            ))}
-          </div>
-=======
                 <div className="menu-container2">
                   <img src="photos/menu.jpg" alt="Menu" style={{ width: '70px', height: '70px' }} className="image-menu2 drop2" />
                   <ul className="menu-list dropdown2">
@@ -304,7 +243,7 @@ function Cart() {
         <div className="top_container2">
           <img src="./images/shopping-cart.gif" alt="Animacja GIF" id="cart_logo2" />
           <h4>Browse through your purchases:</h4>
-          
+          <div className="cart-items">
           {socksset && socksset.length > 0 ? (
           <div>
             
@@ -313,10 +252,10 @@ function Cart() {
                
                 <div>
                   <br />
-                  
-                  {/* <img src={sock?.image} alt={sock?.iame} /> */}
+                  <div className="cart-table">
+                  {<img className="cart-table-img" src={sock?.image} alt={sock?.iame} /> }
                   <div>
-                    <button onClick={() => deleteSocksById(sock?.id)}>X</button>
+                    <button className="button-delete" onClick={() => deleteSocksById(sock?.id)}>DELETE ITEM</button>
                     Name: {sock?.name}
                     <br/>
                     Length: {sockLengthMap[sock?.length]}
@@ -327,6 +266,7 @@ function Cart() {
                     <br />
                     Price: {sock?.price} PLN
                   </div>
+                  </div>
                  
                   <br />
                 </div>
@@ -335,10 +275,10 @@ function Cart() {
               
             ))}
              {cartData && cartData.sum ? (
-      <div>
-        Sum: {cartData.sum}
+      <div className="sum-cart">
+        Sum: {cartData.sum} PLN
         <div>
-        <button onClick={()=>clearCart()}>CLEAR CART</button>
+        <button className="delete-all-button" onClick={()=>clearCart()}>CLEAR CART</button>
       </div>
       
       </div>
@@ -349,33 +289,19 @@ function Cart() {
       </div>
     )}
   </div>
->>>>>>> wika
         ) : (
           <h5>Your shopping cart is currently empty. Add something to it using the "PRODUCTS" tab.</h5>
         )}
       </div>
-<<<<<<< HEAD
-      <div className="footer-section2">
-        <div className="logo-text2">&copy; SOCKS BOX 2023</div>
-        <button className="menu2 footer-link2 contact2" onClick={showContact}>Contact</button>
-        <a href="/policy" className="menu2 footer-link2">Policy privacy</a>
       </div>
-      <div id="contactWindow2">
-        <button className="close-button2" onClick={hideContact}>X</button>
-        <h3>If you have any questions contact us!</h3>
-        <p>You can write to us on Facebook, Instagram, or even Snapchat :D</p>
-        <b>@SocksBoxSocialMedia</b>
-        <p>If you prefer emails: <b><a href="mailto:socksbox.contact@gmail.com">socksbox.contact@gmail.com</a></b></p>
-        <br />
-        <p>You can also call us at <b>100-200-300</b></p>
-        <p>Remember, we're here to help!</p>
-      </div>
-=======
         <div className="footer-section2">
           <div className="logo-text2">&copy; SOCKS BOX 2023</div>
           <button className="menu2 footer-link2 contact2" onClick={showContact}>Contact</button>
           <a href="/policy" className="menu2 footer-link2">Policy privacy</a>
         </div>
+        <div id="userWindow">
+     {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
+     </div>
         <div id="contactWindow2">
           <button className="close-button2" onClick={hideContact}>X</button>
           <h3>If you have any questions contact us!</h3>
@@ -387,7 +313,6 @@ function Cart() {
           <p>We make sure to check new messages as quick as we can :D</p>
         </div>
       
->>>>>>> wika
     </div>
   );
 }

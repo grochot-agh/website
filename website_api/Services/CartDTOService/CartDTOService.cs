@@ -144,7 +144,7 @@ namespace website.Services.CartDTOService
             {
                 return null;
             }
-            cart.Sum =- sock.Price;
+            cart.Sum -= sock.Price;
             _context.CartSocks.RemoveRange(cartSock);
             await _context.SaveChangesAsync();
 

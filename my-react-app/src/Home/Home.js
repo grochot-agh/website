@@ -43,14 +43,10 @@ function Home() {
   const [isUserVisible, setIsUserVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
-<<<<<<< HEAD
-
-=======
   const [loggedInUserObject, setLoggedInUserObject] = useState([]);
   
   
   
->>>>>>> wika
 
   const handleLogin = (email) => {
     setIsLoginVisible(false);
@@ -89,19 +85,16 @@ function Home() {
     }
   }, []);
   useEffect(()=>{
-    // const userElement = document.getElementById('userWindow');
-    const userVision = document.getElementById('uservision');
-    if(isUserVisible&& userVision)
+    const userElement = document.getElementById('userWindow');
+    if(isUserVisible)
     {
-      // userElement.style.display='block';
-      userVision.style.display = 'block';
+      userElement.style.display='block';
     }
-    else if(!isUserVisible && userVision)
+    else if(!isUserVisible)
     {
-      // userElement.style.display = 'none';
-      userVision.style.display = 'none';
+      userElement.style.display = 'none';
     }
-  })
+  });
   useEffect(() => {
     const loginElement = document.getElementById('login');
     if (isLoginVisible && loginElement) {
@@ -150,14 +143,7 @@ function Home() {
     }
   });
 
-  function showUser() {
-    document.getElementById('userWindow').style.display = 'block';
-  }
 
-  function hideUser() {
-    document.getElementById('userWindow').style.display = 'none';
-  }
-  
 
   function showContact() {
     document.getElementById('contactWindow').style.display = 'block';
@@ -188,19 +174,6 @@ function Home() {
     <div>
       <title>SOCKS BOX - Home</title>
       {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} handleUser={handleUser}/>}
-      {/* <div id="login">
-        <button className="close-login" onClick={hideLogin}>X</button>
-        <h2>LOG IN TO SOCKS BOX</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="mail"><div className="ml">Email:</div></label>
-          <input type="text" id="mail" name="mail" required /><br /><br />
-
-          <label htmlFor="password"><div className="psw">Password:</div></label>
-          <input type="password" id="password" name="password" required /><br /><br />
-          <input type="submit" id="submit" value="Log In" />
-        </form>
-        <a href="/registration"><br />New here? Create an account!</a>
-      </div> */}
       <div className="header-section">
         <div className="nav">
           <div className="container1">
@@ -269,15 +242,8 @@ function Home() {
         </div>
       </div>
       <div id="userWindow">
-<<<<<<< HEAD
-        <button className="user-button" onClick={hideUser}>X</button>
-        <p>Imie Nazwisko</p>
-        <p>Age wiek</p>
-   
-=======
      
-      {isUserVisible &&< UserComponent  user={loggedInUserObject} hideUser={() => hideUser} />}
->>>>>>> wika
+      {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
       </div>
 
       <div id="contactWindow">

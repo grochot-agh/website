@@ -3,6 +3,7 @@ import $ from 'jquery';
 import './Products.css';
 import axios from 'axios';
 import Login from '../Login/Login';
+import UserComponent from '../UserComponent/UserComponent';
 
 
 function Products() {
@@ -13,6 +14,7 @@ function Products() {
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
   const [loggedInUserObject, setLoggedInUserObject] = useState([]);
+  const [isUserVisible, setIsUserVisible] = useState(false);
 
 
   const handleLogin = (email) => {
@@ -48,14 +50,36 @@ function Products() {
       
     }
   }, []);
+  useEffect(()=>{
+    const userElement = document.getElementById('userWindow');
+    if(isUserVisible)
+    {
+      userElement.style.display='block';
+    }
+    else if(!isUserVisible)
+    {
+      userElement.style.display = 'none';
+    }
+  })
+
   useEffect(() => {
     const loginElement = document.getElementById('login');
     if (isLoginVisible && loginElement) {
       loginElement.style.display = 'block';
     } else if (!isLoginVisible && loginElement) {
       loginElement.style.display = 'none';
+
     }
   }, [isLoginVisible]);
+
+  function showUser() {
+    setIsUserVisible(true);
+    console.log("showeduser")
+    console.log(isUserVisible)
+  }
+  function hideUser() {
+    setIsUserVisible(false);
+  }
 
   const showLogin = () => {
     setIsLoginVisible(true);
@@ -182,18 +206,18 @@ function Products() {
                 CART
               </a>
               {isLogged ? (
-                <button onClick={handleLogout} className="menu contact">
+                <button onClick={handleLogout} className="menu4 contact4">
                 LOG OUT
                 </button>
                 ):(
-                <button onClick={showLogin} className="menu contact"> 
+                <button onClick={showLogin} className="menu4 contact4"> 
                 LOG IN
                 </button>
                 )}
               {isLogged && (
                 <span className="menu user_image user">
                   {loggedInUser}
-                  <img src="/images/user.png" width="55vw" alt="User" className="menu user_image" />
+                  <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu4 user_image4" />
                 </span>
               )}
               <div className="menu-container4">
@@ -258,10 +282,19 @@ function Products() {
                     <br />
                     Price: {selectedSock?.price} PLN
                   </div>
-                  <button className="add-product info" >Add product</button>
-                  <br />
+                  {isLogged && (
+                <div>
+                   <button className="add-product info" onClick={() => addToCart(selectedSock?.id)}>Add product</button>
                 </div>
-                <button className="add-product" onClick={() => addToCart(sock?.id)}>Add product</button>
+              )}
+          </div>
+
+                  {isLogged && (
+                <div>
+                <button  className="add-product" onClick={() => addToCart(sock?.id)}>Add product</button>
+                </div>
+              )}
+                  <br />
               </div>
             ))}
           </div>
@@ -276,10 +309,11 @@ function Products() {
           Policy privacy
         </a>
       </div>
+      <div id="userWindow">
+     {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
+     </div>
       <div id="contactWindow4">
-        <button className="close-button4" onClick={hideContact}>
-          X
-        </button>
+
         <h3>If you have any questions contact us!</h3>
         <p>You can write to us on Facebook, Instagram, or even Snapchat :D</p>
         <b>@SocksBoxSocialMedia</b>

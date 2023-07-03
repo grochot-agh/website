@@ -9,7 +9,7 @@ Programs needed to open our project:
 - SQL Server (https://www.microsoft.com/en-us/sql-server/sql-server-downloads?fbclid=IwAR06jTnzg-WW-BZYGiap7pOsVbZrbsHVTE-6QoOB8l7D4vDiyyqAkviI9Ag)
 - .NET Plaform (https://dotnet.microsoft.com/en-us/download/dotnet/7.0?fbclid=IwAR244dZ92XZm5dlwd4SqQY1IADi3LIS5Jr8YuVMzsZZ57H7XsSzoVBYj_tE)
 - NPM Platform with jquery, axios, react, react-router-dom
-
+- EntityFramework (https://learn.microsoft.com/en-us/ef/ef6/fundamentals/install)
 
 Instruction how to run our projects:
 1. Download the programs needed.

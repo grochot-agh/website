@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './Policy.css';
 import $ from 'jquery';
 import Login from '../Login/Login';
+import UserComponent from '../UserComponent/UserComponent';
+
 
 function Policy() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
+  const [isUserVisible, setIsUserVisible] = useState(false);
+  const [loggedInUserObject, setLoggedInUserObject] = useState([]);
+
+
  
 
   const handleLogin = (email) => {
@@ -33,13 +39,27 @@ function Policy() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const loggedInUser = localStorage.getItem('loggedInUser');
-
+    let userText = localStorage.getItem('user');
+    let userObj = JSON.parse(userText);
+    setLoggedInUserObject(userObj);
+    
     if (isLoggedIn && loggedInUser) {
       setIsLogged(true);
       setLoggedInUser(loggedInUser);
       
     }
   }, []);
+  useEffect(()=>{
+    const userElement = document.getElementById('userWindow');
+    if(isUserVisible)
+    {
+      userElement.style.display='block';
+    }
+    else if(!isUserVisible)
+    {
+      userElement.style.display = 'none';
+    }
+  });
   useEffect(() => {
     const loginElement = document.getElementById('login');
     if (isLoginVisible && loginElement) {
@@ -56,6 +76,14 @@ function Policy() {
   const hideLogin = () => {
     setIsLoginVisible(false);
   };
+  function showUser() {
+    setIsUserVisible(true);
+    console.log("showeduser")
+    console.log(isUserVisible)
+  }
+  function hideUser() {
+    setIsUserVisible(false);
+  }
   
   useEffect(() => {
     document.title = 'SOCKS BOX - Policy Privacy'; // Ustawienie tytułu strony
@@ -124,18 +152,18 @@ function Policy() {
                   CART
                 </a>
                 {isLogged ? (
-                <button onClick={handleLogout} className="menu contact">
+                <button onClick={handleLogout} className="menu3 contact3">
                 LOG OUT
                 </button>
                 ):(
-                <button onClick={showLogin} className="menu contact"> 
+                <button onClick={showLogin} className="menu3 contact3"> 
                 LOG IN
                 </button>
                 )}
               {isLogged && (
-                <span className="menu user_image user">
+                <span className="menu3 user_image3 user3">
                   {loggedInUser}
-                  <img src="/images/user.png" width="55vw" alt="User" className="menu user_image" />
+                  <img src="/images/user.png" onClick={showUser} width="55vw" alt="User" className="menu3 user_image3" />
                 </span>
               )}
 
@@ -202,10 +230,11 @@ function Policy() {
             Policy privacy
           </a>
         </div>
+        <div id="userWindow">
+     {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
+     </div>
         <div id="contactWindow3">
-          <button className="close-button3" onClick={hideContact}>
-            X
-          </button>
+          
 
           <h3>If you have any questions contact us!</h3>
           <p>You can write to us on Facebook, Instagram, or even Snapchat :D</p>
