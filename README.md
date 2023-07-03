@@ -15,7 +15,7 @@ Instruction how to run our projects:
 1. Download the programs needed.
 2. Open the data base SSMS program.
 3. Create empty database.
-4. Download the script.sql from github and import it as a database.
+4. Download the script.sql from github database_script folder and import it as a database.
 5. Go live with port 5500.
 6. Open our project and run commands:
     cd website_api
