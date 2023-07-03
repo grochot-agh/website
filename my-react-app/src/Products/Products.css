@@ -45,9 +45,9 @@ h5{
     font-style: oblique;
     text-align: center;
     padding-top: 2vw;
-    white-space: nowrap; /* Zapobiega łamaniu wierszy */
-    overflow: hidden; /* Ukrywa nadmiarowy tekst */
-    text-overflow: ellipsis; /* Dodaje "..." w przypadku przekroczenia długości */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
     transform: translate(-6vw, -9.5vw);
     padding-bottom: 2vw;
 }
@@ -73,7 +73,6 @@ h5{
     margin-right: 0vw;
   
   }
-  /* IMAGE + wyswietlany mail */
   @media screen and (max-width: 1600px)
   {
     #userWindow {
@@ -196,7 +195,6 @@ h5{
     opacity: 1;
     
 }
-/* LOGIN */
 #login4{
     display: none;
     position: fixed;
@@ -324,7 +322,6 @@ h2{
     font-size: 25px;
     font-weight: 300;
     line-height: 30px;
-    /* ? */
     text-align: left;
     font-weight: 400;
 }
@@ -387,7 +384,6 @@ h2{
 .container14 { 
     height: 70px;
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
 }
 .container14 a{

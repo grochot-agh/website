@@ -1,9 +1,6 @@
 
 function UserComponent({user, hideUser}) {
 
-
- 
-
   if (!user) {
     return <div>Loading...</div>;
   }

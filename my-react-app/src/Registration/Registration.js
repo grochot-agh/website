@@ -20,13 +20,10 @@ function Registration() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send the form data to the backend
     axios.post('http://localhost:5052/api/User', formData)
       .then(response => {
         console.log('User added:', response.data);
-        // Do something after successful user addition, such as updating the UI or displaying a success message
 
-        // Clear the form data after successful submission
         setFormData({
           name: '',
           surname: '',
@@ -35,22 +32,16 @@ function Registration() {
           password: ''
         });
 
-        // Redirect to the Home page
         window.location.href = '/';
       })
       .catch(error => {
         console.error('Error adding user:', error);
-        // Handle the error, display an error message, etc.
       });
   };
 
 
-
-
-
-
   useEffect(() => {
-    document.title = 'SOCKS BOX - Registration'; // Ustawienie tytułu strony
+    document.title = 'SOCKS BOX - Registration'; 
   }, []);
 
   const handleHamburgerClick = () => {
@@ -88,7 +79,6 @@ function Registration() {
   useEffect(() => {
     handleHamburgerClick();
     return () => {
-      // Usunięcie event listenera
       $('.drop5').off('click');
     };
   }, []);

@@ -31,6 +31,8 @@ Our credit project is a prototype of a website that acts as an online store.
 For the FrontEnd, we used <b>React</b> technology and <b>HTML</b> and <b>CSS</b> elements.
 We created an API in <b>C# (.NET)</b> technology that handles database queries and implements the BackEnd for our project.
 Supported and tested browsers: <b>Chrome, Mozilla, Microsoft Edge. </b>
+Everything adjusted for 1920x1080 screen size and smaller.
+By using free version of Mailgun postal service mails recieved could land into spam-folder.
 
 Used Favicon from: <a href="https://www.flaticon.com/free-icons/socks" title="socks icons">Socks icons created by Freepik - Flaticon</a> 
 Used Images: from Stock and from other sites (because we use it only for our purposes we do not pay attention to the license)

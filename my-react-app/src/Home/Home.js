@@ -116,7 +116,7 @@ function Home() {
 
 
   useEffect(() => {
-    document.title = 'SOCKS BOX - Home'; // Set the document title
+    document.title = 'SOCKS BOX - Home'; 
   }, []);
 
 
@@ -164,7 +164,6 @@ function Home() {
   useEffect(() => {
     handleHamburgerClick();
     return () => {
-      // Usunięcie event listenera
       $('.drop').off('click');
     };
   });

@@ -24,6 +24,8 @@ function Products() {
     setLoggedInUser(email);
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('loggedInUser', email);
+    window.location.reload();
+
   };
 
 
@@ -93,7 +95,6 @@ function Products() {
     
 
    
-    // Wywołanie API do dodania skarpetki do koszyka
     axios
       .post( `http://localhost:5052/api/CartDTO/?id=${userId}&sockid=${sockId}`)
       .then(response => {
@@ -105,9 +106,8 @@ function Products() {
       });
   };
   useEffect(() => {
-    document.title = 'SOCKS BOX - Products'; // Set the document title
+    document.title = 'SOCKS BOX - Products'; 
 
-    // Fetch socks from API using Axios
     axios
       .get('http://localhost:5052/api/Sock')
       .then(response => {
@@ -150,12 +150,11 @@ function Products() {
     document.getElementById('contactWindow4').style.display = 'none';
   }
   function showProductInfo(sock) {
-    // Pobranie informacji o skarpecie na podstawie jej ID
     axios
       .get(`http://localhost:5052/api/Sock/${sock.id}`)
       .then(response => {
         const sockData = response.data;
-        setSelectedSock(sockData); // Ustawienie pobranych danych w stanie komponentu
+        setSelectedSock(sockData); 
         document.getElementById('productInfo').style.display = 'block';
       })
       .catch(error => {
@@ -172,7 +171,6 @@ function Products() {
   useEffect(() => {
     handleHamburgerClick();
     return () => {
-      // Usunięcie event listenera
       $('.drop4').off('click');
     };
   });
@@ -313,6 +311,7 @@ function Products() {
      {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
      </div>
       <div id="contactWindow4">
+      <button className="close-button" onClick={hideContact}>X</button>
 
         <h3>If you have any questions contact us!</h3>
         <p>You can write to us on Facebook, Instagram, or even Snapchat :D</p>

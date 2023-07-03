@@ -37,18 +37,16 @@ h1 {
     margin-right: 0vw;
   
   }
-  /* IMAGE + wyswietlany mail */
-  @media screen and (max-width: 1600px)
-  {
+@media screen and (max-width: 1600px)
+{
     #userWindow {
-      z-index: -1;
+        z-index: -1;
     }
     .menu.user_image.user
     {
-      z-index: -1;
+        z-index: -1;
     }
-  }
-/* LOGIN */
+}
 #login1{
     display: none;
     position: fixed;
@@ -102,10 +100,7 @@ h2{
     border: none;
     background-color: transparent;
     cursor: pointer;
-
 }
-
-
 #mail1{
     margin-top: 2%;
     font-size: 110%;
@@ -116,7 +111,6 @@ h2{
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 #password1
 {
     margin-top: 2%;
@@ -128,12 +122,10 @@ h2{
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 .p11 {
     margin-bottom: 10px;
     font-size: 18px;
     line-height: 25px;
-
     text-align: center;
     text-decoration: underline;
 }
@@ -153,9 +145,7 @@ h2{
 a {
     color: #333;
     font-family: Verdana, sans-serif;
-
 }
-
 
 a:hover {
     color: #000;
@@ -237,10 +227,7 @@ a:hover {
     padding: 15px;
     text-decoration: none;
 }
-/* .section1.main-section1{
-    padding-top: 0;
-    padding-bottom: 80px;
-} */
+
 .section1.main-section1.home-page1 { 
     padding-top: 22px;
     padding-left: 5px;
@@ -307,7 +294,6 @@ a:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.37);
     list-style: none;
     z-index: 5;
-
 }
 
 .menu-list1 li {
@@ -431,7 +417,6 @@ a:hover {
         padding-left:20px;
         padding-right:50px;
         text-align: center;
-
     }
 } 
 
@@ -471,7 +456,6 @@ a:hover {
         font-size: 2.4vw;
     }
     .header-section1 { 
-        /* background-size: cover; */
         padding-bottom: 80px; 
         padding-left: 46px; 
         padding-right: 46px;

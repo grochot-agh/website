@@ -22,6 +22,7 @@ function Policy() {
     setLoggedInUser(email);
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('loggedInUser', email);
+    
   };
 
 
@@ -86,7 +87,7 @@ function Policy() {
   }
   
   useEffect(() => {
-    document.title = 'SOCKS BOX - Policy Privacy'; // Ustawienie tytułu strony
+    document.title = 'SOCKS BOX - Policy Privacy'; 
   }, []);
 
   const handleHamburgerClick = () => {
@@ -125,7 +126,6 @@ function Policy() {
   useEffect(() => {
     handleHamburgerClick();
     return () => {
-      // Usunięcie event listenera
       $('.drop3').off('click');
     };
   });
@@ -234,7 +234,7 @@ function Policy() {
      {isUserVisible &&< UserComponent user={loggedInUserObject} hideUser={() => hideUser} />}
      </div>
         <div id="contactWindow3">
-          
+        <button className="close-button" onClick={hideContact}>X</button>
 
           <h3>If you have any questions contact us!</h3>
           <p>You can write to us on Facebook, Instagram, or even Snapchat :D</p>

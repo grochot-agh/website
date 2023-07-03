@@ -6,7 +6,6 @@ import axios from 'axios';
 import UserComponent from '../UserComponent/UserComponent';
 
 
-
 function Cart() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
@@ -16,7 +15,49 @@ function Cart() {
   const [loggedInUserObject, setLoggedInUserObject] = useState([]);
   const [isUserVisible, setIsUserVisible] = useState(false);
 
-
+  const handleClick = () => {
+    const apiUrl = 'https://api.mailgun.net/v3/sandbox48c6873936264df496eb95c6891c78d8.mailgun.org/messages';
+    const apiKey = 'api:5669ea3518d5514fbcea8710c48d11d2-6d8d428c-a0c53405';
+    console.log(loggedInUserObject.email);
+    const formData = new FormData();
+    formData.append('from', 'Mailgun Sandbox <postmaster@sandbox48c6873936264df496eb95c6891c78d8.mailgun.org>');
+    formData.append('to', loggedInUserObject.email);
+    formData.append('subject', loggedInUserObject.name + ' - Your order');
+    let result = '';
+    result=JSON.stringify(cartData.socks);
+    console.log(result);
+    formData.append('text', result);
+    axios.post(apiUrl, formData, {
+      auth: {
+        username: 'api',
+        password: '5669ea3518d5514fbcea8710c48d11d2-6d8d428c-a0c53405'
+      }
+    })
+    .then(response => {
+      if ('Notification' in window) {
+        if (Notification.permission === 'granted') {
+          showNotification();
+        } else if (Notification.permission !== 'denied') {
+          requestNotificationPermission();
+        }
+      } else {
+        console.log('Notification API not supported in this browser');
+      }
+      console.log('E-mail sent successfully!', response);
+    })
+    .catch(error => {
+      console.error('Error sending e-mail:', error);
+    });
+  };
+  const showNotification = () => {
+    new Notification('Email for '+ loggedInUserObject.email+ ' was sent! Check your mailbox :)');
+  };
+  const requestNotificationPermission = async () => {
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      showNotification();
+    }
+  };
   const handleLogin = (email) => {
     setIsLoginVisible(false);
     setIsLogged(true);
@@ -97,7 +138,6 @@ function Cart() {
     try {
       const response = await axios.delete( `http://localhost:5052/api/CartDTO/${cartId},${sockId}`);
       console.log(response.data);
-      // Możesz tutaj obsłużyć odpowiedź serwera po usunięciu produktu z koszyka
       window.location.reload();
 
     } catch (error) {
@@ -110,7 +150,6 @@ function Cart() {
     try {
       const response = await axios.delete( `http://localhost:5052/api/CartDTO/${cartId}`);
       console.log(response.data);
-      // Możesz tutaj obsłużyć odpowiedź serwera po usunięciu produktu z koszyka
       window.location.reload();
     } catch (error) {
       console.error('Błąd usuwania produktu z koszyka:', error);
@@ -192,7 +231,6 @@ function Cart() {
         <title>Your Cart</title>
       
       
-        {/* LOGIN */}
         {isLoginVisible && <Login hideLogin={hideLogin} handleLogin={handleLogin} handleUser={handleUser}/>}
       
         <div className="header-section2">
@@ -279,6 +317,8 @@ function Cart() {
         Sum: {cartData.sum} PLN
         <div>
         <button className="delete-all-button" onClick={()=>clearCart()}>CLEAR CART</button>
+        <br></br>
+        <button className="delete-all-button" onClick={handleClick}>Send E-mail</button>
       </div>
       
       </div>

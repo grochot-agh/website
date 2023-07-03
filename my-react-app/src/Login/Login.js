@@ -1,4 +1,3 @@
-// Importujemy potrzebne moduły
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -19,7 +18,6 @@ function Login({ hideLogin, handleLogin, handleUser }) {
     event.preventDefault();
 
     try {
-      // Wysyłamy żądanie do serwera w celu znalezienia identyfikatora użytkownika
       const response = await axios.get('http://localhost:5052/api/User', {
         params: {
           email,
@@ -27,7 +25,6 @@ function Login({ hideLogin, handleLogin, handleUser }) {
         },
       });
       
-      // Jeśli znaleziono użytkownika, pobieramy jego identyfikator
         const user = response.data.find((user) => user.email === email && user.password === password);
 
         if (user) {

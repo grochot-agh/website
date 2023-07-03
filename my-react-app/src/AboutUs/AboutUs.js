@@ -6,15 +6,12 @@ import Login from '../Login/Login';
 import UserComponent from '../UserComponent/UserComponent';
 
 
-
 function AboutUs() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
   const [isUserVisible, setIsUserVisible] = useState(false);
   const [loggedInUserObject, setLoggedInUserObject] = useState([]);
-
-
 
 
   const handleLogin = (email) => {
@@ -44,8 +41,7 @@ function AboutUs() {
     let userText = localStorage.getItem('user');
     let userObj = JSON.parse(userText);
     setLoggedInUserObject(userObj);
-    
-    
+      
   
     if (isLoggedIn && loggedInUser ) {
       setIsLogged(true);
@@ -91,7 +87,7 @@ function AboutUs() {
     }
   });
     useEffect(() => {
-      document.title = 'SOCKS BOX - AboutUs'; // Set the document title
+      document.title = 'SOCKS BOX - AboutUs'; 
     }, []);
   
   
@@ -129,7 +125,6 @@ function AboutUs() {
     useEffect(() => {
       handleHamburgerClick();
       return () => {
-        // Usunięcie event listenera
         $('.drop1').off('click');
       };
     });

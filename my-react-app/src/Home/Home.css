@@ -5,7 +5,6 @@ body {
   line-height: 20px;
 
 }
-/* LOGIN */
 #login{
   display: none;
   position: fixed;
@@ -86,9 +85,6 @@ h2{
   border-radius: 5px;
 }
 
-
-
-
 h1 {
   z-index: 10;
   color: #ffffff;
@@ -152,7 +148,6 @@ h1 {
   font-size: 25px;
   font-weight: 300;
   line-height: 30px;
-  /* ? */
   text-align: left;
   font-weight: 400;
 }
@@ -203,7 +198,6 @@ h1 {
   position: relative;
   padding: 0;
   
-  
 }
 .menu.user_image.user{
   float: right;
@@ -252,7 +246,6 @@ h1 {
 .container1 { 
   height: 70px;
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
 }
 .container1 a{
@@ -311,8 +304,6 @@ h1 {
   padding-right: 0;
   width: 30%;
   height: auto;
-
-
 }
 .image-3 {
   margin-top: 30px;
@@ -362,8 +353,6 @@ h1 {
   margin-bottom: 10vw;
   margin-left: 40%;
   float: left;
-
-
 }
 
 #contactWindow {
@@ -405,7 +394,6 @@ h1 {
   margin-right: 0vw;
 
 }
-/* IMAGE + wyswietlany mail */
 @media screen and (max-width: 1600px)
 {
   #userWindow {
