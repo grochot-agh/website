@@ -34,5 +34,7 @@ Supported and tested browsers: <b>Chrome, Mozilla, Microsoft Edge. </b>
 Everything adjusted for 1920x1080 screen size and smaller.
 By using free version of Mailgun postal service mails recieved could land into spam-folder.
 
+Project created by: Wiktoria Janicka, Katarzyna Stach, Aleksandra Kwiecień, Sebastian Kowalik
+
 Used Favicon from: <a href="https://www.flaticon.com/free-icons/socks" title="socks icons">Socks icons created by Freepik - Flaticon</a> 
 Used Images: from Stock and from other sites (because we use it only for our purposes we do not pay attention to the license)
