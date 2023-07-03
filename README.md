@@ -18,12 +18,16 @@ Instruction how to run our projects:
 4. Download the script.sql from github database_script folder and import it as a database.
 5. Go live with port 5500.
 6. Open our project and run commands:
+<br>
     cd website_api
     dotnet run
+<br>
 It opens the port 5052.
 7. Open new terminal and run commands:
+<br>
     cd my-react-app
     npm start
+<br>
 It opens the port 3000.
 8. Enjoy our app!
 
